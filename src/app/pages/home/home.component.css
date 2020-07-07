@@ -1,0 +1,88 @@
+header{
+    position: relative;
+    height: 100vh;
+    background-color: #1f4068;
+    padding: 0;
+    margin: 0;
+}
+
+header img{
+    position: absolute;
+    height: 100%;
+    right: 0;
+    bottom: 0;
+}
+
+.header-content{
+    position: absolute;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    background: rgba(32, 25, 46, 0.7);
+    align-items: center;
+    padding: 3em;
+}
+
+.button{
+    border: none;
+    border-radius: 25px;
+    background-color: #e43f5a;
+    padding: 1em;
+    width: 15em;
+    color: white;
+}
+
+.prices-section{
+    background-color: #1b1b2f;
+    margin: 0;
+}
+
+.price-card{
+    background-color: white;
+    padding: 2em;
+    margin: 1em;
+    height: 30em;
+    border-radius: 5px;
+}
+
+.colective-section{
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 0;
+    position: relative;
+}
+
+.colective-img-container{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    padding: 40px 16px;
+    position: relative;
+    width: 100%;
+    background-color: #1f4068;
+}
+
+.colective-img-container img{
+    width: 100%;
+    margin-left: 4em;
+    box-shadow: 0 21px 26px -15px rgba(0,0,0,0.3);
+}
+
+@media (max-width: 764px) {
+    .colective-img-container img{
+        width: 100%;
+        margin-left: 0;
+        margin-bottom: -5em;
+    }
+}
+
+.facilities-img-container{
+    background-color: #1f4068;
+    display: flex;
+    align-items: center;
+}
+
+.facilities-img-container img{
+    margin-left: -2em;
+    width: 90%;
+}

@@ -1,0 +1,18 @@
+nav{
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+    background-color: #1f4068;
+}
+
+.navbar-brand{
+    color: #e43f5a;
+}
+
+.navbar-brand span{
+    color: white;
+}
+
+.nav-item{
+    color: white;
+}

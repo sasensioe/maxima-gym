@@ -1,8 +1,12 @@
 nav{
     position: fixed;
+    display: flex;
     z-index: 999;
     width: 100%;
-    background-color: #1f4068;
+    height: 60px;
+    align-content: center;
+    justify-content: space-between;
+    background-color: #1b1b2f;
 }
 
 .navbar-brand{
@@ -13,6 +17,43 @@ nav{
     color: white;
 }
 
-.nav-item{
-    color: white;
+.navbar-menu{
+    display: flex;
+    margin: auto;
+    margin-right: 1em;
 }
+
+.nav-item{
+    padding: 0.5em;
+    margin: 0.5em;
+    color: white;
+    display: inline;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.6s;
+}
+
+.nav-item:hover{
+    background-color: #e43f5a;
+    transition: 0.6s;
+}
+
+.menu-button{
+    display: none;
+}
+
+
+
+@media (max-width: 768px) {
+
+    .navbar-menu{
+        display: none;
+    }
+
+    .menu-button{
+        display: block;
+        padding-right: 1em;
+        color: white;
+    }
+
+  }

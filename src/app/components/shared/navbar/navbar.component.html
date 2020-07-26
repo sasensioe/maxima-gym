@@ -1,15 +1,21 @@
-<nav class="navbar navbar-expand-lg d-flex bd-highlight">
-    <div  class="p-2 flex-grow-1 bd-highlight">
+<nav class="navbar">
+
+    <div>
         <a class="navbar-brand" routerLink="home">MAXIMA <span>GYM</span></a>
     </div>
 
-    <div class="p-2 bd-highlight" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-item nav-link" routerLink="home">HOME</a>
-        <a class="nav-item nav-link" routerLink="activities">ACTIVITIES</a>
-        <a class="nav-item nav-link" routerLink="facilities">FACILITIES</a>
-        <a class="nav-item nav-link" routerLink="contact">CONTACT</a>
-      </div>
+    <ul class="navbar-menu">
+        <li class="nav-item" routerLink="home">HOME</li>
+        <li class="nav-item" routerLink="activities">ACTIVITIES</li>
+        <li class="nav-item" routerLink="facilities">FACILITIES</li>
+        <li class="nav-item" routerLink="news">NEWS</li>
+        <li class="nav-item" routerLink="contact">CONTACT</li>
+    </ul>
+
+    <div class="menu-button" (click)="setSidenav()">
+      <i class="fas fa-bars"></i>
     </div>
 
 </nav>
+
+<app-sidenav *ngIf="sidenav"></app-sidenav>

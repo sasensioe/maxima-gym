@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  sidenav:boolean = false;
+
+  constructor() {
+
+  }
 
   ngOnInit(): void {
   }
+
+  setSidenav(){
+    this.sidenav = !this.sidenav;
+  };
 
 }

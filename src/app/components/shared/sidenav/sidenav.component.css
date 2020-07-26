@@ -1,0 +1,28 @@
+
+.sidenav{
+  position: fixed;
+  top: 60px;
+  right: 0;
+  height: 50vh;
+  width: 60vw;
+  display: flex;
+  background-color: white;
+  z-index: 999;
+  border-radius: 15px;
+  margin-right: 1em;
+  justify-content: center;
+}
+
+.sidenav-items{
+  list-style: none;
+  margin: auto;
+  padding: 0;
+}
+
+.sidenav-item{
+  font-size: 1.5em;
+  text-align: center;
+  margin-top: 1em;
+  padding: 0.2em;
+  color: #e43f5a;
+}

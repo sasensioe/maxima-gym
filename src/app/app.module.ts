@@ -10,10 +10,11 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
+import { SidenavComponent } from './components/shared/sidenav/sidenav.component';
 
-import {MatExpansionModule} from '@angular/material/expansion';
-import {MatDividerModule} from '@angular/material/divider';
-import {MatListModule} from '@angular/material/list';
+import { MaterialModule } from './material/material.module';
+import { NewsComponent } from './pages/news/news.component';
+import { InfoFormComponent } from './components/info-form/info-form.component';
 
 @NgModule({
   declarations: [
@@ -23,15 +24,16 @@ import {MatListModule} from '@angular/material/list';
     FacilitiesComponent,
     ContactComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    SidenavComponent,
+    NewsComponent,
+    InfoFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatExpansionModule,
-    MatDividerModule,
-    MatListModule
+    MaterialModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

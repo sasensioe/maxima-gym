@@ -1,1 +1,77 @@
-<p>activities works!</p>
+
+<!-- ACTIVITIES SECTION -->
+
+<section class="activities-section container-fluid text-center">
+
+    <h1 class="pt-4 animate__animated animate__fadeIn animate__delay-1s">ACTIVITIES</h1>
+
+    <mat-tab-group mat-align-tabs="center" class="activities-tab animate__animated animate__fadeInDown">
+
+        <mat-tab *ngFor="let activity of activities" [label]="activity.title">
+
+            <div class="activity-container row m-0 ">
+                <div class="activity-img col-md-5">
+
+                    <img class="animate__animated animate__fadeInLeft" [src]="activity.img" alt="">
+            
+                </div>
+                <div class="activity-description col-md-7 p-5">
+            
+                    <h1 class="text-left">{{activity.title}}</h1>
+            
+                    <p class="text-justify">{{activity.p1}}</p>
+                    <p class="text-justify">{{activity.p2}}</p>
+                    <p class="text-justify">{{activity.p3}}</p>
+                    <p class="text-justify">{{activity.p4}}</p>
+                
+                </div>
+            </div>
+
+        </mat-tab>
+
+    </mat-tab-group>
+
+</section>
+
+<!-- SCHEDULE SECTION -->
+
+<section class="schedule container-fluid p-5 text-center">
+
+    <h1>SCHEDULES</h1>
+
+    <div class="table-responsive">
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>HOUR</th>
+                    <th>MONDAY</th>
+                    <th>TUESDAY</th>
+                    <th>WEDNESDAY</th>
+                    <th>THURSDAY</th>
+                    <th>FRIDAY</th>
+                    <th>SATURDAY</th>
+                    <th>SUNDAY</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of schedule">
+                    <th>{{item.hour}}</th>
+
+                    <td class="bg-pink">{{item.mo}}</td>
+                    <td class="bg-blue">{{item.tu}}</td>
+                    <td class="bg-pink">{{item.we}}</td>
+                    <td class="bg-blue">{{item.th}}</td>
+                    <td class="bg-pink">{{item.fr}}</td>
+                    <td class="bg-blue">{{item.sa}}</td>
+                    <td class="bg-pink">{{item.su}}</td>
+                    
+                </tr>
+            </tbody>
+        </table>
+
+        <span>*Schedule subject to change</span>
+
+    </div>
+    
+</section>

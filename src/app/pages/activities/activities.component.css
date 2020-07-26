@@ -1,0 +1,89 @@
+                                            /** GENERAL **/
+
+
+/** ACTIVITIES **/
+
+.activities-section{
+    padding-top: 60px;
+    padding: 0;
+    padding-top: 60px;
+    margin-bottom: 0;
+}
+
+.activity-container{
+    height: 30em;
+    overflow: hidden;
+
+}
+
+.activity-img{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    padding: auto;
+    position: relative;
+    width: 100%;
+    background-color: #1f4068;
+
+}
+
+.activity-img img{
+    width: 100%;
+    margin-left: 4em;
+    box-shadow: 0 21px 26px -15px rgba(0,0,0,0.3);
+}
+
+
+/** SCHEDULE **/
+
+
+.schedule{
+    background-color: #1b1b2f;
+    color: white;
+}
+
+.table{
+    background-color: #162447;
+    border: 1px solid white;
+    color: white;
+}
+
+.bg-pink{
+    background-color: #e43f5a;
+}
+
+.bg-blue{
+    background-color: #1f4068;
+}
+
+                                        /** MEDIUM DEVICES **/
+
+@media (max-width: 992px) {
+
+.activity-img{
+    height: 30em;
+}
+
+
+}
+
+                                        /** SMALL DEVICES **/
+
+
+@media (max-width: 764px) {
+
+.activity-img{
+    height: 18em;
+}
+
+.activity-img img{
+    width: 90%;
+    margin-left: 0;
+    margin-bottom: -5em;
+}
+
+.activity-container{
+    height: 55em;
+}
+
+}

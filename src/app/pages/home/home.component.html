@@ -1,131 +1,157 @@
 
+<!-- HEADER -->
+
 <header class="header container-fluid">
 
-        <img src="assets/img/header-pic.png" alt="">
+        <img src="assets/img/header.jpg" alt="">
 
         <div class="header-content">
-            <div>
+            <div class="header-text">
                 <h1 class="text-white">
-                    ALCANZA EL SIGUIENTE NIVEL, ALCANZA TU MÁXIMA VERSIÓN
+                    REACH THE NEXT LEVEL
+                </h1>
+
+                <h1 class="text-white">
+                    BECOME MAXIMA
                 </h1>
                 <br>
-
-                <h2 class="text-white">
-                    Sólo hay un camino para el triunfo
-                </h2>
-    
-                <button class="button">
-                    INSCRÍBETE
+                <button class="header-button">
+                    EXPLORE
                 </button>
             </div>
-        
         </div>
 
 </header>
 
-<section class="info-section p-5">
+<!-- INFO-GRID -->
 
-    <h1>UN LUGAR DONDE CRECER Y ALCANZAR TU MEJOR VERSIÓN</h1>
+<section class="info-grid container">
+
+    <mat-grid-list class="info-grid-items" cols="3" rowHeight="12em">
+        <mat-grid-tile class="info-grid-item"
+            *ngFor="let tile of tiles"
+            [colspan]="tile.cols"
+            [rowspan]="tile.rows"
+            [routerLink]="tile.link">
+          <img class="info-grid-item-img" [src]="tile.image">
+          <div class="info-item-text">
+              <h2>{{tile.text}}</h2>
+          </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+
+</section>
+
+<!-- INFO-CARDS -->
+
+<section class="info-cards col-12 row m-auto">
+
+    <div class="info-card col-12"
+        *ngFor="let tile of tiles"
+        [routerLink]="tile.link">
+        <img class="info-card-img" [src]="tile.image" alt="">
+        <div class="info-item-text">
+            {{tile.text}}
+        </div>
+    </div>
+
+</section>
+
+<!-- DETAILS -->
+
+<section class="details-section container">
+
+    <h1>A PLACE WHERE TO GROW AND REACH YOUR BEST VERSION</h1>
+    
     <div class="row pt-5">
-        <div class="col-md-6 text-center mb-4">
+        <div class="details-img col-md-6 text-center mb-4">
             <img width="60%" src="assets/img/info-pic.png" alt="">
         </div>
-        <div class="col-md-6">
-            <h3>Sin permanencia. Te quedarás por satisfacción y no por obligación</h3>
+        <div class="details-container col-md-6">
+            <h3>Without permanence. You will stay for satisfaction and not for obligation</h3>
             <hr>
-            <h3>No cobramos matrícula ni tasas especiales</h3>
+            <h3>We do not charge tuition or special fees</h3>
             <hr>
-            <h3>Instalaciones y máquinas revisadas a diario</h3>
+            <h3>Installations and machines checked daily</h3>
             <hr>
-            <h3>Entrenadores a tu disposición en cualquier momento</h3>
+            <h3>Coaches at your disposal at any time</h3>
             <hr>
-            <h3>Sauna y zona de baño</h3>
+            <h3>Sauna and bathing area</h3>
             <hr>
         </div>
     </div>
 
 </section>
+
+<!-- PRICES -->
 
 <section class="prices-section p-5 col-12">
 
     <h1 class="text-white text-center">¡WE HAVE YOUR PERFECT PLAN!</h1>
 
     <div class="row justify-content-center">
-        <div class="price-card col-md-3">
-            <h2 class="text-center">GOLD</h2>
+        <div class="price-card col-md-3" *ngFor="let plan of plans">
+            <h2 class="text-center">{{plan.name}}</h2>
             <hr>
             <ul>
-                <li>¡Sin permanencia!</li>
-                <li>Acceso a todas las instalaciones</li>
-                <li>Parking gratuíto</li>
-                <li>Clases colectivas</li>
-                <li>Sauna</li>
+                <li *ngFor="let data of plan.data">{{data}}</li>
             </ul>
             <hr>
-            <h1 class="text-center">19,90€/mes</h1>
+            <h1 class="plan-price">{{plan.price}}</h1>
             <div class="w-100 text-center">
-                <button class="button">
-                    INSCRÍBETE
-                </button>
-            </div>
-        </div>
-    
-        <div class="price-card col-md-3">
-            <h2 class="text-center">PLATINUM</h2>
-            <hr>
-            <ul>
-                <li>¡Sin permanencia!</li>
-                <li>Acceso a todas las instalaciones</li>
-                <li>Parking gratuíto</li>
-                <li>Clases colectivas</li>
-                <li>Sauna</li>
-            </ul>
-            <hr>
-            <h1 class="text-center">19,90€/mes</h1>
-            <div class="w-100 text-center">
-                <button class="button">
-                    INSCRÍBETE
-                </button>
-            </div>
-        </div>
-    
-        <div class="price-card col-md-3">
-            <h2 class="text-center">TITANIUM</h2>
-            <hr>
-            <ul>
-                <li>¡Sin permanencia!</li>
-                <li>Acceso a todas las instalaciones</li>
-                <li>Parking gratuíto</li>
-                <li>Clases colectivas</li>
-                <li>Sauna</li>
-            </ul>
-            <hr>
-            <h1 class="text-center">19,90€/mes</h1>
-            <div class="w-100 text-center">
-                <button class="button">
-                    INSCRÍBETE
-                </button>
+                <img src="" alt="">
             </div>
         </div>
     </div>
 
+    <br>
+
+    <div class="w-100 text-center">
+        <button class="button">
+            MORE INFO
+        </button>
+    </div>
+    
 </section>
 
-<section class="colective-section">
+<section class="trainers-section container">
 
-    <div class="col-md-5 colective-img-container">
+    <h1>OUR TRAINERS</h1>
 
-            <img src="assets/img/colective.jpg" alt="">
+    <div class="trainers-content row">
+        <div class="trainer col-md-4 col-sm-12">
+            <div class="trainer-img">
+                <img src="assets/img/trainers/trainer-1.jpg" alt="">
+            </div>
+            <div class="trainer-description">
+                <h1>Sara</h1>
+                <hr>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus placeat soluta expedita sint, odio libero. Veniam, consequatur! Praesentium eum autem, ea aperiam voluptas sequi porro corporis, quos aut odit tempore eius, perferendis et delectus nulla quod! Soluta, corporis! Odio iure necessitatibus cumque voluptatem nostrum numquam commodi est unde omnis voluptates.</p>
+            </div>
+        </div>
+        <div class="trainer col-md-4 col-sm-12">
+            <div class="trainer-img">
+                <img src="assets/img/trainers/trainer-2.jpg" alt="">
+            </div>
+            <div class="trainer-description">
+                <h1>Juan</h1>
+                <hr>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus placeat soluta expedita sint, odio libero. Veniam, consequatur! Praesentium eum autem, ea aperiam voluptas sequi porro corporis, quos aut odit tempore eius, perferendis et delectus nulla quod! Soluta, corporis! Odio iure necessitatibus cumque voluptatem nostrum numquam commodi est unde omnis voluptates.</p>
 
+            </div>
+        </div>
+        <div class="trainer col-md-4 col-sm-12">
+            <div class="trainer-img">
+                <img src="assets/img/trainers/trainer-3.jpg" alt="">
+            </div>
+            <div class="trainer-description">
+                <h1>Vero</h1>
+                <hr>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus placeat soluta expedita sint, odio libero. Veniam, consequatur! Praesentium eum autem, ea aperiam voluptas sequi porro corporis, quos aut odit tempore eius, perferendis et delectus nulla quod! Soluta, corporis! Odio iure necessitatibus cumque voluptatem nostrum numquam commodi est unde omnis voluptates.</p>
 
+            </div>
+        </div>
     </div>
-    <div class="col-md-7 pt-5">
 
-        <h1>CLASES COLECTIVAS</h1>
-
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae, culpa! Ad assumenda voluptates labore, distinctio inventore eligendi maxime quo quam dolores cum doloribus atque possimus, a earum laudantium quisquam. Provident fugiat temporibus ratione enim ex voluptate, quae totam magnam obcaecati eius porro eos nesciunt reiciendis dolorem aliquid ipsa qui tempora?</p>
-    
-    </div>
 
 </section>
-

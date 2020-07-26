@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FacilitiesService } from 'src/app/services/facilities.service';
 
 @Component({
   selector: 'app-facilities',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FacilitiesComponent implements OnInit {
 
-  constructor() { }
+  facilities = [];
+
+  constructor( private facilitiesService: FacilitiesService ) {
+    this.facilities = facilitiesService.facilities;
+  }
 
   ngOnInit(): void {
+
+    window.scrollTo(0,0)
+
   }
+  
+  
 
 }

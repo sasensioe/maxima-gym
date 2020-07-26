@@ -1,1 +1,46 @@
-<p>facilities works!</p>
+<div id="carouselExampleControls" class="carousel slide" data-interval="false">
+
+    <div class="carousel-inner">
+
+        <div *ngFor="let facility of facilities" class="carousel-item {{facility.class}}">
+
+          <div class="carousel-img">
+            <img class="d-block w-100" [src]=facility.img [alt]="facility.name">
+            <div class="bg-trans">
+                <h1 class="carousel-text">{{facility.name | uppercase}}</h1>
+            </div>
+          </div>
+
+          <div class="facility-content row">
+          
+            <div *ngFor="let content of facility.content" class="card col-lg-3 col-md-3 col-sm-5">
+              <div class="card-img">
+                <div class="card-img-inner">
+                  <img class="filter-red" [src]=content.img alt="">
+                </div>
+              </div>
+
+              <div class="card-description">
+                <h1>{{content.title | uppercase}}</h1>
+                <h3>{{content.desc}}</h3>
+              </div>
+
+            </div>
+
+          </div>
+          
+        </div>
+
+    </div>
+
+    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+
+    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+
+</div>

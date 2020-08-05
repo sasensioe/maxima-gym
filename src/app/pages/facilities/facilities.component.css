@@ -5,10 +5,12 @@
 
 .carousel{
     padding-top: 60px;
+    background-color: #222831;
 }
 
 .carousel .carousel-inner .carousel-item{
     overflow: hidden;
+    background-color: #222831;
 }
 
 .carousel .carousel-inner .carousel-item .carousel-img{
@@ -34,6 +36,7 @@
     align-content: center;
     flex-direction: column;
     color: white;
+    box-shadow:0px 4px 10px -2px black;
 }
 
 .carousel .carousel-inner .carousel-item .carousel-img .bg-trans .carousel-text{
@@ -45,8 +48,9 @@
 
 .facility-content{
     margin: auto;
-    padding-top: 3em;
+    padding: 3em 0;
     justify-content: center;
+    background-color: #222831;
 }
 
 .facility-content .card{
@@ -55,7 +59,8 @@
     height: 15em;
     border: none;
     box-shadow:0px 4px 10px -2px black;
-
+    background-color: #1b1b2f;
+    border-radius: 5px;
 }
 
 .facility-content .card .card-img{
@@ -73,7 +78,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #1b1b2f;
 }
 
 .facility-content .card .card-img .card-img-inner img{
@@ -88,6 +92,10 @@
 
 .facility-content .card .card-description{
     text-align: center;
+}
+
+.facility-content .card .card-description h1{
+    color: white;
 }
 
 .facility-content .card .card-description h3{
@@ -117,9 +125,3 @@
     filter: invert(38%) sepia(82%) saturate(2706%) hue-rotate(326deg) brightness(91%) contrast(95%);
 }
 
-
-@media (max-width: 764px){
-
-    
-
-}

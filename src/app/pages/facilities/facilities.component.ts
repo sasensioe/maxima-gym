@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FacilitiesService } from 'src/app/services/facilities.service';
+import { FacilitiesService, Facility } from 'src/app/services/facilities.service';
 
 @Component({
   selector: 'app-facilities',
@@ -8,10 +8,12 @@ import { FacilitiesService } from 'src/app/services/facilities.service';
 })
 export class FacilitiesComponent implements OnInit {
 
-  facilities = [];
+  facilities: Facility[];
 
   constructor( private facilitiesService: FacilitiesService ) {
+
     this.facilities = facilitiesService.facilities;
+  
   }
 
   ngOnInit(): void {

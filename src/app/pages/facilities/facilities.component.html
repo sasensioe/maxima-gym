@@ -4,7 +4,7 @@
 
         <div *ngFor="let facility of facilities" class="carousel-item {{facility.class}}">
 
-          <div class="carousel-img">
+          <div class="carousel-img animate__animated animate__fadeIn">
             <img class="d-block w-100" [src]=facility.img [alt]="facility.name">
             <div class="bg-trans">
                 <h1 class="carousel-text">{{facility.name | uppercase}}</h1>
@@ -13,7 +13,7 @@
 
           <div class="facility-content row">
           
-            <div *ngFor="let content of facility.content" class="card col-lg-3 col-md-3 col-sm-5">
+            <div *ngFor="let content of facility.content" class="card col-lg-3 col-md-3 col-sm-5 animate__animated animate__backInUp">
               <div class="card-img">
                 <div class="card-img-inner">
                   <img class="filter-red" [src]=content.img alt="">

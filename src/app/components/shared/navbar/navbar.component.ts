@@ -1,23 +1,30 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent {
 
-  sidenav:boolean = false;
+  sidenav:boolean;
 
   constructor() {
 
+    this.sidenav = false;
+
   }
 
-  ngOnInit(): void {
-  }
+  open(){
 
-  setSidenav(){
-    this.sidenav = !this.sidenav;
+    this.sidenav = true;
+
+  };
+
+  close(event:boolean){
+
+    this.sidenav = event;
+
   };
 
 }

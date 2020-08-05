@@ -1,4 +1,7 @@
-nav{
+                                        /** GENERAL **/
+
+
+.navbar{
     position: fixed;
     display: flex;
     z-index: 999;
@@ -9,21 +12,22 @@ nav{
     background-color: #1b1b2f;
 }
 
-.navbar-brand{
+.navbar .navbar-brand{
     color: #e43f5a;
 }
 
-.navbar-brand span{
+.navbar .navbar-brand span{
     color: white;
 }
 
-.navbar-menu{
+.navbar .navbar-menu{
     display: flex;
     margin: auto;
     margin-right: 1em;
 }
 
-.nav-item{
+.navbar .navbar-menu .nav-item{
+    outline: none;
     padding: 0.5em;
     margin: 0.5em;
     color: white;
@@ -33,27 +37,36 @@ nav{
     transition: 0.6s;
 }
 
-.nav-item:hover{
+.navbar .navbar-menu .nav-item:hover{
     background-color: #e43f5a;
     transition: 0.6s;
 }
 
-.menu-button{
+.navbar .menu-button{
     display: none;
 }
 
+.active{
+    background-color: #e43f5a;
+}
 
+                                        /** SMALL DEVICES **/
 
 @media (max-width: 768px) {
 
-    .navbar-menu{
+    .navbar .navbar-menu{
         display: none;
     }
 
-    .menu-button{
+    .navbar .menu-button{
         display: block;
         padding-right: 1em;
-        color: white;
+        cursor: pointer;
+    }
+    
+    .navbar .menu-button img{
+        filter: invert(38%) sepia(82%) saturate(2706%) hue-rotate(326deg) brightness(91%) contrast(95%);
+        height: 2em;
     }
 
   }

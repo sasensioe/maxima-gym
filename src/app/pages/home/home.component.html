@@ -5,17 +5,17 @@
 
         <img src="assets/img/header.jpg" alt="">
 
-        <div class="header-content">
-            <div class="header-text">
-                <h1 class="text-white">
+        <div class="deg-background">
+            <div class="header-content">
+                <h1>
                     REACH THE NEXT LEVEL
                 </h1>
 
-                <h1 class="text-white">
+                <h1>
                     BECOME MAXIMA
                 </h1>
                 <br>
-                <button class="header-button">
+                <button matRipple (click)="openInfoVideo()">
                     EXPLORE
                 </button>
             </div>
@@ -28,28 +28,35 @@
 <section class="info-grid container">
 
     <mat-grid-list class="info-grid-items" cols="3" rowHeight="12em">
+
         <mat-grid-tile class="info-grid-item"
             *ngFor="let tile of tiles"
             [colspan]="tile.cols"
             [rowspan]="tile.rows"
             [routerLink]="tile.link">
-          <img class="info-grid-item-img" [src]="tile.image">
+
+          <img [src]="tile.image">
+
           <div class="info-item-text">
-              <h2>{{tile.text}}</h2>
+            <h2>{{tile.text}}</h2>
           </div>
+
         </mat-grid-tile>
+
     </mat-grid-list>
 
 </section>
 
 <!-- INFO-CARDS -->
 
-<section class="info-cards col-12 row m-auto">
+<section class="info-cards col-12 row">
 
     <div class="info-card col-12"
         *ngFor="let tile of tiles"
         [routerLink]="tile.link">
+
         <img class="info-card-img" [src]="tile.image" alt="">
+        
         <div class="info-item-text">
             {{tile.text}}
         </div>
@@ -59,15 +66,15 @@
 
 <!-- DETAILS -->
 
-<section class="details-section container">
+<section class="details container">
 
     <h1>A PLACE WHERE TO GROW AND REACH YOUR BEST VERSION</h1>
     
-    <div class="row pt-5">
+    <div class="details-content row">
         <div class="details-img col-md-6 text-center mb-4">
             <img width="60%" src="assets/img/info-pic.png" alt="">
         </div>
-        <div class="details-container col-md-6">
+        <div class="details-info col-md-6">
             <h3>Without permanence. You will stay for satisfaction and not for obligation</h3>
             <hr>
             <h3>We do not charge tuition or special fees</h3>
@@ -85,36 +92,36 @@
 
 <!-- PRICES -->
 
-<section class="prices-section p-5 col-12">
+<section class="prices container-fluid">
 
-    <h1 class="text-white text-center">¡WE HAVE YOUR PERFECT PLAN!</h1>
+    <h1>¡WE HAVE YOUR PERFECT PLAN!</h1>
 
-    <div class="row justify-content-center">
+    <div class="price-cards row">
         <div class="price-card col-md-3" *ngFor="let plan of plans">
-            <h2 class="text-center">{{plan.name}}</h2>
+            <h2>{{plan.name}}</h2>
             <hr>
-            <ul>
+            <ul class="plan-list">
                 <li *ngFor="let data of plan.data">{{data}}</li>
             </ul>
-            <hr>
-            <h1 class="plan-price">{{plan.price}}</h1>
-            <div class="w-100 text-center">
-                <img src="" alt="">
+            
+            
+            <div class="plan-price">
+                <hr>
+                <h1>{{plan.price}}</h1>
             </div>
         </div>
     </div>
 
-    <br>
-
-    <div class="w-100 text-center">
-        <button class="button">
-            MORE INFO
-        </button>
-    </div>
+    <button (click)="openInfoForm()" matRipple>
+        MORE INFO
+    </button>
     
 </section>
 
-<section class="trainers-section container">
+
+<!-- TRAINERS -->
+
+<section class="trainers container">
 
     <h1>OUR TRAINERS</h1>
 
@@ -124,9 +131,10 @@
                 <img src="assets/img/trainers/trainer-1.jpg" alt="">
             </div>
             <div class="trainer-description">
-                <h1>Sara</h1>
+                <h1>Sarah</h1>
+                <span>"If you are not willing to risk the usual, you will have to settle for the ordinary."</span>
                 <hr>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus placeat soluta expedita sint, odio libero. Veniam, consequatur! Praesentium eum autem, ea aperiam voluptas sequi porro corporis, quos aut odit tempore eius, perferendis et delectus nulla quod! Soluta, corporis! Odio iure necessitatibus cumque voluptatem nostrum numquam commodi est unde omnis voluptates.</p>
+                <p>Adventurous, competitive, winner of 3 medals in the female weightlifting category. Training with her is pure adrenaline. ¿Do you want to try?</p>
             </div>
         </div>
         <div class="trainer col-md-4 col-sm-12">
@@ -135,9 +143,9 @@
             </div>
             <div class="trainer-description">
                 <h1>Juan</h1>
+                <span>"If you don’t have confidence, you’ll always find a way not to win."</span>
                 <hr>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus placeat soluta expedita sint, odio libero. Veniam, consequatur! Praesentium eum autem, ea aperiam voluptas sequi porro corporis, quos aut odit tempore eius, perferendis et delectus nulla quod! Soluta, corporis! Odio iure necessitatibus cumque voluptatem nostrum numquam commodi est unde omnis voluptates.</p>
-
+                <p>Runner, champion of Spain in rowing and diving, passionate about nature and outdoor sports. Juan is your ideal coach.</p>
             </div>
         </div>
         <div class="trainer col-md-4 col-sm-12">
@@ -146,12 +154,16 @@
             </div>
             <div class="trainer-description">
                 <h1>Vero</h1>
+                <span>"Strong people don’t put others down. They lift them up"</span>
                 <hr>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus placeat soluta expedita sint, odio libero. Veniam, consequatur! Praesentium eum autem, ea aperiam voluptas sequi porro corporis, quos aut odit tempore eius, perferendis et delectus nulla quod! Soluta, corporis! Odio iure necessitatibus cumque voluptatem nostrum numquam commodi est unde omnis voluptates.</p>
-
+                <p>Professional gymnast, master of stretching and exercises with her own weight. If you want a harmonious and balanced body, Vero is your ideal trainer.</p>
             </div>
         </div>
     </div>
 
 
 </section>
+
+<app-info-form *ngIf="infoForm" (closeInfoForm)="closeInfoForm($event)"></app-info-form>
+
+<app-info-video *ngIf="infoVideo" (closeInfoVideo)="closeInfoVideo($event)"></app-info-video>

@@ -21,11 +21,15 @@ export interface Plan {
 })
 export class HomeComponent implements OnInit {
 
+  infoForm:boolean;
+
+  infoVideo:boolean;
+
   tiles: Tile[] = [
     {text: 'ACTIVITIES', cols: 2, rows: 1, image: 'assets/img/sections/activities.jpg', link:'/activities' },
     {text: 'FACILITIES', cols: 1, rows: 2, image: 'assets/img/sections/facilities.jpg', link:'/facilities'},
     {text: 'NEWS', cols: 1, rows: 1, image: 'assets/img/sections/trainers.jpeg', link:'/news'},
-    {text: 'PRICES', cols: 1, rows: 1, image: 'assets/img/sections/nutrition.jpg', link:'/activities'},
+    {text: 'SHOPPING', cols: 1, rows: 1, image: 'assets/img/sections/nutrition.jpg', link:'https://www.nutritienda.com/'},
   ];
 
   plans: Plan[] = [
@@ -40,9 +44,35 @@ export class HomeComponent implements OnInit {
     ]}
   ]
 
-  constructor() { }
+  constructor() {
 
+    this.infoForm = false;
 
+  }
+
+  openInfoForm(){
+
+    this.infoForm = true;
+
+  }
+
+  closeInfoForm(event:boolean){
+
+    this.infoForm = event;
+
+  }
+
+  openInfoVideo(){
+
+    this.infoVideo = true;
+
+  }
+
+  closeInfoVideo(event:boolean){
+
+    this.infoVideo = event;
+
+  }
 
   ngOnInit(): void {
 

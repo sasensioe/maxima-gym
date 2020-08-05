@@ -3,7 +3,7 @@
 
 /** HEADER **/
 
-header{
+.header{
     position: relative;
     height: 120vh;
     padding: 0;
@@ -11,48 +11,44 @@ header{
     overflow: hidden;
 }
 
-header img{
+.header img{
     position: absolute;
     width: 100%;
+    height: 100%;
     left: 0;
     top: 0;
-    padding: 0;
-}
-
-
-header img{
-    height: 100%;
     object-fit: cover;
     object-position: center;
 }
 
-
-.header .header-content{
+.header .deg-background{
     position: absolute;
-    display: flex;
-    padding: auto;
-    align-items: center;
-    text-align: center;
+    top: 0;
+    left: 0;
     height: 100%;
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background: rgba(32, 25, 46, 0.7);
 }
 
-.header .header-content .header-text{
-    width: 100%;
-    align-content: center;
+.header .deg-background .header-content{
+    text-align: center;
 }
 
-.header .header-content .header-button{
+.header .deg-background .header-content h1{
+    color: #ffffff;
+}
+
+.header .deg-background .header-content button{
     border: none;
     border-radius: 25px;
     background-color: #e43f5a;
-    padding: 1em;
-    width: 10em;
-    color: white;
+    padding: 1em 3em;
+    color: #ffffff;
+    outline: none;
 }
-
-
 
 
 /** INFO-GRID **/
@@ -62,7 +58,7 @@ header img{
     width: 75%;
 }
 
-.info-grid-item-img{
+.info-grid .info-grid-items .info-grid-item img{
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -80,7 +76,7 @@ header img{
     transition: 0.5s;
     background: rgba(0, 0, 0, 0.3);
     align-items: flex-end;
-    color: white;
+    color: #ffffff;
     padding-left: 1em;
 }
 
@@ -101,78 +97,125 @@ header img{
 
 /** DETAILS-SECTION **/
 
-.details-section{
-    margin-top: 4em;
-    margin-bottom: 2em;
+.details{
+    margin: 4em auto;
+}
+
+.details .details-content{
+    margin-top: 5em;
+}
+
+.details .details-content .details-img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.details .details-content .details-img img{
+    width: 60%;
 }
 
 
 /** PRICES-SECTION **/
 
-.prices-section{
+.prices{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
     background-color: #1b1b2f;
-    margin: 0;
-}
-
-.price-card{
-    background-color: white;
-    padding: 2em;
-    margin: 1em;
-    height: 25em;
-    border-radius: 5px;
-}
-
-.plan-price{
-    position: absolute;
-    bottom: 1em;
-    left: 0;
-    width: 100%;
-    margin: 0;
+    padding: 3em;
     text-align: center;
 }
 
-.button{
+.prices h1{
+    color: #ffffff;
+}
+
+.prices .price-cards{
+    justify-content: center;
+}
+
+.prices .price-cards .price-card{
+    position: relative;
+    background-color: white;
+    padding: 2em;
+    margin: 1em;
+    border-radius: 5px;
+    padding-bottom: 5em;
+}
+
+.prices .price-cards .price-card .plan-list{
+    text-align: left;
+}
+
+.prices .price-cards .price-card .plan-price{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+.prices .price-cards .price-card .plan-price hr{
+    width: 80%;
+}
+
+.prices .price-cards .price-card .plan-price h1{
+    color: #1b1b2f;
+}
+
+.prices button{
     border: none;
     border-radius: 25px;
     background-color: #e43f5a;
-    padding: 1em;
-    width: 20%;
-    color: white;
+    padding: 1em 3em;
+    color: #ffffff;
+    margin: 1em auto;
+    outline: none;
 }
 
 /** TRAINERS-SECTION **/
 
 
-.trainers-section{
+.trainers{
     margin-top: 4em;
 }
 
-.trainer{
+.trainers .trainer{
     padding: 2em;
 }
 
-.trainer-img{
+.trainers .trainer .trainer-img{
     text-align: center;
 }
 
-.trainer-img img{
+.trainers .trainer .trainer-img img{
     width: 50%;
     border-radius: 50%;
 }
 
-.trainer-description{
+.trainers .trainer .trainer-description{
     text-align: center;
 }
 
-.trainer-description p{
-    text-align: justify;
+.trainers .trainer .trainer-description span{
+    font-style: italic;
+}
+
+.trainers .trainer .trainer-description p{
+    text-align: center;
 }
 
 
                                         /** MEDIUM DEVICES **/
 
 @media (max-width: 992px) {
+    
 
+    /** DETAILS-SECTION **/
+
+    .details .details-content .details-img img{
+        width: 80%;
+    }
 
     /** PRICES-SECTION **/
 
@@ -181,11 +224,34 @@ header img{
         padding-top: 1.5em;
     }
 
+    .prices .price-cards .price-card{
+        padding: 1em;
+        padding-top: 2em;
+        padding-bottom: 5em;
+    }
+
+    .prices .price-cards .price-card .plan-list{
+        list-style: none;
+        padding: 0;
+    }
+
+    .prices .price-cards .price-card .plan-list li{
+        margin: 1em 0;
+        text-align: center;
+    }
+
 }
 
                                         /** SMALL DEVICES **/
 
 @media (max-width: 764px) {
+
+
+    /** HEADER **/
+
+    .header{
+        height: 100vh;
+    }
 
 
     /** INFO-GRID SECTION **/
@@ -201,10 +267,11 @@ header img{
         position: relative;
         display: block;
         padding-top: 1em;
+        margin: auto;
     }
 
-    .info-card{
-        height: 15em;
+    .info-cards .info-card{
+        height: 12em;
         width: 80%;
         overflow: hidden;
         border-radius: 10px;
@@ -213,7 +280,7 @@ header img{
         padding: 0;
     }
     
-    .info-card-img{
+    .info-cards .info-card .info-card-img{
         width: 100%;
         height: 100%;
         object-fit: cover;
@@ -227,8 +294,14 @@ header img{
 
 
     /** DETAILS-SECTION **/
-    
-    .details-container{
+
+    .details .details-content .details-img img{
+        width: 50%;
+    }
+
+    .details .details-content .details-info{
         text-align: center;
     }
+
+
 }

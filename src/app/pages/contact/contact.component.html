@@ -1,1 +1,112 @@
-<p>contact works!</p>
+<header class="contact-header">
+
+    <img src="assets/img/contact/contact-header.jpg" alt="">
+
+    <div class="deg-background">
+        <h1>CONTACT</h1>
+    </div>
+
+</header>
+
+<section class="contact-info">
+
+    <div class="info-cards container row">
+
+        <div class="info-card col-lg-3 col-md-4 col-sm-12">
+            <div class="info-icon">
+                <img src="assets/img/contact/icons/phone.svg" alt="">
+            </div>
+            <br>
+            <h3>Call us!</h3>
+            <h4>924 86 0X 00</h4>
+            <h4>+XX 603 64 58 11</h4>
+        </div>
+
+        <div class="info-card card-center col-lg-3 col-md-4 col-sm-12">
+            <div class="info-icon">
+                <img src="assets/img/contact/icons/location.svg" alt="">
+            </div>
+            <br>
+            <h3>Visit us!</h3>
+            <h4>666 Monroe Ave, Elizabeth</h4>
+            <h4>NJ 07201, USA</h4>
+        </div>
+
+        <div class="info-card col-lg-3 col-md-4 col-sm-12">
+            <div class="info-icon">
+                <img src="assets/img/contact/icons/mail.svg" alt="">
+            </div>
+            <br>
+            <h3>Mail us!</h3>
+            <h4>info@maximagym.xxx</h4>
+            <h4>contact@maximagym.xxx</h4>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="contact-form">
+
+    <div class="form-container">
+
+        <h1 *ngIf="formShow">We call you!</h1>
+
+        <form *ngIf="formShow" class="form" (submit)="sendInfo()" [formGroup]="contactData">
+            <mat-form-field class="form-full-width" color="accent">
+                <mat-label>Name*</mat-label>
+                <input matInput formControlName="name" placeholder="Ex. Lady Gaga">
+                <mat-error *ngIf="contactData.controls.name.hasError('required')">
+                    Name is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="form-full-width" color="accent">
+                <mat-label>Email*</mat-label>
+                <input matInput formControlName="email" placeholder="Ex. mileycyrus@malibu.com">
+                    <mat-error *ngIf="contactData.controls.email.hasError('email') && !contactData.controls.email.hasError('required')">
+                    Please enter a valid email address
+                  </mat-error>
+                  <mat-error *ngIf="contactData.controls.email.hasError('required')">
+                    Email is <strong>required</strong>
+                  </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="form-full-width" color="accent">
+                <mat-label>Phone*</mat-label>
+                <input matInput formControlName="phone" placeholder="555-555-1234">
+                <mat-error *ngIf="contactData.controls.phone.hasError('required')">
+                    Phone is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="form-full-width message-input" color="accent">
+                <mat-label>Your message*</mat-label>
+                <textarea matInput formControlName="message" placeholder="Once upon a time..."></textarea>
+                <mat-error *ngIf="contactData.controls.message.hasError('required')">
+                    Write a short message
+                </mat-error>
+                <mat-hint MatHint="end">{{contactData.value.message.length}} / 256</mat-hint>
+            </mat-form-field>
+
+            <button (submit)="sendInfo()">
+                SEND
+            </button>
+
+            <div *ngIf="formSent && !validForm" class="error">
+                <span>Please, check the form and ensure that everything is correct</span>
+            </div>
+
+        </form>
+
+        <div *ngIf="formSent && validForm" class="success">
+            <img src="assets/img/correct.svg" alt="">
+            <h1>Thank you!</h1>
+            <h2>Now just relax and wait our call</h2>
+        </div>
+
+    </div>
+
+
+
+</section>

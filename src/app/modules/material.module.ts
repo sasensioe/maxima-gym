@@ -10,7 +10,10 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatInputModule} from '@angular/material/input';
-
+import {MatSelectModule} from '@angular/material/select';
+import {MatChipsModule} from '@angular/material/chips';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatRippleModule} from '@angular/material/core';
 
 @NgModule({
   declarations: [],
@@ -24,7 +27,11 @@ import {MatInputModule} from '@angular/material/input';
     MatToolbarModule,
     MatIconModule,
     MatTabsModule,
-    MatInputModule
+    MatInputModule,
+    MatSelectModule,
+    MatChipsModule,
+    MatPaginatorModule,
+    MatRippleModule
   ],
   exports: [
     MatExpansionModule,
@@ -35,7 +42,11 @@ import {MatInputModule} from '@angular/material/input';
     MatToolbarModule,
     MatIconModule,
     MatTabsModule,
-    MatInputModule
+    MatInputModule,
+    MatSelectModule,
+    MatChipsModule,
+    MatPaginatorModule,
+    MatRippleModule
   ]
 })
 export class MaterialModule { }

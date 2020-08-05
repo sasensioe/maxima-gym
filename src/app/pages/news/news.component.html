@@ -1,105 +1,182 @@
 
-<div class="news container animate__animated animate__fadeIn">
+<div class="news container">
 
     <h1>LATEST NEWS</h1>
 
-    <div class="news-grid row">
+    <div *ngIf="newsShow.length" class="news-grid row">
 
-        <div class="grid-article grid-top col-lg-8 col-md-8 col-sm-12">
+        <div class="grid-article grid-top col-lg-8 col-md-8 col-sm-12"
+             matRipple
+             [routerLink]="['/news/article', news[0].id]">
             <img [src]="news[0].img" alt="">
-            <div class="content">
-                <h3>{{news[0].title | uppercase}}</h3>
+            <div class="deg-background">
+                <div class="content">
+                    <h5 class="content-date">{{news[0].date | date: 'd/M/yy'}}</h5>
+                    <h2 class="content-title">{{news[0].title | uppercase}}</h2>
+                </div>
             </div>
         </div>
 
-        <div class="grid-article grid-top col-lg-4 col-md-4 col-sm-12">
-            <img [src]="news[1].img" alt="">
-            <div class="content">
-                <h3>{{news[1].title | uppercase}}</h3>
+        <div class="grid-article grid-top col-lg-4 col-md-4 col-sm-12"
+             matRipple
+             [routerLink]="['/news/article', news[1].id]">
+            <img [src]="news[1].img">
+            <div class="deg-background">
+                <div class="content">
+                    <h6 class="content-date">{{news[1].date | date: 'd/M/yy'}}</h6>
+                    <h5 class="content-title">{{news[1].title | uppercase}}</h5>
+                </div>
             </div>
         </div>
 
-        <div class="grid-article grid-bottom col-lg-3 col-md-3 col-sm-12">
-            <img [src]="news[2].img" alt="">
-            <div class="content">
-                <h3>{{news[2].title | uppercase}}</h3>
+        <div class="grid-article grid-bottom col-lg-3 col-md-3 col-sm-12"
+             matRipple
+             [routerLink]="['/news/article', news[2].id]">
+            <img [src]="news[2].img">
+            <div class="deg-background">
+                <div class="content">
+                    <h6 class="content-date">{{news[2].date | date: 'd/M/yy'}}</h6>
+                    <h5 class="content-title">{{news[2].title | uppercase}}</h5>
+                </div>
             </div>
         </div>
 
-        <div class="grid-article grid-bottom col-lg-3 col-md-3 col-sm-12">
-            <img [src]="news[2].img" alt="">
-            <div class="content">
-                <h3>{{news[2].title | uppercase}}</h3>
+        <div class="grid-article grid-bottom col-lg-3 col-md-3 col-sm-12"
+             matRipple
+             [routerLink]="['/news/article', news[3].id]">
+            <img [src]="news[3].img">
+            <div class="deg-background">
+                <div class="content">
+                    <h6 class="content-date">{{news[3].date | date: 'd/M/yy'}}</h6>
+                    <h5 class="content-title">{{news[3].title | uppercase}}</h5>
+                </div>
             </div>
         </div>
 
-        <div class="grid-article grid-bottom col-lg-3 col-md-3 col-sm-12">
-            <img [src]="news[2].img" alt="">
-            <div class="content">
-                <h3>{{news[2].title | uppercase}}</h3>
+        <div class="grid-article grid-bottom col-lg-3 col-md-3 col-sm-12"
+             matRipple
+             [routerLink]="['/news/article', news[4].id]">
+            <img [src]="news[4].img">
+            <div class="deg-background">
+                <div class="content">
+                    <h6 class="content-date">{{news[4].date | date: 'd/M/yy'}}</h6>
+                    <h5 class="content-title">{{news[4].title | uppercase}}</h5>
+                </div>
             </div>
         </div>
 
-        <div class="grid-article grid-bottom col-lg-3 col-md-3 col-sm-12">
-            <img [src]="news[2].img" alt="">
-            <div class="content">
-                <h3>{{news[2].title | uppercase}}</h3>
+        <div class="grid-article grid-bottom col-lg-3 col-md-3 col-sm-12"
+             matRipple
+             [routerLink]="['/news/article', news[5].id]">
+            <img [src]="news[5].img">
+            <div class="deg-background">
+                <div class="content">
+                    <h6 class="content-date">{{news[5].date | date: 'd/M/yy'}}</h6>
+                    <h5 class="content-title">{{news[5].title | uppercase}}</h5> 
+                </div>
             </div>
         </div>
-
-    </div>
-
-    <div class="all-news">
-
-        <h1 class="text-left">EXPLORE</h1>
-
-        <mat-form-field class="example-full-width">
-            <mat-label>Search article</mat-label>
-            <input matInput>
-        </mat-form-field>
-
-        <div class="news-container row">
-
-            <div class="news-card col-lg-3 col-md-3 col-sm-12">
-                <div class="news-card-img">
-                    <img [src]="news[2].img" alt="">
-                </div>
-                <div class="news-card-text">
-                    <h3>Lorem</h3>
-                </div>
-            </div>
-
-            <div class="news-card col-lg-3 col-md-3 col-sm-12">
-                <div class="news-card-img">
-                    <img [src]="news[2].img" alt="">
-                </div>
-                <div class="news-card-text">
-                    <h5>Date</h5>
-                    <h3>Lorem</h3>
-                </div>
-            </div>
-
-            <div class="news-card col-lg-3 col-md-3 col-sm-12">
-                <div class="news-card-img">
-                    <img [src]="news[2].img" alt="">
-                </div>
-                <div class="news-card-text">
-                    <h3>Lorem</h3>
-                </div>
-            </div>
-
-            <div class="news-card col-lg-3 col-md-3 col-sm-12">
-                <div class="news-card-img">
-                    <img [src]="news[2].img" alt="">
-                </div>
-                <div class="news-card-text">
-                    <h3>Lorem</h3>
-                </div>
-            </div>
-
-        </div>        
-
 
     </div>
 
 </div>
+
+
+<div class="explore container">
+
+    <h1>EXPLORE</h1>
+
+    <form (keyup.enter)="filter()" [formGroup]="filterForm">
+
+        <div class="search row">
+
+            <mat-form-field class="input col-8" color="accent">
+
+                <mat-label>Search article</mat-label>
+                <input formControlName="text" matInput>
+
+            </mat-form-field>
+
+            <div (click)="openFilter()" class="filter-icon col-1">
+                <img src="assets/img/filter.svg" alt="">
+            </div>
+
+            <div *ngIf="filterMenu" class="filter-options col-10">
+                
+                <div class="col-12">
+                    
+                        <mat-form-field class="form-field" appearance="fill">
+
+                            <mat-label>Publicated in</mat-label>
+                            <mat-select formControlName="date">
+                                <mat-option *ngFor="let date of dates" [value]="date.value">
+                                    {{date.viewValue}}
+                                </mat-option>
+                            </mat-select>
+
+                        </mat-form-field>
+
+                        <mat-form-field class="form-field" appearance="fill">
+
+                            <mat-label>Category</mat-label>
+                            <mat-select formControlName="category">
+                                <mat-option *ngFor="let category of categories" [value]="category.value">
+                                    {{category.viewValue}}
+                                </mat-option>
+                            </mat-select>
+
+                        </mat-form-field>
+                    
+                </div>
+
+                <div class="col-12">
+                    <button (click)="filter()" matRipple class="filter-button">
+                        FILTER
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+
+    </form>
+        
+    <div *ngIf="news.length" class="news-container row">
+
+        <div *ngFor="let article of newsShow | paginate:page_size:page_number"
+             matRipple
+             class="news-card col-lg-3 col-md-5 col-sm-12"
+             [routerLink]="['/news/article', article.id]">
+            <div class="news-card-img">
+                <img [src]="article.img" alt="">
+
+                <div class="news-card-info">
+
+                    <div class="news-card-date">
+                        <h4>{{article.date | date: 'dd'}}</h4>
+                        <h6>{{article.date | date: 'MMM' |uppercase}}</h6>
+                    </div>
+
+                    <div class="news-card-category">
+                        {{article.category | uppercase}}
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="news-card-text">
+                <h4>{{article.title}}</h4>
+                <h6>{{article.date | date: 'd/M/yy'}}</h6>
+            </div>
+        </div>
+
+    </div>
+
+    <mat-paginator [length]="newsShow.length"
+                   [pageSize]="page_size"
+                   (page)="handlePage($event)">
+    </mat-paginator>
+
+</div>
+
+

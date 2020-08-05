@@ -1,28 +1,49 @@
 
 .sidenav{
   position: fixed;
-  top: 60px;
-  right: 0;
-  height: 50vh;
-  width: 60vw;
+  top: 0;
+  height: 100%;
+  background-color: #ffffff;
   display: flex;
-  background-color: white;
-  z-index: 999;
-  border-radius: 15px;
-  margin-right: 1em;
   justify-content: center;
+  align-items: center;
+  transition: 1s;
+  z-index: 1000;
+}
+
+.opened{
+  right: 0;
+  width: 70vw;
+}
+
+.closed{
+  right: -100%;
+  width: 0;
 }
 
 .sidenav-items{
   list-style: none;
-  margin: auto;
   padding: 0;
 }
 
 .sidenav-item{
-  font-size: 1.5em;
   text-align: center;
-  margin-top: 1em;
-  padding: 0.2em;
+  font-size: 1.7em;
+  margin: 1em auto;
+  color: #162447;
+  outline: none;
+  cursor: pointer;
+}
+
+
+
+.close{
+  position: absolute;
+  top: 1em;
+  right: 1.5em;
+  cursor: pointer;
+}
+
+.active{
   color: #e43f5a;
 }

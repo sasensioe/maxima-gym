@@ -1,14 +1,28 @@
 
-<div class="sidenav">
+  <div class="sidenav" [ngClass]="{'opened': sidenav, 'closed':!sidenav}">
 
-  <ul class="sidenav-items">
-    <li class="sidenav-item">HOME</li>
-    <hr>
-    <li class="sidenav-item">ACTIVITIES</li>
-    <hr>
-    <li class="sidenav-item">FACILITIES</li>
-    <hr>
-    <li class="sidenav-item">CONTACT</li>
-  </ul>
+    <div class="close"
+         (click)="close()">
+      X
+    </div>
 
-</div>
+    <ul class="sidenav-items">
+      <li (click)="close()" routerLink="/home" routerLinkActive="active" class="sidenav-item">HOME</li>
+      <hr>
+      <li (click)="close()" routerLink="/activities" routerLinkActive="active" class="sidenav-item">ACTIVITIES</li>
+      <hr>
+      <li (click)="close()" routerLink="/facilities" routerLinkActive="active" class="sidenav-item">FACILITIES</li>
+      <hr>
+      <li (click)="close()" routerLink="/news" routerLinkActive="active" class="sidenav-item">NEWS</li>
+      <hr>
+      <li (click)="close()" routerLink="/contact" routerLinkActive="active" class="sidenav-item">CONTACT</li>
+    </ul>
+  
+  </div>
+
+
+
+
+
+
+

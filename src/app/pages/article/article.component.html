@@ -1,0 +1,74 @@
+
+
+<header class="article-header">
+
+    <img [src]="articleData['img']" alt="">
+
+    <div class="deg-background">
+
+        <h1>{{articleData['title'] | uppercase}}</h1>
+
+    </div>
+
+</header>
+
+<section class="article-body col-12 row">
+
+    <section class="article-content col-lg-9 col-md-8 col-sm-12">
+
+        <h1>{{articleData['title']}}</h1>
+    
+        <h4>Lorem ipsum dolor sit amet consectetur.</h4>
+    
+        <hr>
+    
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla delectus enim ab sapiente ipsum architecto vitae maxime, aut dignissimos veritatis libero corporis omnis fugiat, officia ipsa accusamus doloribus! At debitis magnam expedita atque itaque, officia officiis illo recusandae aspernatur possimus vel sint suscipit sequi placeat! Modi maxime delectus ab voluptates rerum reiciendis iste iure. Voluptate repellendus sit, voluptas facere architecto quasi sunt nemo nesciunt dolorum exercitationem cumque magni minima debitis incidunt consequuntur dolore suscipit, tempora qui totam officia natus. Voluptatum eveniet harum accusantium, dolore fugiat, eius iure qui in alias similique dolorum quas rem, consequuntur laborum ipsa praesentium officiis neque.</p>
+    
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime, rem quis? Sit sunt blanditiis esse, illum aliquid repellat nemo corporis iste distinctio. Aperiam doloribus laboriosam earum neque, eius nesciunt sapiente sunt quibusdam, mollitia iusto perspiciatis architecto tenetur impedit! Minus sapiente inventore aperiam veritatis corporis nesciunt harum recusandae ducimus deserunt architecto.</p>
+
+        <span>"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae, cum?"</span>
+
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facilis dignissimos eveniet id eligendi, voluptatum ex alias quo dolorem distinctio placeat nemo similique dicta ipsa aut nam eum nesciunt molestiae officiis corrupti nostrum. Ipsa repellat distinctio similique tempore alias repellendus enim voluptate, laboriosam dolor. Ex quis voluptas repudiandae quam ducimus dolores, nostrum dolor ullam aliquid eius iusto maxime sapiente, consequatur voluptatum.</p>
+
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime, rem quis? Sit sunt blanditiis esse, illum aliquid repellat nemo corporis iste distinctio. Aperiam doloribus laboriosam earum neque, eius nesciunt sapiente sunt quibusdam, mollitia iusto perspiciatis architecto tenetur impedit! Minus sapiente inventore aperiam veritatis corporis nesciunt harum recusandae ducimus deserunt architecto.</p>
+
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime, rem quis? Sit sunt blanditiis esse, illum aliquid repellat nemo corporis iste distinctio. Aperiam doloribus laboriosam earum neque, eius nesciunt sapiente sunt quibusdam, mollitia iusto perspiciatis architecto tenetur impedit! Minus sapiente inventore aperiam veritatis corporis nesciunt harum recusandae ducimus deserunt architecto.</p>
+
+
+    </section>
+    
+    <aside class="related-news col-lg-3 col-md-4 col-sm-12">
+    
+        <h2>RELATED NEWS</h2>
+
+        <div *ngFor="let article of relatedArticles"
+             matRipple
+             class="news-card col-12"
+             (click)="goTo(article.id)">
+            <div class="news-card-img">
+                <img [src]="article.img" alt="">
+
+                <div class="news-card-info">
+
+                    <div class="news-card-date">
+                            <h4>{{article.date | date: 'dd'}}</h4>
+                            <h6>{{article.date | date: 'MMM' |uppercase}}</h6>
+                    </div>
+
+                    <div class="news-card-category">
+                        {{article.category | uppercase}}
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="news-card-text">
+                <h4>{{article.title | uppercase}}</h4>
+                <h6>{{article.date | date:'d/M/yy'}}</h6>
+            </div>
+        </div>
+    
+    </aside>
+
+</section>
+

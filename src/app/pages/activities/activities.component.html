@@ -1,28 +1,30 @@
 
 <!-- ACTIVITIES SECTION -->
 
-<section class="activities-section container-fluid text-center">
+<section class="activities container-fluid">
 
-    <h1 class="pt-4 animate__animated animate__fadeIn animate__delay-1s">ACTIVITIES</h1>
+    <h1>ACTIVITIES</h1>
 
-    <mat-tab-group mat-align-tabs="center" class="activities-tab animate__animated animate__fadeInDown">
+    <mat-tab-group class="activities-tab" mat-align-tabs="center">
 
         <mat-tab *ngFor="let activity of activities" [label]="activity.title">
 
-            <div class="activity-container row m-0 ">
-                <div class="activity-img col-md-5">
+            <div class="activity-container row">
+                <div class="activity-background col-lg-5 col-md-12 col-sm-12">
 
-                    <img class="animate__animated animate__fadeInLeft" [src]="activity.img" alt="">
-            
+                    <div class="activity-img">
+                        <img [src]="activity.img" alt="">
+                    </div>
+
                 </div>
-                <div class="activity-description col-md-7 p-5">
+                <div class="activity-description col-lg-7 col-md-12 col-sm-12">
             
-                    <h1 class="text-left">{{activity.title}}</h1>
+                    <h1>{{activity.title}}</h1>
             
-                    <p class="text-justify">{{activity.p1}}</p>
-                    <p class="text-justify">{{activity.p2}}</p>
-                    <p class="text-justify">{{activity.p3}}</p>
-                    <p class="text-justify">{{activity.p4}}</p>
+                    <p>{{activity.p1}}</p>
+                    <p>{{activity.p2}}</p>
+                    <p>{{activity.p3}}</p>
+                    <p>{{activity.p4}}</p>
                 
                 </div>
             </div>
@@ -35,7 +37,7 @@
 
 <!-- SCHEDULE SECTION -->
 
-<section class="schedule container-fluid p-5 text-center">
+<section class="schedule container-fluid">
 
     <h1>SCHEDULES</h1>
 
@@ -70,8 +72,8 @@
             </tbody>
         </table>
 
-        <span>*Schedule subject to change</span>
-
     </div>
     
+    <span>*Schedule subject to change</span>
+
 </section>

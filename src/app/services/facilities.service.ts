@@ -33,7 +33,7 @@ export class FacilitiesService {
     {name: 'machines area', img: 'assets/img/facilities/machines.jpg',
       content: [
         {img: 'assets/img/facilities/icons/expand.svg', title: '+200 m2', desc: 'capacity'},
-        {img: 'assets/img/facilities/icons/dumbbell.svg', title: '+200 machines', desc: 'for muscle'},
+        {img: 'assets/img/facilities/icons/machine.svg', title: '+200 machines', desc: 'for muscle'},
         {img: 'assets/img/facilities/icons/tv.svg', title: 'live tv', desc: 'everywhere'},
       ]
     },

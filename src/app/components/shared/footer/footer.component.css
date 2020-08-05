@@ -1,4 +1,37 @@
-footer{
+                                            /** GENERAL **/
+
+.footer{
     width: 100%;
     margin: 0;
+    justify-content: center;
+    background-color: #1b262c;
+}
+
+.footer .social-links{
+    display: flex;
+    justify-content: center;
+}
+
+.footer .social-links .social-link{
+    height: 2em;
+    margin: 1em 2em;
+}
+
+.footer .social-links .social-link img{
+    height: 100%;
+    filter: invert(100%) sepia(0%) saturate(2%) hue-rotate(183deg) brightness(109%) contrast(101%);
+    cursor: pointer;
+}
+
+.footer .footer-content .footer-title{
+    color: #e43f5a;
+}
+
+.footer .footer-content .footer-item{
+    color: #ffffff;
+}
+
+.footer .footer-info{
+    background-color: #1b1b2f;
+    color: #ffffff;
 }

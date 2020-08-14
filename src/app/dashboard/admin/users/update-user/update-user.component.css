@@ -1,0 +1,42 @@
+
+
+.page-content{
+    width: 100%;
+    padding: 2em;
+    padding-left: 30%;
+}
+
+.page-content h1{
+    margin-bottom: 2em;
+}
+
+.form-full-width{
+    width: 30%;
+    margin: 1em;
+}
+
+.form-full-width #address{
+    width: 90%;
+}
+
+h2{
+    margin-top: 2em;
+}
+
+button{
+    margin: 2em auto;
+    border: none;
+    border-radius: 25px;
+    background-color: #e43f5a;
+    padding: 1em 3em;
+    color: #ffffff;
+    outline: none;
+}
+
+.accept{
+    margin-top: 2em;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+}

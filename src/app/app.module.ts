@@ -15,19 +15,23 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 /** CUSTOM MODULES */
 
 import { MaterialModule } from './modules/material.module'
-import { SharedModule } from './components/shared/shared.module';
 import { PagesModule } from './pages/pages.module';
+import { AuthModule } from './auth/auth.module';
+import { DashboardModule } from './dashboard/dashboard.module'
 
 /** FIREBASE */
 
 import { AngularFireModule } from '@angular/fire'
 import { AngularFirestoreModule } from '@angular/fire/firestore'
 import { environment } from 'src/environments/environment'
+import { HttpClientModule } from '@angular/common/http';
+
+
 
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -35,10 +39,12 @@ import { environment } from 'src/environments/environment'
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    SharedModule,
     PagesModule,
+    DashboardModule,
+    AuthModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,67 @@
+
+
+.dashboard-header{
+    position: relative;
+    width: 100%;
+    height: 30%;
+    padding: 0;
+    margin: 0;
+    z-index: 10;
+}
+
+.dashboard-header img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.deg-background{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(32, 25, 46, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.deg-background h1{
+    font-size: 3em;
+    color: #ffffff;
+}
+
+.back-icon{
+    position: absolute;
+    top: 1em;
+    left: 1em;
+    width: 3em;
+    height: 3em;
+}
+
+.back-icon img{
+    width: 100%;
+    filter: invert(38%) sepia(82%) saturate(2706%) hue-rotate(326deg) brightness(91%) contrast(95%);
+    cursor: pointer;
+}
+
+.user-icon{
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    width: 3em;
+    height: 3em;
+}
+
+.user-icon img{
+    width: 100%;
+    filter: invert(38%) sepia(82%) saturate(2706%) hue-rotate(326deg) brightness(91%) contrast(95%);
+    cursor: pointer;
+}
+
+.button{
+    outline: none;
+}

@@ -14,6 +14,8 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatRippleModule} from '@angular/material/core';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatStepperModule} from '@angular/material/stepper';
 
 @NgModule({
   declarations: [],
@@ -31,7 +33,9 @@ import {MatRippleModule} from '@angular/material/core';
     MatSelectModule,
     MatChipsModule,
     MatPaginatorModule,
-    MatRippleModule
+    MatRippleModule,
+    MatMenuModule,
+    MatStepperModule
   ],
   exports: [
     MatExpansionModule,
@@ -46,7 +50,9 @@ import {MatRippleModule} from '@angular/material/core';
     MatSelectModule,
     MatChipsModule,
     MatPaginatorModule,
-    MatRippleModule
+    MatRippleModule,
+    MatMenuModule,
+    MatStepperModule
   ]
 })
 export class MaterialModule { }

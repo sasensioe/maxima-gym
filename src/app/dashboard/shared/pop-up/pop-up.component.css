@@ -1,0 +1,37 @@
+.deg-background{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 10000;
+}
+
+.info-pop-up{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 2em;
+}
+
+.info-pop-up img{
+    width: 30%;
+    filter: invert(38%) sepia(82%) saturate(2706%) hue-rotate(326deg) brightness(91%) contrast(95%);
+}
+
+button{
+    margin: 2em auto;
+    border: none;
+    border-radius: 25px;
+    background-color: #e43f5a;
+    padding: 1em 3em;
+    color: #ffffff;
+}

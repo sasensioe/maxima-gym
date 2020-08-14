@@ -1,0 +1,19 @@
+
+<div class="deg-background">
+
+    <div class="info-pop-up">
+
+        <img *ngIf="message['ok']" src="assets/img/correct.svg" alt="success">
+        <img *ngIf="!message['ok']" src="assets/img/error.svg" alt="error">
+        <br>
+        <h1 *ngIf="message['ok']">SUCCESS!</h1>
+        <h1 *ngIf="!message['ok']">ERROR</h1>
+        <h2>{{message['msg']}}</h2>
+
+        <button (click)="accept()">
+            ACCEPT
+        </button>
+        
+    </div>
+
+</div>

@@ -1,0 +1,90 @@
+                                        /** GENERAL **/
+
+
+.deg-background{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 10000;
+}
+
+.deg-background .info-form{
+    position: fixed;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 20px;
+    padding: 2em;
+}
+
+.deg-background .info-form .close{
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    cursor: pointer;
+}
+
+.deg-background .info-form h1{
+    color: #e43f5a;
+}
+
+.deg-background .info-form .form{
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+}
+
+.deg-background .info-form .form button{
+    margin: 2em auto;
+    border: none;
+    border-radius: 25px;
+    background-color: #e43f5a;
+    padding: 1em 3em;
+    color: #ffffff;
+}
+  
+.form-full-width{
+    width: 100%;
+}
+
+.success{
+    text-align: center;
+}
+
+.success img{
+    margin-bottom: 3em;
+    height: 7em;
+    filter: invert(38%) sepia(82%) saturate(2706%) hue-rotate(326deg) brightness(91%) contrast(95%);
+}
+
+
+                                            /** MEDIUM DEVICES **/
+
+@media (max-width:992px){
+
+    .deg-background .info-form{
+        width: 60%;
+    }
+
+}
+
+
+                                            /** SMALL DEVICES **/
+
+@media (max-width:768px){
+
+    .deg-background .info-form{
+        width: 90%;
+    }
+
+}

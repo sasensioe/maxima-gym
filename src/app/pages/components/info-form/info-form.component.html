@@ -1,0 +1,65 @@
+
+<div class="deg-background">
+
+    <div class="info-form">
+
+        <div (click)="close()" class="close">X</div>
+
+        <h1 *ngIf="showForm">WE CALL YOU</h1>
+
+        <form *ngIf="showForm" class="form" (submit)="sendInfo()" [formGroup]="contactData">
+            <mat-form-field class="form-full-width" color="accent">
+                <mat-label>Name*</mat-label>
+                <input matInput formControlName="name" placeholder="Ex. Lady Gaga">
+                <mat-error *ngIf="contactData.controls.name.hasError('required')">
+                    Name is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="form-full-width" color="accent">
+                <mat-label>Email*</mat-label>
+                <input matInput formControlName="email" placeholder="Ex. mileycyrus@malibu.com">
+                    <mat-error *ngIf="contactData.controls.email.hasError('email') && !contactData.controls.email.hasError('required')">
+                    Please enter a valid email address
+                  </mat-error>
+                  <mat-error *ngIf="contactData.controls.email.hasError('required')">
+                    Email is <strong>required</strong>
+                  </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="form-full-width" color="accent">
+                <mat-label>Phone*</mat-label>
+                <input matInput formControlName="phone" placeholder="555-555-1234">
+                <mat-error *ngIf="contactData.controls.phone.hasError('required')">
+                    Phone is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="form-full-width message-input" color="accent">
+                <mat-label>Your message*</mat-label>
+                <textarea matInput formControlName="message" placeholder="Once upon a time..."></textarea>
+                <mat-error *ngIf="contactData.controls.message.hasError('required')">
+                    Write a short message
+                </mat-error>
+                <mat-hint MatHint="end">{{contactData.value.message.length}} / 256</mat-hint>
+            </mat-form-field>
+
+            <button (submit)="sendInfo()">
+                SEND
+            </button>
+
+            <div *ngIf="formSent && !validForm" class="error">
+                <span>Please, check the form and ensure that everything is correct</span>
+            </div>
+
+        </form>
+
+        <div *ngIf="formSent && validForm" class="success">
+            <img src="assets/img/correct.svg" alt="">
+            <h1>Thank you!</h1>
+            <h2>Now just relax and wait our call</h2>
+        </div>
+
+    </div>
+
+</div>

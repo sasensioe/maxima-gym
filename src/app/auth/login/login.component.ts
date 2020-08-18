@@ -11,6 +11,8 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
 
+  public errorMsg:string;
+
   public loginForm = this.formBuilder.group({
     email: ['sergio@gmail.com', Validators.required],
     password: ['123456', Validators.required]
@@ -24,14 +26,11 @@ export class LoginComponent {
     
     this.authService.login(this.loginForm.value)
         .subscribe(resp => {
-          console.log(resp)
 
           this.router.navigateByUrl('/dashboard');
 
         }, err => {
-
-          //TODO: show error in screen
-          console.log(err.error.msg)
+          this.errorMsg = err.error.msg;
         })
 
   }

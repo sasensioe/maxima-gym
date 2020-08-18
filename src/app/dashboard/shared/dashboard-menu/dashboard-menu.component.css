@@ -1,25 +1,30 @@
 
 
 .dashboard-menu{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 25%;
-    height: 100vh;
+    position: relative;
+    width: 100%;
     background-color: #1b1b2f;
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
+    padding: 0;
 }
 
 .dashboard-menu ul{
+    display: flex;
     color: #ffffff;
     list-style: none;
-    padding: 0;
     text-align: center;
-    font-size: 2em;
+
+    margin: 0 auto;
 }
 
 .dashboard-menu ul li{
     cursor: pointer;
+    padding: 1em 3em;
+}
+
+.dashboard-menu ul li:hover{
+    color: #e43f5a;
 }

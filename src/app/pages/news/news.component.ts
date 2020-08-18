@@ -132,8 +132,10 @@ export class NewsComponent implements OnInit {
   handlePage(e: PageEvent){
 
     this.page_number = e.pageIndex + 1
-
+    
   }
+
+  
 
   color(category:string){
     

@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+
 import { UsersService } from 'src/app/services/users.service';
-
-
 
 @Component({
   selector: 'app-new-user',

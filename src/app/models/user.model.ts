@@ -1,6 +1,4 @@
 
-
-
 interface Address{
     address: string;
     city: string;
@@ -18,11 +16,18 @@ interface Access{
     password: string;
 }
 
-export interface User{
-    name: string;
-    surname: string;
-    role: string;
-    address: Address;
-    contact: Contact;
-    access: Access
+
+
+export class User {
+
+    constructor(
+        public name: string,
+        public surname: string,
+        public role: string,
+        public address: Address,
+        public contact: Contact,
+        public access: Access,
+        public uid: string
+    ){}
+
 }

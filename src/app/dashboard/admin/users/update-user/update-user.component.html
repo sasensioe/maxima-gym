@@ -106,7 +106,7 @@
 
         <div class="accept">
 
-            <h4>Please, verify everything before click</h4>
+            <h4>Please, verify everything before clicking</h4>
 
             <button matRipple type="submit">
                 UPDATE USER
@@ -119,4 +119,4 @@
 
 </section>
 
-
+<app-pop-up [message]="message" (closePopUp)="closePopUp($event)" *ngIf="showPopUp"></app-pop-up>

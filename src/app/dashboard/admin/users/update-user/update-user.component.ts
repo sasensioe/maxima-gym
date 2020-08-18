@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
-import { Validators, FormBuilder } from '@angular/forms';
-import { UsersService } from 'src/app/services/users.service';
+import { Component, OnInit } from '@angular/core';
+
 import { ActivatedRoute } from '@angular/router';
+import { Validators, FormBuilder } from '@angular/forms';
+
+import { UsersService } from 'src/app/services/users.service';
 
 import { User } from 'src/app/models/user.model';
 
@@ -10,14 +12,12 @@ import { User } from 'src/app/models/user.model';
   templateUrl: './update-user.component.html',
   styleUrls: ['./update-user.component.css']
 })
-export class UpdateUserComponent {
+export class UpdateUserComponent implements OnInit {
 
   public showPopUp:boolean = false;
   public message: Object;
-
   private uid: number;
   public userData: User;
-
   public loading: boolean;
   
   public updateUserForm = this.formBuilder.group({
@@ -44,49 +44,58 @@ export class UpdateUserComponent {
                private usersService: UsersService,
                private route: ActivatedRoute ) {
 
-                  this.uid = this.route.snapshot.params.id;
-
-                  this.usersService.getUserById(this.uid).then(resp => {
-                    
-                    this.userData = resp['dbUser'];
-
-                    const update = this.updateUserForm.controls;
-                    update.name.setValue(this.userData.name);
-                    update.surname.setValue(this.userData.surname);
-                    update.role.setValue(this.userData.role);
-                    update.address.get('address').setValue(this.userData.address.address);
-                    update.address.get('city').setValue(this.userData.address.city);
-                    update.address.get('province').setValue(this.userData.address.province);
-                    update.address.get('postalCode').setValue(this.userData.address.postalCode);
-                    update.contact.get('email').setValue(this.userData.contact.email);
-                    update.contact.get('phone').setValue(this.userData.contact.phone);
-                    update.access.get('userName').setValue(this.userData.access.userName);
-                    update.access.get('password').setValue(this.userData.access.password);
-                    this.loading = false
-                  })
+                this.uid = this.route.snapshot.params.id;
 
                }
+
+  ngOnInit(){
+
+    this.usersService.getUserById(this.uid).then(resp => {
+
+      this.userData = resp['dbUser'];
+      const update = this.updateUserForm.controls;
+
+      update.name.setValue(this.userData.name);
+      update.surname.setValue(this.userData.surname);
+      update.role.setValue(this.userData.role);
+      update.address.get('address').setValue(this.userData.address.address);
+      update.address.get('city').setValue(this.userData.address.city);
+      update.address.get('province').setValue(this.userData.address.province);
+      update.address.get('postalCode').setValue(this.userData.address.postalCode);
+      update.contact.get('email').setValue(this.userData.contact.email);
+      update.contact.get('phone').setValue(this.userData.contact.phone);
+      update.access.get('userName').setValue(this.userData.access.userName);
+      update.access.get('password').setValue(this.userData.access.password);
+
+      this.loading = false
+    })
+
+  }
 
   updateUser(){
 
     if(this.updateUserForm.valid){
       this.usersService.updateUser(this.uid, this.updateUserForm.value)
-                       .then(resp => {
-                          console.log(resp)
-                          this.message = resp
-                        })
-                       .catch(error => {
-                          console.log(error.error);
-                          this.message = error.error;
-                        }
-                      )
+        .then(resp => {
+          console.log(resp)
+          this.message = resp
+        })
+        .catch(error => {
+          console.log(error.error);
+          this.message = error.error;
+        }
+      )
     }
 
     if(this.updateUserForm.invalid){
       this.message = { ok: false, msg: 'Form not valid' }
     }
 
+    this.showPopUp = true;
+  }
 
+  closePopUp(event:boolean){
+    this.showPopUp = event;
   }
 
 }

@@ -1,9 +1,55 @@
+                                            /** GENERAL **/
+
+
 .page-content{
     width: 100%;
-    padding: 2em;
-    padding-left: 30%;
+    padding: 5em;
 }
 
 .page-content h1{
     margin-bottom: 2em;
+}
+
+.page-content .list-group .list-group-item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.page-content .list-group .list-group-item .item-info{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.page-content .list-group .list-group-item .item-info button{
+    margin: 0 0.5em;
+}
+
+.page-content .list-group .list-group-item .item-info span{
+    margin-right: 1em;
+}
+
+
+                                        /** SMALL DEVICES **/
+
+@media (max-width: 768px){
+
+    .page-content .list-group .list-group-item{
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .page-content .list-group .list-group-item .item-info{
+        flex-direction: column;
+    }
+
+    .page-content .list-group .list-group-item .item-info button{
+        margin: 0.5em auto;
+    }
+
+    .page-content .list-group .list-group-item .item-info span{
+        margin-right: 0;
+    }
+
 }

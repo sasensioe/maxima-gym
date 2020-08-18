@@ -5,29 +5,34 @@
 
     <h1>SELECT USER</h1>
 
-    <form [formGroup]="searchInput" (ngSubmit)="search()">
 
-        <mat-form-field class="input col-12" color="primary">
-            <mat-label>Search by name, id, role</mat-label>
-            <input formControlName="search" matInput>
-        </mat-form-field>
+    <mat-form-field class="input col-12" color="primary">
+        <mat-label>Search by name, id, role</mat-label>
+        <input #text (keyup)="search(text.value)" matInput>
+    </mat-form-field>
 
-    </form>
 
-<ul class="list-group">
-    <li class="list-group-item">
-        Cras justo odio
-    <button class="btn btn-danger float-right">
-        DELETE
-    </button>
-    <button (click)="goTo(123)" class="btn btn-warning mr-2 float-right">
-        UPDATE
-    </button>
-    </li>
-    <li class="list-group-item">Dapibus ac facilisis in</li>
-    <li class="list-group-item">Morbi leo risus</li>
-    <li class="list-group-item">Porta ac consectetur ac</li>
-    <li class="list-group-item">Vestibulum at eros</li>
-</ul>
+    <ul class="list-group">
+        <li *ngFor="let user of users" class="list-group-item">
+            {{user.surname}}, {{user.name}}
+        
+            <div class="item-info">
+                <span>{{user.role | uppercase}}</span>
+                <button (click)="goTo(user.uid)" class="btn btn-warning">
+                    UPDATE
+                </button>
+                <button class="btn btn-danger">
+                    DELETE
+                </button>
+            </div>
+
+        </li>
+    </ul>
+
+    <mat-paginator [length]="totalUsers"
+                   pageSize="5"
+                   (page)="handlePage($event)"
+    >
+    </mat-paginator>
 
 </section>

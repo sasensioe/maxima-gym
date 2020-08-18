@@ -9,8 +9,6 @@ import { EditorRoutingModule } from './editor/editor.routing';
 import { ReceptionRoutingModule } from './reception/reception.routing';
 
 
-
-
 const routes: Routes = [
 
     {

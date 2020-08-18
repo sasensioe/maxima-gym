@@ -4,11 +4,13 @@ import { NgModule } from '@angular/core'
 import { NewArticleComponent } from './new-article/new-article.component'
 import { UpdateArticleComponent } from './update-article/update-article.component'
 import { EditorComponent } from './editor.component'
+import { EditorGuard } from 'src/app/guards/editor.guard'
 
 
 const routes: Routes = [
     {
         path: '',
+        canActivate: [EditorGuard],
         children: [
             {path: '', component: EditorComponent, data: {title: 'Editor'}},
             {path: 'newArticle', component: NewArticleComponent, data: {title: 'New Article'}},

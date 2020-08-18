@@ -6,11 +6,13 @@ import { AdminComponent } from './admin.component'
 import { EditorRoutingModule } from '../editor/editor.routing'
 import { ReceptionRoutingModule } from '../reception/reception.routing'
 import { UsersRoutingModule } from './users/users.routing'
+import { AdminGuard } from 'src/app/guards/admin.guard'
 
 
 const routes: Routes = [
     {
         path: '',
+        canActivate: [AdminGuard],
         children: [
             {path: '', component: AdminComponent, data: {title: 'Admin'}},
             {path: 'users', loadChildren: () => UsersRoutingModule, data: {title: 'Manage Users'}},

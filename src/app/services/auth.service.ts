@@ -7,6 +7,8 @@ import { tap, map, catchError } from 'rxjs/operators'
 import { LoginForm } from '../interfaces/login-form.interface';
 import { Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
+import { User } from '../models/user.model'
+
 
 const base_url = environment.base_url
 
@@ -15,8 +17,14 @@ const base_url = environment.base_url
 })
 export class AuthService {
 
+  public loggedUser: User;
+
   constructor( private http: HttpClient,
                private router: Router ) { }
+
+  get token():string{
+    return localStorage.getItem('token')
+  }
 
   login(data: LoginForm){
 
@@ -36,15 +44,20 @@ export class AuthService {
 
   validateToken():Observable<boolean>{
 
-    const token = localStorage.getItem('token');
-
     return this.http.get(`${base_url}/login/renewToken`, {
       headers: {
-        'x-token': token
+        'x-token': this.token
       }
     }).pipe(
-      tap((resp:any) => localStorage.setItem('token', resp.token)),
-      map(resp => true),
+      map((resp:any) => {
+
+        const {name, surname, role, address, contact, access, uid} = resp.user;
+        this.loggedUser = new User(name, surname, role, address, contact, access, uid);
+
+        localStorage.setItem('token', resp.token);
+
+        return true
+      }),
       catchError( err => of(false))
     )
 

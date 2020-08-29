@@ -1,11 +1,14 @@
 
-export interface Article{
-
-    id: string;
-    title: string;
-    date: Date;
-    description: string;
-    img: string;
-    category: string;
+export class Article {
+    constructor(
+        public id: string,
+        public title: string,
+        public date: Date,
+        public description: string,
+        public img: string,
+        public category: string,
+        public body: string,
+    ){}
 
 }
+

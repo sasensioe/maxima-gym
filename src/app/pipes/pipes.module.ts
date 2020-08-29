@@ -2,18 +2,24 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { PaginatePipe } from './paginate.pipe';
+import { ImagePipe } from './image.pipe';
+import { DompurifyPipe } from './domPurify.pipe';
 
 
 
 @NgModule({
   declarations: [
-    PaginatePipe
+    PaginatePipe,
+    ImagePipe,
+    DompurifyPipe,
   ],
   imports: [
     CommonModule,
   ],
   exports: [
-    PaginatePipe
+    PaginatePipe,
+    ImagePipe,
+    DompurifyPipe,
   ]
 })
 export class PipesModule { }

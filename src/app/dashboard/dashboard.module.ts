@@ -14,12 +14,14 @@ import { ReceptionModule } from './reception/reception.module';
 import { DashboardComponent } from './dashboard.component';
 import { TrainerComponent } from './trainer/trainer.component';
 import { DashboardSharedModule } from './shared/dashboard.shared.module';
+import { ProfileComponent } from './profile/profile.component';
 
 
 @NgModule({
   declarations: [
     DashboardComponent,
     TrainerComponent,
+    ProfileComponent
   ],
   imports: [
     CommonModule,
@@ -35,6 +37,7 @@ import { DashboardSharedModule } from './shared/dashboard.shared.module';
   exports: [
     DashboardComponent,
     TrainerComponent,
+    ProfileComponent
   ]
 })
 export class DashboardModule { }

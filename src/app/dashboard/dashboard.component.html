@@ -1,22 +1,23 @@
 
 <header class="dashboard-header">
 
-    <img src="assets/img/header.jpg" alt="">
+    <img src="assets/img/dashboard/dashboard-header.jpg" alt="">
 
     <div class="deg-background">
 
         <div class="back-icon" (click)="goBack()">
-            <img src="assets/img/left-arrow.svg" alt="">
+            <img src="assets/img/dashboard/icons/left-arrow.svg" alt="">
         </div>
 
 
         <h1>Hello {{user.name}}!</h1>
 
         <div [matMenuTriggerFor]="beforeMenu" class="user-icon">
-            <img src="assets/img/user.svg" alt="">
+            <img src="assets/img/dashboard/icons/user.svg" alt="">
         </div>
-        <mat-menu #beforeMenu="matMenu" xPosition="before">
-            <button mat-menu-item>My account</button>
+
+        <mat-menu class="user-menu" #beforeMenu="matMenu" xPosition="before">
+            <button [routerLink]="['/dashboard', user.role, 'profile']" mat-menu-item>My account</button>
             <button mat-menu-item>Settings</button>
             <button (click)="logout()" mat-menu-item>Logout</button>
         </mat-menu>

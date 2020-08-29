@@ -16,6 +16,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatRippleModule} from '@angular/material/core';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatStepperModule} from '@angular/material/stepper';
+import {MaterialFileInputModule} from 'ngx-material-file-input';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [],
@@ -35,7 +37,9 @@ import {MatStepperModule} from '@angular/material/stepper';
     MatPaginatorModule,
     MatRippleModule,
     MatMenuModule,
-    MatStepperModule
+    MatStepperModule,
+    MaterialFileInputModule,
+    MatButtonModule
   ],
   exports: [
     MatExpansionModule,
@@ -52,7 +56,9 @@ import {MatStepperModule} from '@angular/material/stepper';
     MatPaginatorModule,
     MatRippleModule,
     MatMenuModule,
-    MatStepperModule
+    MatStepperModule,
+    MaterialFileInputModule,
+    MatButtonModule
   ]
 })
 export class MaterialModule { }

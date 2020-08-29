@@ -7,3 +7,8 @@ html, body { height: 100%;}
 body { margin: 0;
        font-family: Nunito, "Helvetica Neue", sans-serif;
        padding: 0; }
+
+angular-editor-toolbar button i {
+       font-family: FontAwesome !important;
+       color: #474d6d !important;
+}

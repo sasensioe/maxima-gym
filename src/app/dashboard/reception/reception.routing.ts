@@ -6,6 +6,7 @@ import { InfoRequestsComponent } from './info-requests/info-requests.component';
 import { NewClientComponent } from './new-client/new-client.component';
 import { UpdateClientComponent } from './update-client/update-client.component';
 import { ReceptionGuard } from 'src/app/guards/reception.guard';
+import { ProfileComponent } from '../profile/profile.component';
 
 
 const routes: Routes = [
@@ -17,6 +18,7 @@ const routes: Routes = [
             {path: 'requests', component: InfoRequestsComponent, data: {title: 'Info Requests'}},
             {path: 'newClient', component: NewClientComponent, data: {title: 'New Client'}},
             {path: 'updateClient', component: UpdateClientComponent, data: {title: 'Update Client'}},
+            {path: 'profile', component: ProfileComponent, data: {title: 'My Profile'}},
         ],
     },
 ]

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { FormGroup, FormControl, Validators } from '@angular/forms'
 
-import { InfoService } from '../../services/info.service'
+import { InfoService } from '../../services/pages-services/info.service'
 
 @Component({
   selector: 'app-contact',

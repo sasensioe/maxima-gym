@@ -1,8 +1,8 @@
 
 
-<header class="article-header">
+<header *ngIf="articleData" class="article-header">
 
-    <img [src]="articleData['img']" alt="">
+    <img [src]="articleData['img'] | image">
 
     <div class="deg-background">
 
@@ -12,27 +12,20 @@
 
 </header>
 
-<section class="article-body col-12 row">
+<section *ngIf="articleData" class="article-body col-12 row">
 
     <section class="article-content col-lg-9 col-md-8 col-sm-12">
 
         <h1>{{articleData['title']}}</h1>
     
-        <h4>Lorem ipsum dolor sit amet consectetur.</h4>
+        <h4>{{articleData['description']}}</h4>
     
         <hr>
     
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla delectus enim ab sapiente ipsum architecto vitae maxime, aut dignissimos veritatis libero corporis omnis fugiat, officia ipsa accusamus doloribus! At debitis magnam expedita atque itaque, officia officiis illo recusandae aspernatur possimus vel sint suscipit sequi placeat! Modi maxime delectus ab voluptates rerum reiciendis iste iure. Voluptate repellendus sit, voluptas facere architecto quasi sunt nemo nesciunt dolorum exercitationem cumque magni minima debitis incidunt consequuntur dolore suscipit, tempora qui totam officia natus. Voluptatum eveniet harum accusantium, dolore fugiat, eius iure qui in alias similique dolorum quas rem, consequuntur laborum ipsa praesentium officiis neque.</p>
-    
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime, rem quis? Sit sunt blanditiis esse, illum aliquid repellat nemo corporis iste distinctio. Aperiam doloribus laboriosam earum neque, eius nesciunt sapiente sunt quibusdam, mollitia iusto perspiciatis architecto tenetur impedit! Minus sapiente inventore aperiam veritatis corporis nesciunt harum recusandae ducimus deserunt architecto.</p>
+        <div class="body" [innerHTML]="articleData['body'] | dompurify">
+            
+        </div>
 
-        <span>"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae, cum?"</span>
-
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facilis dignissimos eveniet id eligendi, voluptatum ex alias quo dolorem distinctio placeat nemo similique dicta ipsa aut nam eum nesciunt molestiae officiis corrupti nostrum. Ipsa repellat distinctio similique tempore alias repellendus enim voluptate, laboriosam dolor. Ex quis voluptas repudiandae quam ducimus dolores, nostrum dolor ullam aliquid eius iusto maxime sapiente, consequatur voluptatum.</p>
-
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime, rem quis? Sit sunt blanditiis esse, illum aliquid repellat nemo corporis iste distinctio. Aperiam doloribus laboriosam earum neque, eius nesciunt sapiente sunt quibusdam, mollitia iusto perspiciatis architecto tenetur impedit! Minus sapiente inventore aperiam veritatis corporis nesciunt harum recusandae ducimus deserunt architecto.</p>
-
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime, rem quis? Sit sunt blanditiis esse, illum aliquid repellat nemo corporis iste distinctio. Aperiam doloribus laboriosam earum neque, eius nesciunt sapiente sunt quibusdam, mollitia iusto perspiciatis architecto tenetur impedit! Minus sapiente inventore aperiam veritatis corporis nesciunt harum recusandae ducimus deserunt architecto.</p>
 
 
     </section>

@@ -26,10 +26,10 @@ export class HomeComponent implements OnInit {
   infoVideo:boolean;
 
   tiles: Tile[] = [
-    {text: 'ACTIVITIES', cols: 2, rows: 1, image: 'assets/img/sections/activities.jpg', link:'/activities' },
-    {text: 'FACILITIES', cols: 1, rows: 2, image: 'assets/img/sections/facilities.jpg', link:'/facilities'},
-    {text: 'NEWS', cols: 1, rows: 1, image: 'assets/img/sections/trainers.jpeg', link:'/news'},
-    {text: 'SHOPPING', cols: 1, rows: 1, image: 'assets/img/sections/nutrition.jpg', link:'https://www.nutritienda.com/'},
+    {text: 'ACTIVITIES', cols: 2, rows: 1, image: 'assets/img/pages/home/sections/activities.jpg', link:'/activities' },
+    {text: 'FACILITIES', cols: 1, rows: 2, image: 'assets/img/pages/home/sections/facilities.jpg', link:'/facilities'},
+    {text: 'NEWS', cols: 1, rows: 1, image: 'assets/img/pages/home/sections/trainers.jpeg', link:'/news'},
+    {text: 'SHOPPING', cols: 1, rows: 1, image: 'assets/img/pages/home/sections/nutrition.jpg', link:'https://www.nutritienda.com/'},
   ];
 
   plans: Plan[] = [

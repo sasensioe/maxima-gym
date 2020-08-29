@@ -1,11 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { FormGroup, FormControl } from '@angular/forms'
 
-import { NewsService } from '../../services/news.service'
-import { PageEvent } from '@angular/material/paginator';
+import { NewsService } from '../../services/pages-services/news.service'
+import { PageEvent, MatPaginator } from '@angular/material/paginator';
+import { Article } from 'src/app/models/article.model';
+import { SearchService } from 'src/app/services/search.service';
+import { MatSelectChange } from '@angular/material/select';
 
-interface Filter {
+interface Category {
   value: string | number;
   viewValue: string;
 }
@@ -17,11 +20,14 @@ interface Filter {
 })
 export class NewsComponent implements OnInit {
 
-  news: any[] = [];
-
-  newsShow: any[] = [];
-
-  filterMenu:boolean = false;
+  public gridArticles: Article[] = [];
+  public totalArticles: number;
+  public articles: Article[] = [];
+  public from: number = 0;
+  public index: number = 0;
+  public searching: boolean = false;
+  public page_number: number = 1;
+  public filterMenu:boolean = false;
 
   filterForm = new FormGroup({
     date: new FormControl('all'),
@@ -29,31 +35,22 @@ export class NewsComponent implements OnInit {
     text: new FormControl('')
   })
 
-  constructor( private newsService: NewsService ){
+  @ViewChild('paginator') paginator: MatPaginator;
 
-    this.newsService.getData()
-      .then(docs => docs.docs.map(doc => {
+  constructor( private newsService: NewsService,
+               private searchService: SearchService ){
 
-        let article = doc.data();
-
-        article.id = doc.id;
-
-        this.news.push(article)
-        this.newsShow.push(article)
-
-      }))
-      .catch(err=> console.log(err))
-
+                
   }
 
-  dates: Filter[] = [
+  dates: Category[] = [
     {value: 'all', viewValue: 'All results'},
     {value: 604800000, viewValue: 'Last 7 days'},
     {value: 2592000000, viewValue: 'Last 30 days'},
     {value: 31536000000, viewValue: 'Last 365 days'},
   ];
 
-  categories: Filter[] = [
+  categories: Category[] = [
     {value: 'all', viewValue: 'All categories'},
     {value: 'nutrition', viewValue: 'Nutrition'},
     {value: 'gym', viewValue: 'Gym'},
@@ -64,10 +61,47 @@ export class NewsComponent implements OnInit {
     {value: 'health', viewValue: 'Health'}
   ]
 
+  get text():string{
+    return this.filterForm.get('text').value;
+  }
+
+  get getCategory():string{
+    return this.filterForm.get('category').value;
+  }
+
 
   ngOnInit(): void {
+    this.newsService.getArticles(0, 'all', 6)
+      .then((resp:any) => {
+        this.gridArticles = resp.articles;
+        this.articles = resp.articles;
+        this.totalArticles = resp.total;
+      })
+  }
 
-    window.scrollTo(0,0)
+  getArticles(){
+    this.newsService.getArticles(this.from, this.getCategory, 6)
+      .then((resp:any) => {
+        this.articles = resp.articles;
+        this.totalArticles = resp.total;
+      })
+  }
+
+  handlePage(e: PageEvent){
+
+    if(!this.searching){
+      if(e.pageIndex > e.previousPageIndex){
+        this.from += 6;
+        this.paginator.pageIndex + 1;
+        this.getArticles();
+      }else{
+        this.from -= 6;
+        this.paginator.pageIndex - 1;
+        this.getArticles();
+      }
+    }else{
+      this.page_number = e.pageIndex + 1;
+    }
 
   }
 
@@ -77,87 +111,23 @@ export class NewsComponent implements OnInit {
 
   filter(){
 
-    console.log(this.news)
-
-    let textFiltered: any[];
-
-    let today = new Date();
-
-    let text = this.filterForm.value['text'];
-    let date = this.filterForm.value['date'];
-    let categ = this.filterForm.value['category'];
-
-    if(categ === 'all'){
-
-      textFiltered = this.news.filter(query => query.title.toLocaleLowerCase().indexOf(text.toLocaleLowerCase()) !== -1)
-    
-      if(date === 'all'){
-
-        return this.newsShow = textFiltered
-      
-      }else{
-
-        let dateFilter = today.getTime()-date
-        return this.newsShow = textFiltered.filter(time => time.date > dateFilter)
-      
-      }
-
-    }else{
-
-      textFiltered = this.news.filter(
-        query =>   query.title.toLocaleLowerCase().indexOf(text.toLocaleLowerCase()) !== -1 &&
-                   query.category.indexOf(categ) !== -1 
-      )
-
-      if(date === 'all'){
-
-        return this.newsShow = textFiltered
-      
-      }else{
-
-        let dateFilter = today.getTime()-date
-        return this.newsShow = textFiltered.filter(time => time.date > dateFilter)
-      
-      }
-
+    if( this.text !== ''){
+      this.searchService.search('articles', this.text, this.getCategory).then((resp:any) => {
+        console.log(resp)
+        this.paginator.firstPage();
+        this.articles = resp;
+        this.totalArticles = resp.length;
+        this.searching = true;
+      }).catch(err => console.log(err))
+    }else if(this.text === ''){
+      this.paginator.firstPage();
+      this.from = 0;
+      this.getArticles();
+      this.searching = false;
     }
-
-  }
-
-  
-  page_size: number = 6;
-  page_number:number = 1
-
-
-  handlePage(e: PageEvent){
-
-    this.page_number = e.pageIndex + 1
-    
-  }
-
-  
-
-  color(category:string){
-    
-    switch(category){
-      case 'gym':
-        return '#e43f5a'
-      case 'health':
-        return '#162447'
-      case 'fitness':
-        return '#6f4a8e'
-      case 'nutrition':
-        return '#ffa931'
-      case 'musculation':
-        return '#006a71'
-      case 'lifestyle':
-        return '#2bb2bb'
-      case 'cardio':
-        return '#e79cc2'
-    }
-
   }
   
+
 
 }
 

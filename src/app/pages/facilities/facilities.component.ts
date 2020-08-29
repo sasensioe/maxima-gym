@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FacilitiesService, Facility } from 'src/app/services/facilities.service';
+import { FacilitiesService, Facility } from 'src/app/services/pages-services/facilities.service';
 
 @Component({
   selector: 'app-facilities',

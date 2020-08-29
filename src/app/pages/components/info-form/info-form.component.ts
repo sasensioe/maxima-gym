@@ -2,7 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 import { FormControl, FormGroup, Validators } from '@angular/forms'
 
-import { InfoService } from '../../../services/info.service'
+import { InfoService } from '../../../services/pages-services/info.service'
 
 @Component({
   selector: 'app-info-form',

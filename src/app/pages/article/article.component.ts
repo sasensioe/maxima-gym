@@ -1,70 +1,51 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute, Params, Router } from '@angular/router'
-import { NewsService } from '../../services/news.service'
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router'
+
+import { NewsService } from '../../services/pages-services/news.service'
+import { Article } from 'src/app/models/article.model';
 
 @Component({
   selector: 'app-article',
   templateUrl: './article.component.html',
   styleUrls: ['./article.component.css']
 })
-export class ArticleComponent implements OnDestroy, OnInit {
+export class ArticleComponent implements OnInit {
 
-  articleId:Params;
-
-  articleData: Object = {};
-
-  relatedArticles:any[] = [];
+  articleId: number;
+  articleData: Article;
+  relatedArticles: Article[] = [];
 
   constructor( private route: ActivatedRoute,
                private router: Router,
                private newsService: NewsService ) {
 
-    this.route.params.subscribe(routeId => this.articleId = routeId.id).unsubscribe()
-    
-    this.newsService.getArticle(this.articleId).then(
-
-      data => data.subscribe(article => {
-
-        this.articleData = article.data()
-
-        this.newsService.getRelated(article.data().category).then(
-          articles => articles.docs.forEach(article => {
-
-            let relatedArticle = article.data();
-
-            relatedArticle.id = article.id;
-
-            this.relatedArticles.push(relatedArticle);
-
-          })
-        )
-
-      })
-
-    )
-
+    this.articleId = this.route.snapshot.params.id;
 }
 
-ngOnInit(){
-
-  window.scrollTo(0,0)
-
-}
-
-ngOnDestroy(){
-
+  ngOnInit(){
   
+    window.scrollTo(0,0);
+    this.getArticle();
 
-}
+  }
 
-goTo(id:string){
+  getArticle(){
 
-  this.router.navigateByUrl('/dummy', {skipLocationChange: true}).then(() => 
-    this.router.navigate(['/news/article', id])
-  );
+    this.newsService.getArticle(this.articleId).then((resp:any) => {
+      this.articleData = resp.article;
+    })
+    .catch(err => {
+      console.log(err)
+    })
 
-}
-
-
+  }
+  
+  goTo(id:string){
+  
+    this.router.navigateByUrl('/dummy', {skipLocationChange: true})
+      .then(() => this.router.navigate(['/news/article', id]));
+      
+  }
+  
 
 }

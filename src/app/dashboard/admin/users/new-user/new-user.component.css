@@ -1,3 +1,4 @@
+                                            /** GENERAL **/
 
 
 .page-content{
@@ -9,20 +10,24 @@
     margin-bottom: 2em;
 }
 
-.form-full-width{
+.page-content form h2{
+    margin-top: 2em;
+}
+
+.page-content form .form-full-width{
     width: 30%;
     margin: 1em;
 }
 
-.form-full-width #address{
-    width: 90%;
-}
-
-h2{
+.page-content form .accept{
     margin-top: 2em;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
 }
 
-button{
+.page-content form .accept button{
     margin: 2em auto;
     border: none;
     border-radius: 25px;
@@ -32,10 +37,12 @@ button{
     outline: none;
 }
 
-.accept{
-    margin-top: 2em;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    width: 100%;
+
+                                        /** SMALL DEVICES **/
+
+@media (max-width:768px){
+    .page-content form .form-full-width{
+        width: 100%;
+        margin: 0 auto;
+    }
 }

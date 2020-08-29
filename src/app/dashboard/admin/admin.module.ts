@@ -2,17 +2,18 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { AppRoutingModule } from '../../app-routing.module';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { MaterialModule } from '../../modules/material.module';
+import { DashboardSharedModule } from '../shared/dashboard.shared.module';
+import { PipesModule } from 'src/app/pipes/pipes.module';
 
 import { UsersComponent } from './users/users.component';
 import { AdminComponent } from './admin.component';
 import { NewUserComponent } from './users/new-user/new-user.component';
 import { UpdateUserComponent } from './users/update-user/update-user.component';
-import { DashboardSharedModule } from '../shared/dashboard.shared.module';
-import { SelectUserComponent } from './users/select-user/select-user.component';
 
+import { SelectUserComponent } from './users/select-user/select-user.component';
 
 
 @NgModule({
@@ -21,18 +22,21 @@ import { SelectUserComponent } from './users/select-user/select-user.component';
     UsersComponent,
     NewUserComponent,
     UpdateUserComponent,
-    SelectUserComponent
+    SelectUserComponent,
+
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    FormsModule,
     AppRoutingModule,
     MaterialModule,
-    DashboardSharedModule
+    DashboardSharedModule,
+    PipesModule
   ],
   exports: [
     AdminComponent,
-    UsersComponent
+    UsersComponent,
   ]
 })
 export class AdminModule { }

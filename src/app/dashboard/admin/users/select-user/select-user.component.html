@@ -5,23 +5,38 @@
 
     <h1>SELECT USER</h1>
 
+    <form (submit)="filter()" [formGroup]="filterForm">
 
-    <mat-form-field class="input col-12" color="primary">
-        <mat-label>Search by name, id, role</mat-label>
-        <input #text (keyup)="search(text.value)" matInput>
-    </mat-form-field>
+        <div class="search row">
 
+            <mat-form-field class="input col-8" color="primary">
+                <mat-label>Search article</mat-label>
+                <input formControlName="text" matInput>
+            </mat-form-field>
+
+            <mat-form-field class="form-field" appearance="fill">
+                <mat-label>Role</mat-label>
+                <mat-select formControlName="role" (selectionChange)="changeRole($event)">
+                    <mat-option *ngFor="let role of roles" [value]="role.value">
+                        {{role.viewValue}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+                    
+        </div>
+
+    </form>
 
     <ul class="list-group">
-        <li *ngFor="let user of users" class="list-group-item">
+        <li *ngFor="let user of users | paginate:5:page_number" class="list-group-item">
             {{user.surname}}, {{user.name}}
         
             <div class="item-info">
                 <span>{{user.role | uppercase}}</span>
-                <button (click)="goTo(user.uid)" class="btn btn-warning">
+                <button mat-raised-button (click)="goTo(user.uid)">
                     UPDATE
                 </button>
-                <button class="btn btn-danger">
+                <button mat-raised-button color="warn">
                     DELETE
                 </button>
             </div>
@@ -29,10 +44,12 @@
         </li>
     </ul>
 
-    <mat-paginator [length]="totalUsers"
+    <mat-paginator #paginator [length]="totalUsers"
                    pageSize="5"
                    (page)="handlePage($event)"
     >
     </mat-paginator>
+
+
 
 </section>

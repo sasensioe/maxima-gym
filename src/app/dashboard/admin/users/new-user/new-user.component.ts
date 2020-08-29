@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 
-import { UsersService } from 'src/app/services/users.service';
+import { UsersService } from 'src/app/services/dashboard-services/users.service';
+import { PopUpService } from 'src/app/services/dashboard-services/pop-up.service';
 
 @Component({
   selector: 'app-new-user',
@@ -9,9 +10,6 @@ import { UsersService } from 'src/app/services/users.service';
   styleUrls: ['./new-user.component.css']
 })
 export class NewUserComponent {
-
-  public showPopUp:boolean = false;
-  public message: Object;
 
   public newUserForm = this.formBuilder.group({
     name: ['', Validators.required],
@@ -33,7 +31,8 @@ export class NewUserComponent {
   })
 
   constructor( private formBuilder: FormBuilder,
-               private usersService: UsersService ) { }
+               private usersService: UsersService,
+               private popUpService: PopUpService ) { }
 
   newUser(){
 
@@ -41,27 +40,19 @@ export class NewUserComponent {
       this.usersService.newUser(this.newUserForm.value).toPromise()
       .then(
         resp => {
-          console.log(resp);
-          this.message = resp;
+          this.popUpService.openPopUp(resp);
         }
       ).catch(
         error => {
-          console.log(error.error);
-          this.message = error.error;
+          this.popUpService.openPopUp(error.error)
         }
       )
     }
 
     if(this.newUserForm.invalid){
-      this.message = { ok: false, msg: 'Form not valid' }
+      this.popUpService.openPopUp({ok: false, msg: 'Please, check the form'})
     }
-
-    this.showPopUp = true;
   
-  }
-
-  closePopUp(event:boolean){
-    this.showPopUp = event;
   }
 
 }

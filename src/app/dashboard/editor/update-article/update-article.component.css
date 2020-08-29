@@ -1,0 +1,55 @@
+                                            /** GENERAL **/
+
+
+.page-content{
+    width: 100%;
+    padding: 5em;
+}
+
+.page-content h1{
+    margin-bottom: 2em;
+}
+
+.page-content form h2{
+    margin-top: 2em;
+}
+
+.page-content form .form-full-width{
+    width: 60%;
+    margin: 1em;
+}
+
+.page-content form .form-25-width{
+    width: 25%;
+    margin: 1em;
+}
+
+.page-content form .accept{
+    margin-top: 2em;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+}
+
+.page-content form .accept button{
+    margin: 2em auto;
+    border: none;
+    border-radius: 25px;
+    background-color: #e43f5a;
+    padding: 1em 3em;
+    color: #ffffff;
+    outline: none;
+}
+
+
+
+
+                                        /** SMALL DEVICES **/
+
+@media (max-width:768px){
+    .page-content form .form-full-width{
+        width: 100%;
+        margin: 0 auto;
+    }
+}

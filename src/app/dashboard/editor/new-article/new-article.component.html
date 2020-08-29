@@ -1,1 +1,82 @@
-<p>new-article works!</p>
+
+<app-dashboard-menu></app-dashboard-menu>
+
+
+<section class="page-content">
+
+    <h1>NEW ARTICLE</h1>
+
+
+    <form (ngSubmit)="newArticle()" [formGroup]="newArticleForm">
+
+        <h2>General</h2>
+
+        <mat-form-field class="form-25-width" appearance="fill">
+            <mat-label>Select a category:</mat-label>
+            <mat-select formControlName="category">
+                <mat-option *ngFor="let category of categories" [value]="category.value">
+                    {{category.viewValue}}
+                </mat-option>
+            </mat-select>
+            <mat-error *ngIf="newArticleForm.controls.category.hasError('required')">
+                Please, select a category
+            </mat-error>
+        </mat-form-field>
+
+        <br>
+
+        <mat-form-field class="form-25-width" appearance="standard">
+            <mat-label>Select image</mat-label>
+            <ngx-mat-file-input formControlName="img" placeholder="Select a header image" ></ngx-mat-file-input>
+            <mat-error *ngIf="newArticleForm.controls.img.hasError('required')">
+                Image is required
+            </mat-error>
+        </mat-form-field>
+
+
+
+        <br>
+
+        <mat-form-field class="form-full-width" id="title" color="primary">
+            <mat-label>Title</mat-label>
+            <input matInput formControlName="title" placeholder="Ex. ">
+            <mat-error *ngIf="newArticleForm.controls.title.hasError('required')">
+                Title is required
+            </mat-error>
+        </mat-form-field>
+
+        <br>
+
+        <mat-form-field class="form-full-width" id="description" color="primary">
+            <mat-label>Description</mat-label>
+            <input matInput formControlName="description">
+            <mat-error *ngIf="newArticleForm.controls.description.hasError('required')">
+                Please, write a short description
+            </mat-error>
+        </mat-form-field>
+
+        <br>
+
+        <h2>Body</h2>
+
+        <angular-editor formControlName="body" [config]="editorConfig"></angular-editor>
+
+
+        <br>
+
+        <div class="accept">
+
+            <h4>Please, verify everything before click</h4>
+
+            <button matRipple type="submit">
+                PUBLISH
+            </button>
+        </div>
+
+
+    </form>
+
+</section>
+
+
+<app-pop-up></app-pop-up>

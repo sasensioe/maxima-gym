@@ -1,0 +1,56 @@
+
+<app-dashboard-menu></app-dashboard-menu>
+
+<section class="page-content">
+
+    <h1>SELECT ARTICLE</h1>
+
+    <form (submit)="filter()" [formGroup]="filterForm">
+
+        <div class="search row">
+
+            <mat-form-field class="input col-8" color="primary">
+                <mat-label>Search article</mat-label>
+                <input formControlName="text" matInput>
+            </mat-form-field>
+
+            <mat-form-field class="form-field" appearance="fill">
+                <mat-label>Category</mat-label>
+                <mat-select formControlName="category" (selectionChange)="changeCategory($event)">
+                    <mat-option *ngFor="let category of categories" [value]="category.value">
+                        {{category.viewValue}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+                    
+        </div>
+
+    </form>
+
+    <ul class="list-group">
+        <li *ngFor="let article of articles | paginate:5:page_number" class="list-group-item">
+            {{article.title}}
+        
+            <div class="item-info">
+                <span>{{article.category | uppercase}}</span>
+                
+                <button mat-raised-button (click)="goTo(article.id)">
+                    UPDATE
+                </button>
+                <button mat-raised-button color="warn">
+                    DELETE
+                </button>
+            </div>
+
+        </li>
+    </ul>
+
+    <mat-paginator #paginator [length]="totalArticles"
+                   pageSize="5"
+                   (page)="handlePage($event)"
+    >
+    </mat-paginator>
+
+
+
+</section>

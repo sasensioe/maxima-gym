@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
+import { PopUpService } from 'src/app/services/dashboard-services/pop-up.service';
 
 @Component({
   selector: 'app-pop-up',
@@ -8,30 +9,23 @@ import { Router } from '@angular/router';
 })
 export class PopUpComponent implements OnDestroy {
 
-  @Input() message: Object;
-  @Output() closePopUp: EventEmitter<boolean>
+  public message = {};
 
-  constructor( private router: Router ) {
-    this.closePopUp = new EventEmitter();
-  }
+  constructor( private router: Router,
+               public popUpService: PopUpService ) {}
 
   ngOnDestroy(): void {
-
-    this.message = {};
 
   }
 
   accept(){
-
-    if(this.message['ok']){
-      this.closePopUp.emit(false);
-      this.router.navigate(['dashboard', 'admin', 'users']);
+    this.popUpService.closePopUp();
+    if(this.popUpService.message['ok']){
+      history.go(-1);
     }else{
-      this.closePopUp.emit(false);
+      return;
     }
-
   }
-
 
   
 }

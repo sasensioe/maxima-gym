@@ -11,6 +11,10 @@
     z-index: 10000;
 }
 
+.hidden{
+    display: none;
+}
+
 .info-pop-up{
     width: 40%;
     display: flex;
@@ -23,7 +27,7 @@
 }
 
 .info-pop-up img{
-    width: 30%;
+    width: 25%;
     filter: invert(38%) sepia(82%) saturate(2706%) hue-rotate(326deg) brightness(91%) contrast(95%);
 }
 
@@ -34,4 +38,5 @@ button{
     background-color: #e43f5a;
     padding: 1em 3em;
     color: #ffffff;
+    outline: none;
 }

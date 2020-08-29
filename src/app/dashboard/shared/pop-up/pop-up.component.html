@@ -1,16 +1,18 @@
 
-<div class="deg-background">
+<div class="deg-background"
+     [class.hidden]="popUpService.hidePopUp">
 
-    <div class="info-pop-up">
+    <div *ngIf="!popUpService.hidePopUp" class="info-pop-up">
 
-        <img *ngIf="message['ok']" src="assets/img/correct.svg" alt="success">
-        <img *ngIf="!message['ok']" src="assets/img/error.svg" alt="error">
+        <img src="{{popUpService.message['ok'] ? 'assets/img/correct.svg': 'assets/img/error.svg'}}" alt="">
+        
         <br>
-        <h1 *ngIf="message['ok']">SUCCESS!</h1>
-        <h1 *ngIf="!message['ok']">ERROR</h1>
-        <h2>{{message['msg']}}</h2>
 
-        <button (click)="accept()">
+        <h1>{{popUpService.message['ok'] ? 'SUCCESS' : 'ERROR'}}</h1>
+
+        <h2>{{popUpService.message['msg']}}</h2>
+
+        <button matRipple (click)="accept()">
             ACCEPT
         </button>
         

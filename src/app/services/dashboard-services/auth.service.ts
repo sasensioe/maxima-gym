@@ -4,10 +4,10 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { tap, map, catchError } from 'rxjs/operators'
 
-import { LoginForm } from '../interfaces/login-form.interface';
+import { LoginForm } from '../../interfaces/login-form.interface';
 import { Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
-import { User } from '../models/user.model'
+import { User } from '../../models/user.model'
 
 
 const base_url = environment.base_url

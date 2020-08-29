@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { map } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 
 const base_url = environment.base_url
 
@@ -12,23 +12,14 @@ export class SearchService {
 
   constructor( private http: HttpClient ) { }
 
-  get token():string{
-    return localStorage.getItem('token');
-  }
 
-  get headers(){
-    return {headers: {'x-token': this.token}};
-  }
+  search(collection: 'users'|'articles'|'clients', text: string, param:string){
 
-
-  search(collection: 'users'|'articles'|'clients', text: string){
-
-    const url = `${base_url}/all/collection/${collection}/${text}`;
-
-    return this.http.get(url, this.headers)
-        .pipe(
-          map((resp:any) => resp.data)
-        )
+    return this.http.get(`${base_url}/all/collection/${collection}/${text}/${param}`)
+      .pipe(
+        map((resp:any) => resp.data)
+      )
+      .toPromise();
 
   }
 

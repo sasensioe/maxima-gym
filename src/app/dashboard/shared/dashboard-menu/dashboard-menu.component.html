@@ -3,11 +3,11 @@
 <aside class="dashboard-menu">
 
     <ul class="menu-list">
-        <li (click)="goTo('newUser')">NEW USER</li>
+        <li [routerLink]="[base_url, menu[0].role, menu[0].path]">{{menu[0].title}}</li>
         <hr>
-        <li (click)="goTo('selectUser')">UPDATE USER</li>
+        <li [routerLink]="[base_url, menu[1].role, menu[1].path]">{{menu[1].title}}</li>
         <hr>
-        <li (click)="goTo('selectUser')">DELETE USER</li>
+        <li [routerLink]="[base_url, menu[2].role, menu[2].path]">{{menu[2].title}}</li>
     </ul>
     
 </aside>

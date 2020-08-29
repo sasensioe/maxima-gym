@@ -27,4 +27,5 @@
 
 .dashboard-menu ul li:hover{
     color: #e43f5a;
+    transition: 0.4s;
 }

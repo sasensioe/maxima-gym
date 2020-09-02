@@ -2,22 +2,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-
-/** ROUTING */
-
-import { RouterModule } from '@angular/router'
-import { AppRoutingModule } from './app-routing.module'
-
-/** BROWSER-ANIMATIONS */
-
+import { RouterModule } from '@angular/router';
+import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-/** CUSTOM MODULES */
-
-import { MaterialModule } from './modules/material.module'
+import { MaterialModule } from './modules/material.module';
 import { PagesModule } from './pages/pages.module';
 import { AuthModule } from './auth/auth.module';
-import { DashboardModule } from './dashboard/dashboard.module'
+import { DashboardModule } from './dashboard/dashboard.module';
 
 /** FIREBASE */
 

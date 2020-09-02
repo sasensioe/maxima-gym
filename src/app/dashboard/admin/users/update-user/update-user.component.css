@@ -1,33 +1,73 @@
                                             /** GENERAL **/
 
 
-.page-content{
+.update-user-content{
     width: 100%;
     padding: 5em;
 }
-                                            
-.page-content h1{
+
+.update-user-content h1{
     margin-bottom: 2em;
 }
-                                            
-.page-content form h2{
+
+.update-user-content form h2{
     margin-top: 2em;
 }
-                                            
-.page-content form .form-full-width{
+
+.update-user-content form .role{
+    width: 25%;
+    margin: 1em;
+}
+
+.update-user-content form .name{
+    width: 25%;
+    margin: 1em;
+}
+
+.update-user-content form .surname{
+    width: 35%;
+    margin: 1em;
+}
+
+.update-user-content form .address{
+    width: 60%;
+    margin: 1em;
+}
+
+.update-user-content form .city{
     width: 30%;
     margin: 1em;
 }
-                                            
-.page-content form .accept{
+
+.update-user-content form .province{
+    width: 30%;
+    margin: 1em;
+}
+
+.update-user-content form .postal-code{
+    width: 20%;
+    margin: 1em;
+}
+
+.update-user-content form .email{
+    width: 40%;
+    margin: 1em;
+}
+
+.update-user-content form .phone{
+    width: 30%;
+    margin: 1em;
+}
+
+.update-user-content form .accept{
     margin-top: 2em;
     display: flex;
     flex-direction: column;
     text-align: center;
     width: 100%;
 }
-                                            
-.page-content form .accept button{
+
+.update-user-content form .accept button{
     margin: 2em auto;
     border: none;
     border-radius: 25px;
@@ -36,13 +76,171 @@
     color: #ffffff;
     outline: none;
 }
-                                            
-                                            
-                                            /** SMALL DEVICES **/
-                                            
+
+    /** PASSWORD **/
+
+.update-user-content .change-password{
+    width: 100%;
+    text-align: center;
+    margin-bottom: 2em;
+}
+
+.update-user-content .change-password .open-modal{
+    background-color: #1b1b2f;
+    border: none;
+    outline: none;
+    padding: 0.5em 1.7em;
+    border-radius: 0.4em;
+    text-align: center;
+    color: #ffffff;
+}
+
+.update-user-content .user-password{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.update-user-content .hidden{
+    display: none;
+}
+
+.update-user-content .user-password .new-pass{
+    text-align: center;
+    width: 100%;
+}
+
+.update-user-content .user-password .new-pass .pass-form-input{
+    width: 30%;
+    margin: 0 1em;
+}
+
+.update-user-content .user-password button{
+    background-color: #e43f5a;
+    border: none;
+    outline: none;
+    padding: 0.5em 1.7em;
+    border-radius: 0.4em;
+    text-align: center;
+    color: #ffffff;
+}
+
+                                        /** MEDIUM DEVICES **/
+
+@media (max-width:992px){
+
+    .update-user-content{
+        padding: 3em;
+    }
+
+    .update-user-content form .role{
+        width: 30%;
+        margin: 0 1em;
+    }
+
+    .update-user-content form .name{
+        width: 30%;
+        margin: 0 1em;
+    }
+    
+    .update-user-content form .surname{
+        width: 40%;
+        margin: 0 1em;
+    }
+       
+    .update-user-content form .address{
+        width: 70%;
+        margin: 0 1em;
+    }
+    
+    .update-user-content form .city{
+        width: 20%;
+        margin: 0 1em;
+    }
+    
+    .update-user-content form .province{
+        width: 30%;
+        margin: 0 1em;
+    }
+    
+    .update-user-content form .postal-code{
+        width: 20%;
+        margin: 0 1em;
+    }
+    
+    .update-user-content form .email{
+        width: 40%;
+        margin: 0 1em;
+    }
+    
+    .update-user-content form .phone{
+        width: 30%;
+        margin: 0 1em;
+    }
+
+}
+
+                                        /** SMALL DEVICES **/
+
 @media (max-width:768px){
-    .page-content form .form-full-width{
+
+    .update-user-content{
+        padding: 3em;
+    }
+
+    .update-user-content form .role{
         width: 100%;
         margin: 0 auto;
     }
+
+    .update-user-content form .name{
+        width: 100%;
+        margin: 0 auto;
+    }
+    
+    .update-user-content form .surname{
+        width: 100%;
+        margin: 0 auto;
+    }
+    
+    .update-user-content form .address{
+        width: 100%;
+        margin: 0 auto;
+    }
+    
+    .update-user-content form .city{
+        width: 100%;
+        margin: 0 auto;
+    }
+    
+    .update-user-content form .province{
+        width: 100%;
+        margin: 0 auto;
+    }
+    
+    .update-user-content form .postal-code{
+        width: 100%;
+        margin: 0 auto;
+    }
+    
+    .update-user-content form .email{
+        width: 100%;
+        margin: 0 auto;
+    }
+    
+    .update-user-content form .phone{
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    /** PASSWORD **/
+
+    .update-user-content .user-password .new-pass .pass-form-input{
+        width: 100%;
+        margin: auto;
+    }
+
 }

@@ -6,7 +6,7 @@ import { map } from 'rxjs/operators';
 import { Article } from 'src/app/models/article.model';
 import { GetArticles } from 'src/app/interfaces/get-articles.interface';
 
-const base_url = environment.base_url
+const base_url = environment.base_url;
 
 @Injectable({
   providedIn: 'root'
@@ -15,16 +15,16 @@ export class ArticlesService {
 
   constructor( private http: HttpClient ) { }
 
-  newArticle = async(data:Object) => {
+  newArticle = async(data:Article) => {
 
-    data['img'] = 'no-image';
-    return this.http.post(`${base_url}/articles`, data).toPromise();
+    data.img = 'no-image';
+    return this.http.post(`${base_url}/articles/newArticle`, data).toPromise();
 
   }
 
   getArticles(from: number = 0, category: string){
 
-    return this.http.get<GetArticles>(`${base_url}/articles/${category}?from=${from}`)
+    return this.http.get<GetArticles>(`${base_url}/articles/getArticles/${category}?from=${from}`)
       .pipe(
         map(resp => {
           const articles = resp.articles.map(
@@ -39,7 +39,7 @@ export class ArticlesService {
 
   }
 
-  getArticle(id: string){
+  getArticleById(id: string){
 
     return this.http.get(`${base_url}/articles/getArticle/${id}`)
       .pipe(
@@ -54,7 +54,7 @@ export class ArticlesService {
   updateArticle(id: string, data: Object){
 
     delete data['img'];
-    return this.http.put(`${base_url}/articles/${id}`, data).toPromise();
+    return this.http.put(`${base_url}/articles/updateArticle/${id}`, data).toPromise();
 
   }
 

@@ -1,0 +1,136 @@
+                                            /** GENERAL **/
+
+
+    /** GENERAL **/
+.profile-page{
+    margin: 0;
+    padding: 0;
+}
+
+    /** PROFILE ASIDE **/
+
+.profile-page .profile-aside{
+    position: relative;
+    background-color: #162447;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #ffffff;
+}
+
+.profile-page .profile-aside .image-container{
+    position: relative;
+    margin-top: 1em;
+    width: 12em;
+    height: 12em;
+    overflow: hidden;
+    border-radius: 50%;
+
+}
+
+.profile-page .profile-aside .image-container img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.profile-page .profile-aside .edit-button{
+    margin: 1em auto;
+    border-radius: 0.5em;
+    background-color: #1f4068;
+    border: none;
+    padding: 0.5em 2em;
+    color: #ffffff;
+    outline: none;
+}
+
+    /** PROFILE-INFO **/
+
+.profile-page .profile-info{
+    padding-top: 3em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-page .profile-info .user-data{
+    width: 80%;
+}
+
+.profile-page .profile-info .user-data h2{
+    margin-top: 1.5em;
+}
+
+.profile-page .profile-info .user-data h3{
+    color: #52575d;
+}
+
+.profile-page .profile-info .user-password{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.profile-page .profile-info .user-password .old-pass{
+    text-align: center;
+    width: 100%;
+}
+
+.profile-page .profile-info .user-password .old-pass .pass-form-input{
+    width: 40%;
+    margin: 0 1em;
+}
+
+.profile-page .profile-info .user-password .new-pass{
+    text-align: center;
+    width: 100%;
+}
+
+.profile-page .profile-info .user-password .new-pass .pass-form-input{
+    width: 50%;
+}
+
+.profile-page .profile-info .user-password button{
+    margin: 2em auto;
+    border: none;
+    border-radius: 25px;
+    background-color: #e43f5a;
+    padding: 1em 3em;
+    color: #ffffff;
+    outline: none;
+}
+
+
+                                            /** MEDIUM DEVICES **/
+
+@media (max-width:998px){
+
+    .profile-page .profile-info .user-password .old-pass .pass-form-input{
+        width: 80%;
+    }
+
+    .profile-page .profile-info .user-password .new-pass .pass-form-input{
+        width: 80%;
+    }
+
+}
+
+
+                                            /** SMALL DEVICES **/
+
+@media (max-width:768px){
+
+    .profile-page .profile-info .user-password .old-pass .pass-form-input{
+        width: 80%;
+    }
+
+    .profile-page .profile-info .user-password .new-pass .pass-form-input{
+        width: 80%;
+    }
+
+}

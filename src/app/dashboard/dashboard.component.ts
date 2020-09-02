@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Router, ActivatedRoute } from '@angular/router';
 import { AuthService } from '../services/dashboard-services/auth.service';
 import { User } from '../models/user.model';
-import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-protected',
@@ -13,39 +13,40 @@ export class DashboardComponent implements OnInit {
 
   public user: User;
 
-  constructor( private authService: AuthService,
-               private router: Router,
-               private route: ActivatedRoute ) {
-    this.user = authService.loggedUser;
-  }
+  constructor( private _authService: AuthService,
+               private _router: Router,
+               private _activatedRoute: ActivatedRoute ) {
+                this.user = _authService.loggedUser;
+             }
 
   ngOnInit(): void {
-    this.router.navigate(['dashboard', this.user.role]);
+    this._router.navigate(['dashboard', this.user.role]);
   }
 
   goBack(){
-    const route = this.route.snapshot['_routerState'].url;
-    let array = route.split('/');
+    const route = this._activatedRoute.snapshot['_routerState'].url;
+    let arrayRoute = route.split('/');
 
     if(route.includes('update')){
       history.back()
       return;
     }
 
-    if(array.length === 3){
+    if(arrayRoute.length === 3){
       return;
     }else{
-      let tempArray = array;
-      tempArray.pop();
-      tempArray.shift();
-      let path = tempArray.join('/')
-      this.router.navigateByUrl(path)
+      let tempArrayRoute = arrayRoute;
+      tempArrayRoute.pop();
+      tempArrayRoute.shift();
+      let path = tempArrayRoute.join('/')
+      this._router.navigateByUrl(path)
     }
 
   }
 
   logout(){
-    this.authService.logout();
+    this._router.navigateByUrl('/login');
+    this._authService.logout();
   }
 
 }

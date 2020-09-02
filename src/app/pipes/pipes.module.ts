@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { PaginatePipe } from './paginate.pipe';
 import { ImagePipe } from './image.pipe';
-import { DompurifyPipe } from './domPurify.pipe';
+import { DompurifyPipe } from './dom-purify.pipe';
 
 
 

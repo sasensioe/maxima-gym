@@ -9,10 +9,10 @@ import { AuthService } from 'src/app/services/dashboard-services/auth.service';
 })
 export class DashboardMenuComponent implements OnInit {
 
-  public currentUserRole: string;
+  private _path: string;
+  private _currentUserRole: string;
   public base_url: string;
   public menu = {};
-  private _path: string;
 
   editorMenu = [
     {role: 'editor', path: 'newArticle', title: 'NEW ARTICLE'},
@@ -32,13 +32,12 @@ export class DashboardMenuComponent implements OnInit {
     {role: 'users', path: 'selectUser', title: 'DELETE USER'},
   ]
 
-  constructor( private router: Router,
-               private route: ActivatedRoute,
-               private authService: AuthService ) {
+  constructor( private _router: Router,
+               private _activatedRoute: ActivatedRoute,
+               private _authService: AuthService ) {
 
-                this.currentUserRole = authService.loggedUser.role;
-                this._path = route.snapshot['_routerState'].url;
-                
+                this._currentUserRole = _authService.loggedUser.role;
+                this._path = _activatedRoute.snapshot['_routerState'].url;
                 this.setBaseUrl();
                 
                }
@@ -48,12 +47,12 @@ export class DashboardMenuComponent implements OnInit {
   }
 
   setBaseUrl(){
-    this.currentUserRole === 'admin' ? this.base_url = '/dashboard/admin': this.base_url = '/dashboard';
+    this._currentUserRole === 'admin' ? this.base_url = '/dashboard/admin': this.base_url = '/dashboard';
   }
 
   getMenu(){
 
-    switch(this.currentUserRole){
+    switch(this._currentUserRole){
       case 'editor':
         this.menu = this.editorMenu;
       case 'receptionist':

@@ -31,12 +31,13 @@ export class ArticleComponent implements OnInit {
 
   getArticle(){
 
-    this.newsService.getArticle(this.articleId).then((resp:any) => {
-      this.articleData = resp.article;
-    })
-    .catch(err => {
-      console.log(err)
-    })
+    this.newsService.getArticle(this.articleId)
+      .then((resp:any) => {
+        this.articleData = resp.article;
+      })
+      .catch(err => {
+        console.log(err)
+      })
 
   }
   
@@ -45,6 +46,12 @@ export class ArticleComponent implements OnInit {
     this.router.navigateByUrl('/dummy', {skipLocationChange: true})
       .then(() => this.router.navigate(['/news/article', id]));
       
+  }
+
+  goBack(){
+
+    history.back();
+
   }
   
 

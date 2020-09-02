@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 
+import { Router } from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/dashboard-services/auth.service';
-import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-login',
@@ -11,27 +12,26 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
 
-  public errorMsg:string;
+  public errorMsg: string;
 
-  public loginForm = this.formBuilder.group({
-    email: ['sergio@gmail.com', Validators.required],
-    password: ['123456', Validators.required]
+  public loginForm = this._formBuilder.group({
+    email: ['admin@admin.com', Validators.required],
+    password: ['12345678', Validators.required]
   })
 
-  constructor( private formBuilder: FormBuilder,
-               private authService: AuthService,
-               private router: Router ) { }
+  constructor( private _formBuilder: FormBuilder,
+               private _authService: AuthService,
+               private _router: Router ) { }
 
   login(){
-    
-    this.authService.login(this.loginForm.value)
-        .subscribe(resp => {
 
-          this.router.navigateByUrl('/dashboard');
-
-        }, err => {
-          this.errorMsg = err.error.msg;
-        })
+    this._authService.login(this.loginForm.value)
+      .then(() => {
+        this._router.navigateByUrl('/dashboard');
+      })
+      .catch(error => {
+        this.errorMsg = error.error.msg;
+      })
 
   }
 

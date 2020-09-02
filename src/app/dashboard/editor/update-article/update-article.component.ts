@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
 import { AngularEditorConfig } from '@kolkov/angular-editor';
-import { Article } from 'src/app/models/article.model';
-import { UploadsService } from 'src/app/services/dashboard-services/uploads.service';
-import { ArticlesService } from 'src/app/services/dashboard-services/articles.service';
 import { Validators, FormBuilder } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { UploadsService } from 'src/app/services/dashboard-services/uploads.service';
+import { ArticlesService } from 'src/app/services/dashboard-services/articles.service';
 import { PopUpService } from 'src/app/services/dashboard-services/pop-up.service';
 
 interface Filter {
@@ -20,10 +19,9 @@ interface Filter {
 })
 export class UpdateArticleComponent implements OnInit {
 
-  private articleId: string;
-  private article: Article;
+  private _articleId: string;
 
-  public updateArticleForm = this.formBuilder.group({
+  public updateArticleForm = this._formBuilder.group({
     category: ['', Validators.required],
     title: ['', Validators.required],
     description: ['', Validators.required],
@@ -31,29 +29,13 @@ export class UpdateArticleComponent implements OnInit {
     body: ['', Validators.required]
   })
 
-  constructor( private formBuilder: FormBuilder,
-               private articlesService: ArticlesService,
-               private uploadsService: UploadsService,
-               private route: ActivatedRoute,
-               private popUpService: PopUpService ) {
-                 this.articleId = this.route.snapshot.params.id;
+  constructor( private _formBuilder: FormBuilder,
+               private _articlesService: ArticlesService,
+               private _uploadsService: UploadsService,
+               private _activatedRoute: ActivatedRoute,
+               private _popUpService: PopUpService ) {
+                 this._articleId = this._activatedRoute.snapshot.params.id;
                }
-
-  ngOnInit(): void {
-    this.articlesService.getArticle(this.articleId)
-      .then(resp => {
-        this.article = resp;
-        this.updateArticleForm.setValue({
-          category: resp.category,
-          title: resp.title,
-          description: resp.description,
-          img: '',
-          body: resp.body
-        })
-      })
-      .catch(error => this.popUpService.openPopUp(error));
-    
-  }
 
   categories: Filter[] = [
     {value: 'all', viewValue: 'All categories'},
@@ -65,7 +47,7 @@ export class UpdateArticleComponent implements OnInit {
     {value: 'lifestyle', viewValue: 'Lifestyle'},
     {value: 'health', viewValue: 'Health'}
   ]
-
+            
   editorConfig: AngularEditorConfig = {
     editable: true,
     spellcheck: true,
@@ -105,8 +87,24 @@ export class UpdateArticleComponent implements OnInit {
   toolbarHiddenButtons: [
     ['insertImage', 'insertVideo', 'insertHorizontalRule', 'textColor', 'backgroundColor', 'customClasses', 'toggleEditorMode']
   ]
-  
+              
   };
+
+  ngOnInit() {
+
+    this._articlesService.getArticleById(this._articleId)
+      .then(article => {
+        this.updateArticleForm.setValue({
+          category: article.category,
+          title: article.title,
+          description: article.description,
+          img: '',
+          body: article.body
+        })
+      })
+      .catch(error => this._popUpService.openPopUp(error));
+    
+  }
 
   updateArticle(){
 
@@ -114,23 +112,26 @@ export class UpdateArticleComponent implements OnInit {
 
       const img = this.updateArticleForm.get('img').value;
 
-      if(img){
-        this.articlesService.updateArticle(this.articleId, this.updateArticleForm.value)
-        .then((resp: {ok:boolean, article:Article}) => {
-          this.popUpService.openPopUp(resp)
-          const img = this.updateArticleForm.get('img').value['files'][0];
-          this.uploadsService.uploadFile(img, 'articles', this.articleId);
+      this._articlesService.updateArticle(this._articleId, this.updateArticleForm.value)
+        .then((resp: any) => {
+          this._popUpService.openPopUp(resp);
+          if(img){
+            const imgSelected = this.updateArticleForm.get('img').value['files'][0];
+            this._uploadsService.uploadFile(imgSelected, 'articles', this._articleId);
+          }
         })
-      }else{
-        this.articlesService.updateArticle(this.articleId, this.updateArticleForm.value)
-        .then((resp: {ok:boolean, article:Article}) => {
-          this.popUpService.openPopUp(resp)
+        .catch(error => {
+          this._popUpService.openPopUp(error.error);
         })
-      }
+        
     }
 
     if(this.updateArticleForm.invalid){
-      this.popUpService.openPopUp({ok: false, msg: 'Please, check the form'})
+      const error = {
+        ok: false,
+        msg: 'Please, check the form'
+      }
+      this._popUpService.openPopUp(error);
     }
   }
 

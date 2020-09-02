@@ -1,6 +1,10 @@
 
 <section class="background">
 
+    <a routerLink="/" class="back">
+        <img src="assets/img/pages/icons/left-arrow.svg" alt="back">
+    </a>
+
     <h1>MAXIMA <span>GYM</span></h1>
 
     <div class="login-container">
@@ -11,14 +15,14 @@
 
             <mat-form-field class="form-full-width" color="accent">
                 <mat-label>Email*</mat-label>
-                <input matInput formControlName="email" placeholder="Ex. ">
+                <input type="email" matInput formControlName="email" placeholder="Ex. john@gmail.com">
             </mat-form-field>
 
             <br>
 
             <mat-form-field class="form-full-width" color="accent">
                 <mat-label>Password*</mat-label>
-                <input matInput formControlName="password">
+                <input type="password" matInput formControlName="password">
             </mat-form-field>
 
             <br>

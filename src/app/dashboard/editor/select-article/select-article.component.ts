@@ -19,10 +19,9 @@ interface Category {
 })
 export class SelectArticleComponent implements OnInit {
 
+  private _from: number = 0;
   public totalArticles: number;
   public articles: Article[] = [];
-  public from: number = 0;
-  public index: number = 0;
   public searching: boolean = false;
   public page_number: number = 1;
   
@@ -53,7 +52,7 @@ export class SelectArticleComponent implements OnInit {
     return this.filterForm.get('text').value;
   }
 
-  get getCategory():string{
+  get category():string{
     return this.filterForm.get('category').value;
   }
 
@@ -62,21 +61,23 @@ export class SelectArticleComponent implements OnInit {
   }
 
   getArticles(){
-    this.articlesService.getArticles(this.from, this.getCategory).then(({total, articles}) => {
-      this.articles = articles;
-      this.totalArticles = total;
-    })
+    this.articlesService.getArticles(this._from, this.category)
+      .then(({total, articles}) => {
+        this.articles = articles;
+        this.totalArticles = total;
+      })
+      .catch(error => console.log(error))
   }
 
   handlePage(e: PageEvent){
 
     if(!this.searching){
       if(e.pageIndex > e.previousPageIndex){
-        this.from += 5;
+        this._from += 5;
         this.paginator.pageIndex + 1;
         this.getArticles();
       }else{
-        this.from -= 5;
+        this._from -= 5;
         this.paginator.pageIndex - 1;
         this.getArticles();
       }
@@ -86,14 +87,9 @@ export class SelectArticleComponent implements OnInit {
 
   }
 
-  goTo(id: string){
-    this.router.navigate([`../updateArticle/${id}`], { relativeTo: this.route });
-  }
-
   filter(){
-
     if( this.text !== ''){
-      this.searchService.search('articles', this.text, this.getCategory)
+      this.searchService.search('articles', this.text, this.category)
         .then((resp:any) => {
           this.paginator.firstPage();
           this.articles = resp;
@@ -102,7 +98,7 @@ export class SelectArticleComponent implements OnInit {
         })
     }else if(this.text === ''){
       this.paginator.firstPage();
-      this.from = 0;
+      this._from = 0;
       this.getArticles();
       this.searching = false;
     }
@@ -117,6 +113,10 @@ export class SelectArticleComponent implements OnInit {
       this.getArticles();
     }
 
+  }
+
+  goTo(id: string){
+    this.router.navigate([`../updateArticle/${id}`], { relativeTo: this.route });
   }
 
 }

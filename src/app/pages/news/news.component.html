@@ -8,7 +8,7 @@
         <div class="grid-article grid-top col-lg-8 col-md-8 col-sm-12"
              matRipple
              [routerLink]="['/news/article', gridArticles[0].id]">
-            <img [src]="gridArticles[0].img | image" alt="">
+            <img [src]="gridArticles[0].img | image:'articles'" alt="">
             <div class="deg-background">
                 <div class="content">
                     <h5 class="content-date">{{gridArticles[0].date | date: 'd/M/yy'}}</h5>
@@ -20,7 +20,7 @@
         <div class="grid-article grid-top col-lg-4 col-md-4 col-sm-12"
              matRipple
              [routerLink]="['/news/article', gridArticles[1].id]">
-            <img [src]="gridArticles[1].img | image">
+            <img [src]="gridArticles[1].img | image:'articles'">
             <div class="deg-background">
                 <div class="content">
                     <h6 class="content-date">{{gridArticles[1].date | date: 'd/M/yy'}}</h6>
@@ -32,7 +32,7 @@
         <div class="grid-article grid-bottom col-lg-3 col-md-3 col-sm-12"
              matRipple
              [routerLink]="['/news/article', gridArticles[2].id]">
-            <img [src]="gridArticles[2].img | image">
+            <img [src]="gridArticles[2].img | image:'articles'">
             <div class="deg-background">
                 <div class="content">
                     <h6 class="content-date">{{gridArticles[2].date | date: 'd/M/yy'}}</h6>
@@ -44,7 +44,7 @@
         <div class="grid-article grid-bottom col-lg-3 col-md-3 col-sm-12"
              matRipple
              [routerLink]="['/news/article', gridArticles[3].id]">
-            <img [src]="gridArticles[3].img | image">
+            <img [src]="gridArticles[3].img | image:'articles'">
             <div class="deg-background">
                 <div class="content">
                     <h6 class="content-date">{{gridArticles[3].date | date: 'd/M/yy'}}</h6>
@@ -56,7 +56,7 @@
         <div class="grid-article grid-bottom col-lg-3 col-md-3 col-sm-12"
              matRipple
              [routerLink]="['/news/article', gridArticles[4].id]">
-            <img [src]="gridArticles[4].img | image">
+            <img [src]="gridArticles[4].img | image:'articles'">
             <div class="deg-background">
                 <div class="content">
                     <h6 class="content-date">{{gridArticles[4].date | date: 'd/M/yy'}}</h6>
@@ -68,7 +68,7 @@
         <div class="grid-article grid-bottom col-lg-3 col-md-3 col-sm-12"
              matRipple
              [routerLink]="['/news/article', gridArticles[5].id]">
-            <img [src]="gridArticles[5].img | image">
+            <img [src]="gridArticles[5].img | image:'articles'">
             <div class="deg-background">
                 <div class="content">
                     <h6 class="content-date">{{gridArticles[5].date | date: 'd/M/yy'}}</h6>
@@ -148,7 +148,7 @@
              class="news-card col-lg-3 col-md-5 col-sm-12"
              [routerLink]="['/news/article', article.id]">
             <div class="news-card-img">
-                <img [src]="article.img | image" alt="">
+                <img [src]="article.img | image:'articles'" alt="">
 
                 <div class="news-card-info">
 
@@ -174,7 +174,7 @@
 
     <mat-paginator #paginator [length]="totalArticles"
                    pageSize="6"
-                   (page)="handlePage($event)"
+                   (page)="paginate($event)"
     >
     </mat-paginator>
 

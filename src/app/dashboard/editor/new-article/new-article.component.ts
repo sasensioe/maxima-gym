@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 
 import { AngularEditorConfig } from '@kolkov/angular-editor';
-import { Article } from 'src/app/models/article.model';
+
 import { UploadsService } from 'src/app/services/dashboard-services/uploads.service';
 import { ArticlesService } from 'src/app/services/dashboard-services/articles.service';
 import { PopUpService } from 'src/app/services/dashboard-services/pop-up.service';
@@ -19,7 +19,7 @@ interface Filter {
 })
 export class NewArticleComponent {
 
-  public newArticleForm = this.formBuilder.group({
+  public newArticleForm = this._formBuilder.group({
     category: ['', Validators.required],
     title: ['', Validators.required],
     description: ['', Validators.required],
@@ -27,10 +27,10 @@ export class NewArticleComponent {
     body: ['', Validators.required]
   })
 
-  constructor( private formBuilder: FormBuilder,
-               private articlesService: ArticlesService,
-               private uploadsService: UploadsService,
-               private popUpService: PopUpService ) { }
+  constructor( private _formBuilder: FormBuilder,
+               private _articlesService: ArticlesService,
+               private _uploadsService: UploadsService,
+               private _popUpService: PopUpService ) { }
 
   categories: Filter[] = [
     {value: 'all', viewValue: 'All categories'},
@@ -83,23 +83,31 @@ export class NewArticleComponent {
     ['insertImage', 'insertVideo', 'insertHorizontalRule', 'textColor', 'backgroundColor', 'customClasses', 'toggleEditorMode']
   ]
   
-  };
+  }
 
   newArticle(){
 
     if(this.newArticleForm.valid){
 
-      this.articlesService.newArticle(this.newArticleForm.value)
-        .then((resp: {ok:boolean, article:Article}) => {
-          this.popUpService.openPopUp(resp);
+      this._articlesService.newArticle(this.newArticleForm.value)
+        .then((resp: any) => {
+          this._popUpService.openPopUp(resp);
           const newArticleId = resp.article.id;
           const img = this.newArticleForm.get('img').value['files'][0];
-          this.uploadsService.uploadFile(img, 'articles', newArticleId);
+          this._uploadsService.uploadFile(img, 'articles', newArticleId);
         })
+        .catch(error => {
+          this._popUpService.openPopUp(error.error)
+        })
+
     }
 
     if(this.newArticleForm.invalid){
-      this.popUpService.openPopUp({ok: false, msg: 'Please, check the form'});
+      const error = {
+        ok: false,
+        msg: 'Please, check the form'
+      }
+      this._popUpService.openPopUp(error);
     }
   }
 

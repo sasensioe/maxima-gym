@@ -1,5 +1,5 @@
-import { Component, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component } from '@angular/core';
+
 import { PopUpService } from 'src/app/services/dashboard-services/pop-up.service';
 
 @Component({
@@ -7,16 +7,11 @@ import { PopUpService } from 'src/app/services/dashboard-services/pop-up.service
   templateUrl: './pop-up.component.html',
   styleUrls: ['./pop-up.component.css']
 })
-export class PopUpComponent implements OnDestroy {
+export class PopUpComponent {
 
   public message = {};
 
-  constructor( private router: Router,
-               public popUpService: PopUpService ) {}
-
-  ngOnDestroy(): void {
-
-  }
+  constructor( public popUpService: PopUpService ) {}
 
   accept(){
     this.popUpService.closePopUp();

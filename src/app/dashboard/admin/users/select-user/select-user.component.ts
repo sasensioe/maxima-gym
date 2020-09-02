@@ -19,10 +19,9 @@ interface Role {
 })
 export class SelectUserComponent implements OnInit {
 
+  private _from: number = 0;
   public totalUsers: number;
   public users: User[] = [];
-  public from: number = 0;
-  public index: number = 0;
   public searching: boolean = false;
   public page_number: number = 1;
   
@@ -50,7 +49,7 @@ export class SelectUserComponent implements OnInit {
     return this.filterForm.get('text').value;
   }
 
-  get getRole():string{
+  get role():string{
     return this.filterForm.get('role').value;
   }
 
@@ -59,21 +58,22 @@ export class SelectUserComponent implements OnInit {
   }
 
   getUsers(){
-    this.usersService.getUsers(this.from, this.getRole).then(({total, users}) => {
-      this.users = users
-      this.totalUsers = total
-    })
+    this.usersService.getUsers(this._from, this.role)
+      .then(({total, users}) => {
+        this.users = users;
+        this.totalUsers = total;
+      })
   }
 
   handlePage(e: PageEvent){
 
     if(!this.searching){
       if(e.pageIndex > e.previousPageIndex){
-        this.from += 5;
+        this._from += 5;
         this.paginator.pageIndex + 1;
         this.getUsers();
       }else{
-        this.from -= 5;
+        this._from -= 5;
         this.paginator.pageIndex - 1;
         this.getUsers();
       }
@@ -83,14 +83,9 @@ export class SelectUserComponent implements OnInit {
 
   }
 
-  goTo(id: number){
-    this.router.navigate([`../updateUser/${id}`], { relativeTo: this.route });
-  }
-
   filter(){
-
     if( this.text !== ''){
-      this.searchService.search('users', this.text, this.getRole)
+      this.searchService.search('users', this.text, this.role)
         .then((resp:any) => {
           this.paginator.firstPage();
           this.users = resp;
@@ -99,7 +94,7 @@ export class SelectUserComponent implements OnInit {
         })
     }else if(this.text === ''){
       this.paginator.firstPage();
-      this.from = 0;
+      this._from = 0;
       this.getUsers();
       this.searching = false;
     }
@@ -114,6 +109,10 @@ export class SelectUserComponent implements OnInit {
       this.getUsers();
     }
 
+  }
+
+  goTo(id: number){
+    this.router.navigate([`../updateUser/${id}`], { relativeTo: this.route });
   }
 
 }

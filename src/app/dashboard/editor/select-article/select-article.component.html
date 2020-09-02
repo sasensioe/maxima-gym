@@ -1,7 +1,7 @@
 
 <app-dashboard-menu></app-dashboard-menu>
 
-<section class="page-content">
+<section class="select-content">
 
     <h1>SELECT ARTICLE</h1>
 
@@ -9,12 +9,12 @@
 
         <div class="search row">
 
-            <mat-form-field class="input col-8" color="primary">
+            <mat-form-field class="input col-lg-9 col-md-9 col-sm-12" color="primary">
                 <mat-label>Search article</mat-label>
                 <input formControlName="text" matInput>
             </mat-form-field>
 
-            <mat-form-field class="form-field" appearance="fill">
+            <mat-form-field class="form-field col-lg-3 col-md-3 col-sm-12" appearance="fill">
                 <mat-label>Category</mat-label>
                 <mat-select formControlName="category" (selectionChange)="changeCategory($event)">
                     <mat-option *ngFor="let category of categories" [value]="category.value">
@@ -34,12 +34,15 @@
             <div class="item-info">
                 <span>{{article.category | uppercase}}</span>
                 
-                <button mat-raised-button (click)="goTo(article.id)">
-                    UPDATE
-                </button>
-                <button mat-raised-button color="warn">
-                    DELETE
-                </button>
+                <div class="buttons">
+                    <button mat-raised-button color="primary" (click)="goTo(article.id)">
+                        UPDATE
+                    </button>
+                    <button mat-raised-button color="warn">
+                        DELETE
+                    </button>
+                </div>
+
             </div>
 
         </li>

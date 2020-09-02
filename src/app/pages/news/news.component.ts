@@ -71,6 +71,7 @@ export class NewsComponent implements OnInit {
 
 
   ngOnInit(): void {
+    window.scrollTo(0,0);
     this.newsService.getArticles(0, 'all', 6)
       .then((resp:any) => {
         this.gridArticles = resp.articles;
@@ -87,7 +88,7 @@ export class NewsComponent implements OnInit {
       })
   }
 
-  handlePage(e: PageEvent){
+  paginate(e: PageEvent){
 
     if(!this.searching){
       if(e.pageIndex > e.previousPageIndex){

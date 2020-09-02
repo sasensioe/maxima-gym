@@ -1,30 +1,40 @@
                                             /** GENERAL **/
 
 
-.page-content{
+.new-article-content{
     width: 100%;
     padding: 5em;
 }
 
-.page-content h1{
+.new-article-content h1{
     margin-bottom: 2em;
 }
 
-.page-content form h2{
+.new-article-content form h2{
     margin-top: 2em;
 }
 
-.page-content form .form-full-width{
-    width: 60%;
-    margin: 1em;
-}
-
-.page-content form .form-25-width{
+.new-article-content form .category{
     width: 25%;
     margin: 1em;
 }
 
-.page-content form .accept{
+.new-article-content form .image{
+    width: 25%;
+    margin: 1em;
+}
+
+.new-article-content form .title{
+    width: 60%;
+    margin: 1em;
+}
+
+.new-article-content form .description{
+    width: 60%;
+    margin: 1em;
+}
+
+.new-article-content form .accept{
     margin-top: 2em;
     display: flex;
     flex-direction: column;
@@ -32,7 +42,7 @@
     width: 100%;
 }
 
-.page-content form .accept button{
+.new-article-content form .accept button{
     margin: 2em auto;
     border: none;
     border-radius: 25px;
@@ -48,7 +58,27 @@
                                         /** SMALL DEVICES **/
 
 @media (max-width:768px){
-    .page-content form .form-full-width{
+
+    .new-article-content{
+        padding: 3em;
+    }
+
+    .new-article-content form .category{
+        width: 100%;
+        margin: 0 auto;
+    }
+    
+    .new-article-content form .image{
+        width: 100%;
+        margin: 0 auto;
+    }
+    
+    .new-article-content form .title{
+        width: 100%;
+        margin: 0 auto;
+    }
+    
+    .new-article-content form .description{
         width: 100%;
         margin: 0 auto;
     }

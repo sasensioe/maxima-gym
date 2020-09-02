@@ -24,6 +24,7 @@ export class User {
         public name: string,
         public surname: string,
         public role: string,
+        public img: string,
         public address: Address,
         public contact: Contact,
         public access: Access,

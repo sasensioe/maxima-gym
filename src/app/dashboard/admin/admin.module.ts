@@ -8,12 +8,11 @@ import { MaterialModule } from '../../modules/material.module';
 import { DashboardSharedModule } from '../shared/dashboard.shared.module';
 import { PipesModule } from 'src/app/pipes/pipes.module';
 
-import { UsersComponent } from './users/users.component';
 import { AdminComponent } from './admin.component';
+import { UsersComponent } from './users/users.component';
 import { NewUserComponent } from './users/new-user/new-user.component';
-import { UpdateUserComponent } from './users/update-user/update-user.component';
-
 import { SelectUserComponent } from './users/select-user/select-user.component';
+import { UpdateUserComponent } from './users/update-user/update-user.component';
 
 
 @NgModule({
@@ -22,8 +21,7 @@ import { SelectUserComponent } from './users/select-user/select-user.component';
     UsersComponent,
     NewUserComponent,
     UpdateUserComponent,
-    SelectUserComponent,
-
+    SelectUserComponent
   ],
   imports: [
     CommonModule,
@@ -34,9 +32,6 @@ import { SelectUserComponent } from './users/select-user/select-user.component';
     DashboardSharedModule,
     PipesModule
   ],
-  exports: [
-    AdminComponent,
-    UsersComponent,
-  ]
+  exports: []
 })
 export class AdminModule { }

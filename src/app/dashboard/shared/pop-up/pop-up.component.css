@@ -1,3 +1,6 @@
+                                            /** GENERAL **/
+
+
 .deg-background{
     position: fixed;
     top: 0;
@@ -15,7 +18,7 @@
     display: none;
 }
 
-.info-pop-up{
+.deg-background .info-pop-up{
     width: 40%;
     display: flex;
     flex-direction: column;
@@ -26,12 +29,12 @@
     padding: 2em;
 }
 
-.info-pop-up img{
+.deg-background .info-pop-up img{
     width: 25%;
     filter: invert(38%) sepia(82%) saturate(2706%) hue-rotate(326deg) brightness(91%) contrast(95%);
 }
 
-button{
+.deg-background .info-pop-up button{
     margin: 2em auto;
     border: none;
     border-radius: 25px;
@@ -39,4 +42,26 @@ button{
     padding: 1em 3em;
     color: #ffffff;
     outline: none;
+}
+
+
+                                        /** MEDIUM DEVICES **/
+
+@media (max-width:992px){
+
+    .deg-background .info-pop-up{
+        width: 50%;
+    }
+
+}
+
+
+                                        /** SMALL DEVICES **/
+
+@media (max-width:768px){
+
+    .deg-background .info-pop-up{
+        width: 80%;
+    }
+
 }

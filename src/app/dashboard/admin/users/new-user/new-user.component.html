@@ -2,7 +2,7 @@
 <app-dashboard-menu></app-dashboard-menu>
 
 
-<section class="page-content">
+<section class="new-user-content">
 
     <h1>NEW USER</h1>
 
@@ -11,7 +11,7 @@
 
         <h2>General</h2>
 
-        <mat-form-field appearance="fill">
+        <mat-form-field class="role" appearance="fill">
             <mat-label>Select a role:</mat-label>
             <mat-select formControlName="role">
               <mat-option value="admin">Admin</mat-option>
@@ -26,7 +26,7 @@
 
         <br>
 
-        <mat-form-field class="form-full-width" id="name" color="primary">
+        <mat-form-field class="name" id="name" color="primary">
             <mat-label>Name</mat-label>
             <input matInput formControlName="name" placeholder="Ex. ">
             <mat-error *ngIf="newUserForm.controls.name.hasError('required')">
@@ -36,7 +36,7 @@
 
         <br>
 
-        <mat-form-field class="form-full-width" id="surname" color="primary">
+        <mat-form-field class="surname" id="surname" color="primary">
             <mat-label>Surname</mat-label>
             <input matInput formControlName="surname">
             <mat-error *ngIf="newUserForm.controls.surname.hasError('required')">
@@ -46,7 +46,7 @@
 
         <br>
 
-        <mat-form-field formGroupName="access" class="form-full-width"  id="password" color="primary">
+        <mat-form-field formGroupName="access" class="password"  id="password" color="primary">
             <mat-label>Password</mat-label>
             <input matInput formControlName="password">
             <mat-error *ngIf="newUserForm.controls.access.get('password').hasError('required')">
@@ -58,7 +58,7 @@
 
         <h2>Address</h2>
 
-        <mat-form-field formGroupName="address" class="form-full-width" id="address" color="primay">
+        <mat-form-field formGroupName="address" class="address" id="address" color="primay">
             <mat-label>Address</mat-label>
             <input matInput formControlName="address">
             <mat-error *ngIf="newUserForm.controls.address.get('address').hasError('required')">
@@ -66,9 +66,7 @@
             </mat-error>
         </mat-form-field>
 
-        <br>
-
-        <mat-form-field formGroupName="address" class="form-full-width" id="city" color="primary">
+        <mat-form-field formGroupName="address" class="city" id="city" color="primary">
             <mat-label>City</mat-label>
             <input matInput formControlName="city">
             <mat-error *ngIf="newUserForm.controls.address.get('city').hasError('required')">
@@ -76,7 +74,9 @@
             </mat-error>
         </mat-form-field>
 
-        <mat-form-field formGroupName="address" class="form-full-width" id="province" color="primary">
+        <br>
+
+        <mat-form-field formGroupName="address" class="province" id="province" color="primary">
             <mat-label>Province</mat-label>
             <input matInput formControlName="province">
             <mat-error *ngIf="newUserForm.controls.address.get('province').hasError('required')">
@@ -84,7 +84,7 @@
             </mat-error>
         </mat-form-field>
 
-        <mat-form-field formGroupName="address" class="form-full-width" id="postal-code" color="primary">
+        <mat-form-field formGroupName="address" class="postal-code" id="postal-code" color="primary">
             <mat-label>Postal Code</mat-label>
             <input matInput formControlName="postalCode">
             <mat-error *ngIf="newUserForm.controls.address.get('postalCode').hasError('required')">
@@ -96,7 +96,7 @@
 
         <h2>Contact</h2>
 
-        <mat-form-field formGroupName="contact" class="form-full-width" id="email" color="primary">
+        <mat-form-field formGroupName="contact" class="email" id="email" color="primary">
             <mat-label>Email</mat-label>
             <input matInput formControlName="email">
             <mat-error *ngIf="newUserForm.controls.contact.get('email').hasError('email') || newUserForm.controls.contact.get('email').hasError('required')">
@@ -104,7 +104,7 @@
             </mat-error>
         </mat-form-field>
 
-        <mat-form-field formGroupName="contact" class="form-full-width" id="phone" color="primary">
+        <mat-form-field formGroupName="contact" class="phone" id="phone" color="primary">
             <mat-label>Phone</mat-label>
             <input matInput formControlName="phone">
             <mat-error *ngIf="newUserForm.controls.contact.get('phone').hasError('required')">

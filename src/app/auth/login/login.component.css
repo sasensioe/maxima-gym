@@ -23,7 +23,7 @@
     color: #ffffff;
 }
 
-.login-container{
+.background .login-container{
     padding: 2em;
     border-radius: 1em;
     background-color: #ffffff;
@@ -31,19 +31,64 @@
     width: 35%;
 }
 
-.login-container span{
-    color: #e43f5a;
-}
-
-.form-full-width{
+.background .login-container .form-full-width{
     width: 90%;
 }
 
-button{
+.background .login-container span{
+    color: #e43f5a;
+}
+
+.background .login-container button{
     margin: 2em auto;
     border: none;
     border-radius: 25px;
     background-color: #e43f5a;
     padding: 1em 3em;
     color: #ffffff;
+    outline: none;
+}
+
+.background .back{
+    position: fixed;
+    top: 1em;
+    left: 1em;
+    width: 2em;
+    height: 2em;
+}
+
+.background .back img{
+    width: 100%;
+    filter: invert(38%) sepia(82%) saturate(2706%) hue-rotate(326deg) brightness(91%) contrast(95%);
+    cursor: pointer;
+}
+
+
+                                        /** MEDIUM DEVICES **/
+
+@media (max-width:992px){
+
+    .background .login-container{
+        padding: 2em;
+        border-radius: 1em;
+        background-color: #ffffff;
+        text-align: center;
+        width: 50%;
+    }
+
+}
+
+
+                                        /** SMALL DEVICES **/
+
+@media (max-width:768px){
+
+    .background .login-container{
+        padding: 2em;
+        border-radius: 1em;
+        background-color: #ffffff;
+        text-align: center;
+        width: 80%;
+    }
+
 }

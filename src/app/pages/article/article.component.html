@@ -2,11 +2,15 @@
 
 <header *ngIf="articleData" class="article-header">
 
-    <img [src]="articleData['img'] | image">
+    <img [src]="articleData['img'] | image:'articles'">
 
     <div class="deg-background">
 
         <h1>{{articleData['title'] | uppercase}}</h1>
+
+        <div class="back-icon" (click)="goBack()">
+            <img src="assets/img/dashboard/icons/left-arrow.svg" alt="">
+        </div>
 
     </div>
 

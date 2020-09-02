@@ -1,31 +1,32 @@
-
+                                        /** GENERAL **/
 
 .dashboard-menu{
     position: relative;
     width: 100%;
     background-color: #1b1b2f;
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-around;
+    list-style: none;
     padding: 0;
 }
 
-.dashboard-menu ul{
-    display: flex;
-    color: #ffffff;
-    list-style: none;
-    text-align: center;
-
-    margin: 0 auto;
-}
-
-.dashboard-menu ul li{
+.dashboard-menu li{
     cursor: pointer;
-    padding: 1em 3em;
+    color: #ffffff;
+    margin: 1em auto;
 }
 
-.dashboard-menu ul li:hover{
+.dashboard-menu li:hover{
     color: #e43f5a;
     transition: 0.4s;
+}
+
+
+                                        /** SMALL DEVICES **/
+
+@media(max-width: 768px){
+
+    .dashboard-menu li{
+        margin: 1em auto;
+    }
 }

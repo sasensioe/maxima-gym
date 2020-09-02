@@ -1,7 +1,7 @@
 
 <app-dashboard-menu></app-dashboard-menu>
 
-<section class="page-content">
+<section class="select-content">
 
     <h1>SELECT USER</h1>
 
@@ -9,12 +9,12 @@
 
         <div class="search row">
 
-            <mat-form-field class="input col-8" color="primary">
-                <mat-label>Search article</mat-label>
+            <mat-form-field class="input col-lg-9 col-md-9 col-sm-12" color="primary">
+                <mat-label>Search user</mat-label>
                 <input formControlName="text" matInput>
             </mat-form-field>
 
-            <mat-form-field class="form-field" appearance="fill">
+            <mat-form-field class="form-field col-lg-3 col-md-3 col-sm-12" appearance="fill">
                 <mat-label>Role</mat-label>
                 <mat-select formControlName="role" (selectionChange)="changeRole($event)">
                     <mat-option *ngFor="let role of roles" [value]="role.value">
@@ -33,12 +33,16 @@
         
             <div class="item-info">
                 <span>{{user.role | uppercase}}</span>
-                <button mat-raised-button (click)="goTo(user.uid)">
-                    UPDATE
-                </button>
-                <button mat-raised-button color="warn">
-                    DELETE
-                </button>
+
+                <div class="buttons">
+                    <button mat-raised-button color="primary" (click)="goTo(user.uid)">
+                        UPDATE
+                    </button>
+                    <button mat-raised-button color="warn">
+                        DELETE
+                    </button>
+                </div>
+
             </div>
 
         </li>

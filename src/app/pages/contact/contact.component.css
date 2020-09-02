@@ -163,6 +163,10 @@
 
     /** CONTACT-INFO **/
 
+    .contact-info{
+        padding: 2em;
+    }
+
     .contact-info .info-cards .info-card{
         margin: 1em auto;
     }

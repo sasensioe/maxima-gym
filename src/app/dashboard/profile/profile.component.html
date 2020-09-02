@@ -1,1 +1,88 @@
-<p>profile works!</p>
+
+<div class="profile-page container-fluid row">
+
+    <aside class="profile-aside col-lg-3 col-md-4 col-sm-12">
+
+        <div class="image-container">
+            <img [src]="user.img | image:'users'" alt="">
+        </div>
+
+        <button matRipple class="edit-button" (click)="selectImageService.openModal()">
+            CHANGE IMAGE
+        </button>
+
+        <h1>{{user.name}} {{user.surname}}</h1>
+
+        <h3>{{user.role | uppercase}}</h3>
+
+    </aside>
+
+    <section class="profile-info col-lg-9 col-md-8 col-sm-12">
+
+        <h1>PERSONAL</h1>
+
+        <div class="user-data">
+            <h2>ME</h2>
+            <h3>Username: {{user.access.userName}}</h3>
+            <h3>Name: {{user.name}}</h3>
+            <h3>Surname: {{user.surname}}</h3>
+            <h2>ADDRESS</h2>
+            <h3>Address: {{user.address.address}}</h3>
+            <h3>City: {{user.address.city}}</h3>
+            <h3>Postal code: {{user.address.postalCode}}</h3>
+            <h3>Province: {{user.address.province}}</h3>
+            <br>
+            <h6>*Please, contact an admin if you find some issue in your profile</h6>
+        </div>
+
+        <hr>
+
+        <h1>CHANGE PASSWORD</h1>
+
+        <div class="user-password">
+
+            <form (submit)="updatePassword()" [formGroup]="newPasswordForm" class="example-form">
+
+                <div class="old-pass">
+                    <mat-form-field class="pass-form-input">
+                        <mat-label>Password</mat-label>
+                        <input type="password" matInput formControlName="pass1">
+                    </mat-form-field>
+                    <mat-form-field class="pass-form-input">
+                        <mat-label>Confirm Password</mat-label>
+                        <input type="password" matInput formControlName="pass2">
+                    </mat-form-field>
+                </div>
+
+                <br>
+
+                <div class="new-pass">
+                    <mat-form-field class="pass-form-input">
+                        <mat-label>New Password</mat-label>
+                        <input type="password" matInput formControlName="newPassword">
+                    </mat-form-field>
+                </div>
+
+
+                <br>
+                <mat-error>
+                    <p *ngIf="checkMinLength()">Write at least 8 characters</p>
+                    <p *ngIf="checkSamePasswords()">Passwords must match</p>
+                    <p *ngIf="newPasswordForm.get('pass2').hasError('notValid')">Password not valid</p>
+                    <p *ngIf="newPasswordForm.hasError('invalid') && passFormSubmitted">Please, check the form</p>
+                </mat-error>
+                <p>{{passResponse}}</p>
+
+                <button (submit)="updatePassword()">
+                    SAVE PASSWORD
+                </button>
+
+              </form>
+
+        </div>
+
+    </section>
+
+</div>
+
+<app-select-image></app-select-image>

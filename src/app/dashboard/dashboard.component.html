@@ -13,12 +13,11 @@
         <h1>Hello {{user.name}}!</h1>
 
         <div [matMenuTriggerFor]="beforeMenu" class="user-icon">
-            <img src="assets/img/dashboard/icons/user.svg" alt="">
+            <img [src]="user.img | image:'users'" alt="">
         </div>
 
         <mat-menu class="user-menu" #beforeMenu="matMenu" xPosition="before">
             <button [routerLink]="['/dashboard', user.role, 'profile']" mat-menu-item>My account</button>
-            <button mat-menu-item>Settings</button>
             <button (click)="logout()" mat-menu-item>Logout</button>
         </mat-menu>
 

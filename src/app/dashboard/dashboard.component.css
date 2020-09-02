@@ -1,4 +1,4 @@
-
+                                            /** GENERAL **/
 
 .dashboard-header{
     position: relative;
@@ -17,7 +17,7 @@
     object-position: center;
 }
 
-.deg-background{
+.dashboard-header .deg-background{
     position: absolute;
     top: 0;
     left: 0;
@@ -29,12 +29,12 @@
     align-items: center;
 }
 
-.deg-background h1{
+.dashboard-header .deg-background h1{
     font-size: 3em;
     color: #ffffff;
 }
 
-.back-icon{
+.dashboard-header .deg-background .back-icon{
     position: absolute;
     top: 1em;
     left: 1em;
@@ -42,13 +42,15 @@
     height: 3em;
 }
 
-.back-icon img{
+.dashboard-header .deg-background .back-icon img{
     width: 100%;
     filter: invert(38%) sepia(82%) saturate(2706%) hue-rotate(326deg) brightness(91%) contrast(95%);
     cursor: pointer;
 }
 
-.user-icon{
+.dashboard-header .deg-background .user-icon{
+    border-radius: 50%;
+    overflow: hidden;
     position: absolute;
     top: 1em;
     right: 1em;
@@ -56,12 +58,7 @@
     height: 3em;
 }
 
-.user-icon img{
+.dashboard-header .deg-background .user-icon img{
     width: 100%;
-    filter: invert(38%) sepia(82%) saturate(2706%) hue-rotate(326deg) brightness(91%) contrast(95%);
     cursor: pointer;
-}
-
-.button{
-    outline: none;
 }

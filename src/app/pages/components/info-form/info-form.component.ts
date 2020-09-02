@@ -1,6 +1,6 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 
-import { FormControl, FormGroup, Validators } from '@angular/forms'
+import { Validators, FormBuilder } from '@angular/forms'
 
 import { InfoService } from '../../../services/pages-services/info.service'
 
@@ -9,66 +9,56 @@ import { InfoService } from '../../../services/pages-services/info.service'
   templateUrl: './info-form.component.html',
   styleUrls: ['./info-form.component.css']
 })
-export class InfoFormComponent implements OnInit {
+export class InfoFormComponent {
 
   @Output() closeInfoForm: EventEmitter<boolean>
 
-  showForm:boolean;
+  public showForm: boolean;
+  public showSuccess: boolean = false;
+  public showError: boolean = false;
+  public formSent: boolean;
 
-  formSent:boolean;
+  public contactData = this._formBuilder.group({
+    name: ['', Validators.required],
+    email: ['', [Validators.required, Validators.email]],
+    phone: ['', Validators.required],
+    message: ['', Validators.required],
+  })
 
-  validForm:boolean;
-
-  contactData:FormGroup  
-
-  constructor( private infoService:InfoService ){
-
-    this.contactData = new FormGroup({
-      name: new FormControl('', [Validators.required]),
-      email: new FormControl('', [Validators.required, Validators.email]),
-      phone: new FormControl('', [Validators.required]),
-      message: new FormControl('', [Validators.required]),
-    })
-
-    this.closeInfoForm = new EventEmitter();
-
-    this.showForm = true;
-
-  }
+  constructor( private _infoService: InfoService,
+               private _formBuilder: FormBuilder ){
+                this.closeInfoForm = new EventEmitter();
+                this.showForm = true;
+               }
 
   sendInfo(){
 
-    if(this.contactData.status === 'INVALID'){
+    this.formSent = true;
 
-      this.validForm = false;
-      this.formSent = true
-      this.showForm = true
-    
-    }else if(this.contactData.status === 'VALID'){
-
-      this.validForm = true;
-      this.formSent = true;
-      this.showForm = false;
-
-      let name = this.contactData.value.name;
-      let email = this.contactData.value.email;
-      let phone = this.contactData.value.phone;
-      let message = this.contactData.value.message;
-      
-      this.infoService.sendInfo(name, email, phone, message);
+    if(this.contactData.invalid){
+      this.showForm = true;
+    }else if(this.contactData.valid){
+      const data = this.contactData.value;
+      this._infoService.newInfoRequest(data)
+        .then((resp: {ok: boolean}) => {
+          if(resp.ok){
+            this.showForm = false;
+            this.showSuccess = true;
+          }else{
+            return;
+          }
+        })
+        .catch(error => {
+          console.log(error)
+          this.showError = true;
+        })
 
     }
 
   }
 
   close(){
-
     this.closeInfoForm.emit(false)
-
-  }
-
-  ngOnInit(){
-
   }
 
 }

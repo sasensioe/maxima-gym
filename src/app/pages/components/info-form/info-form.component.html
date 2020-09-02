@@ -48,13 +48,14 @@
                 SEND
             </button>
 
-            <div *ngIf="formSent && !validForm" class="error">
-                <span>Please, check the form and ensure that everything is correct</span>
+            <div class="error">
+                <span *ngIf="contactData.invalid && formSent">Please, check the form and ensure that everything is correct</span>
+                <span *ngIf="showError">Cannot send info right now, try it later</span>
             </div>
 
         </form>
 
-        <div *ngIf="formSent && validForm" class="success">
+        <div *ngIf="showSuccess" class="success">
             <img src="assets/img/pages/icons/correct.svg" alt="">
             <h1>Thank you!</h1>
             <h2>Now just relax and wait our call</h2>

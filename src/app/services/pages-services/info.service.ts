@@ -1,25 +1,21 @@
 import { Injectable } from '@angular/core';
 
-import { AngularFirestore } from '@angular/fire/firestore'
+import { environment } from '../../../environments/environment'
+import { HttpClient } from '@angular/common/http';
+import { InfoForm } from 'src/app/interfaces/info-form.interface';
+
+const base_url = environment.base_url;
 
 @Injectable({
   providedIn: 'root'
 })
 export class InfoService {
 
-  constructor( private db:AngularFirestore ) { }
+  constructor( private _http: HttpClient ) { }
 
-  sendInfo(na:string, em:string, ph:string, me:string){
+  newInfoRequest = async(data: InfoForm) => {
 
-    this.db.collection('info-request').ref.add(
-      {
-        name: na,
-        email: em,
-        phone: ph,
-        message: me,
-        date: new Date()
-      }
-    )
+    return this._http.post(`${base_url}/info-requests`, data).toPromise()
 
   }
 

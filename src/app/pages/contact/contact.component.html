@@ -50,9 +50,9 @@
 
     <div class="form-container">
 
-        <h1 *ngIf="formShow">We call you!</h1>
+        <h1 *ngIf="showForm">We call you!</h1>
 
-        <form *ngIf="formShow" class="form" (submit)="sendInfo()" [formGroup]="contactData">
+        <form *ngIf="showForm" class="form" (submit)="sendInfo()" [formGroup]="contactData">
             <mat-form-field class="form-full-width" color="accent">
                 <mat-label>Name*</mat-label>
                 <input matInput formControlName="name" placeholder="Ex. Lady Gaga">
@@ -93,13 +93,14 @@
                 SEND
             </button>
 
-            <div *ngIf="formSent && !validForm" class="error">
-                <span>Please, check the form and ensure that everything is correct</span>
+            <div class="error">
+                <span *ngIf="contactData.invalid && formSent">Please, check the form and ensure that everything is correct</span>
+                <span *ngIf="showError">Cannot send info right now, try it later</span>
             </div>
 
         </form>
 
-        <div *ngIf="formSent && validForm" class="success">
+        <div *ngIf="showSuccess" class="success">
             <img src="assets/img/pages/icons/correct.svg" alt="">
             <h1>Thank you!</h1>
             <h2>Now just relax and wait our call</h2>

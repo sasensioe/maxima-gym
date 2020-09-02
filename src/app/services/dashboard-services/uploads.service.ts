@@ -30,7 +30,7 @@ export class UploadsService {
       const data = await resp.json();
 
       if(data.ok){
-        return data.fileName;
+        return data.url;
       }else{
         console.log(data.msg)
         return false;

@@ -1,0 +1,36 @@
+
+<div class="deg-background"
+[class.hidden]="selectImageService.hideModal">
+
+<div *ngIf="!selectImageService.hideModal" class="select-image">
+
+    <a class="close" (click)="close()">
+        X
+    </a>
+
+    <div class="img-container">
+        <img *ngIf="tempImg" [src]="tempImg" alt="">
+        <img *ngIf="!tempImg" [src]="authService.loggedUser.img | image:'users'" alt="">
+    </div>
+
+    <br>
+
+    <mat-form-field (change)="changeImage($event.target.files[0])" class="form-25-width" appearance="standard" color="accent">
+        <mat-label>Select image</mat-label>
+        <ngx-mat-file-input formControlName="img" placeholder="Select a header image" ></ngx-mat-file-input>
+    </mat-form-field>
+
+    <br>
+
+    <span *ngIf="loading">Please, wait a moment</span>
+    <span *ngIf="error">Cannot upload image</span>
+
+    <br>
+
+    <button matRipple (click)="accept()">
+        ACCEPT
+    </button>
+   
+</div>
+
+</div>

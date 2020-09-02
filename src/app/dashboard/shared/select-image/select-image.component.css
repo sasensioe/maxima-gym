@@ -1,0 +1,73 @@
+                                            /** GENERAL **/
+
+
+.deg-background{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 10000;
+}
+
+.hidden{
+    display: none;
+}
+
+.deg-background .select-image{
+    position: relative;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 2em;
+}
+
+.deg-background .select-image .close{
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    cursor: pointer;
+}
+
+.deg-background .select-image .img-container{
+    width: 10em;
+    height: 10em;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.deg-background .select-image .img-container img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.deg-background .select-image button{
+    margin: 2em auto;
+    border: none;
+    border-radius: 25px;
+    background-color: #e43f5a;
+    padding: 1em 3em;
+    color: #ffffff;
+    outline: none;
+}
+
+                                        /** SMALL DEVICES **/
+
+
+@media(max-width:768px){
+
+    .deg-background .select-image{
+        width: 80%;
+    }
+
+}

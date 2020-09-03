@@ -18,6 +18,15 @@ constructor(){
 
 }
 
+items = [
+  {title: 'home', path: '/home'},
+  {title: 'activities', path: '/activities'},
+  {title: 'facilities', path: '/facilities'},
+  {title: 'news', path: '/news'},
+  {title: 'contact', path: '/contact'},
+  {title: 'members', path: '/login'},
+]
+
 close(){
 
   this.closeSidenav.emit(false)

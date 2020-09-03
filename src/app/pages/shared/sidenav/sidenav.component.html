@@ -1,4 +1,8 @@
 
+  <div class="deg-background animate__animated animate__fadeIn"
+       [class.hidden]="!sidenav"
+       (click)="close()"></div>
+
   <div class="sidenav" [ngClass]="{'opened': sidenav, 'closed':!sidenav}">
 
     <div class="close"
@@ -6,17 +10,14 @@
       X
     </div>
 
-    <ul class="sidenav-items">
-      <li (click)="close()" routerLink="/home" routerLinkActive="active" class="sidenav-item">HOME</li>
-      <hr>
-      <li (click)="close()" routerLink="/activities" routerLinkActive="active" class="sidenav-item">ACTIVITIES</li>
-      <hr>
-      <li (click)="close()" routerLink="/facilities" routerLinkActive="active" class="sidenav-item">FACILITIES</li>
-      <hr>
-      <li (click)="close()" routerLink="/news" routerLinkActive="active" class="sidenav-item">NEWS</li>
-      <hr>
-      <li (click)="close()" routerLink="/contact" routerLinkActive="active" class="sidenav-item">CONTACT</li>
-    </ul>
+    <cdk-virtual-scroll-viewport itemSize="50" class="sidenav-items">
+      <li *cdkVirtualFor="let item of items"
+          class="sidenav-item"
+          [routerLink]="item.path"
+          routerLinkActive="active"
+          class="sidenav-item"
+          (click)="close()">{{item.title | uppercase}}</li>
+    </cdk-virtual-scroll-viewport>
   
   </div>
 

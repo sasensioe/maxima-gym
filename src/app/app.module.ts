@@ -11,11 +11,6 @@ import { PagesModule } from './pages/pages.module';
 import { AuthModule } from './auth/auth.module';
 import { DashboardModule } from './dashboard/dashboard.module';
 
-/** FIREBASE */
-
-import { AngularFireModule } from '@angular/fire'
-import { AngularFirestoreModule } from '@angular/fire/firestore'
-import { environment } from 'src/environments/environment'
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { InterceptorService } from './interceptors/http.service';
 
@@ -35,8 +30,6 @@ import { InterceptorService } from './interceptors/http.service';
     PagesModule,
     DashboardModule,
     AuthModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule,
     HttpClientModule
   ],
   providers: [{

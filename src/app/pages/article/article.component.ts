@@ -18,15 +18,12 @@ export class ArticleComponent implements OnInit {
   constructor( private route: ActivatedRoute,
                private router: Router,
                private newsService: NewsService ) {
-
-    this.articleId = this.route.snapshot.params.id;
-}
+                this.articleId = this.route.snapshot.params.id;
+               }
 
   ngOnInit(){
-  
     window.scrollTo(0,0);
     this.getArticle();
-
   }
 
   getArticle(){
@@ -34,6 +31,13 @@ export class ArticleComponent implements OnInit {
     this.newsService.getArticle(this.articleId)
       .then((resp:any) => {
         this.articleData = resp.article;
+
+        this.newsService.getRelated(this.articleData.title, this.articleData.category)
+          .then((resp: {ok: boolean, articles: Article[]}) => {
+            this.relatedArticles = resp.articles;
+            console.log(resp.articles)
+          })
+
       })
       .catch(err => {
         console.log(err)

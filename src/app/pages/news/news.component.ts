@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 
-import { FormGroup, FormControl } from '@angular/forms'
+import { FormGroup, FormControl, FormBuilder } from '@angular/forms'
 
 import { NewsService } from '../../services/pages-services/news.service'
 import { PageEvent, MatPaginator } from '@angular/material/paginator';
@@ -8,7 +8,7 @@ import { Article } from 'src/app/models/article.model';
 import { SearchService } from 'src/app/services/search.service';
 import { MatSelectChange } from '@angular/material/select';
 
-interface Category {
+interface Filter {
   value: string | number;
   viewValue: string;
 }
@@ -29,28 +29,30 @@ export class NewsComponent implements OnInit {
   public page_number: number = 1;
   public filterMenu:boolean = false;
 
-  filterForm = new FormGroup({
-    date: new FormControl('all'),
-    category: new FormControl('all'),
-    text: new FormControl('')
+  public filterForm = this._formBuilder.group({
+    date: ['all'],
+    category: ['all'],
+    text: ['']
   })
+
 
   @ViewChild('paginator') paginator: MatPaginator;
 
   constructor( private newsService: NewsService,
-               private searchService: SearchService ){
+               private searchService: SearchService,
+               private _formBuilder: FormBuilder ){
 
                 
   }
 
-  dates: Category[] = [
+  dates: Filter[] = [
     {value: 'all', viewValue: 'All results'},
-    {value: 604800000, viewValue: 'Last 7 days'},
-    {value: 2592000000, viewValue: 'Last 30 days'},
-    {value: 31536000000, viewValue: 'Last 365 days'},
+    {value: 7, viewValue: 'Last 7 days'},
+    {value: 30, viewValue: 'Last 30 days'},
+    {value: 365, viewValue: 'Last 365 days'},
   ];
 
-  categories: Category[] = [
+  categories: Filter[] = [
     {value: 'all', viewValue: 'All categories'},
     {value: 'nutrition', viewValue: 'Nutrition'},
     {value: 'gym', viewValue: 'Gym'},
@@ -65,14 +67,18 @@ export class NewsComponent implements OnInit {
     return this.filterForm.get('text').value;
   }
 
-  get getCategory():string{
+  get date(){
+    return this.filterForm.get('date').value;
+  }
+
+  get category():string{
     return this.filterForm.get('category').value;
   }
 
 
   ngOnInit(): void {
     window.scrollTo(0,0);
-    this.newsService.getArticles(0, 'all', 6)
+    this.newsService.getArticles(0, 'all', 6, 'all')
       .then((resp:any) => {
         this.gridArticles = resp.articles;
         this.articles = resp.articles;
@@ -81,7 +87,7 @@ export class NewsComponent implements OnInit {
   }
 
   getArticles(){
-    this.newsService.getArticles(this.from, this.getCategory, 6)
+    this.newsService.getArticles(this.from, this.category, 6, this.date)
       .then((resp:any) => {
         this.articles = resp.articles;
         this.totalArticles = resp.total;
@@ -113,11 +119,10 @@ export class NewsComponent implements OnInit {
   filter(){
 
     if( this.text !== ''){
-      this.searchService.search('articles', this.text, this.getCategory).then((resp:any) => {
-        console.log(resp)
+      this.searchService.searchArticles(this.text, this.category, this.date).then((resp:any) => {
         this.paginator.firstPage();
-        this.articles = resp;
-        this.totalArticles = resp.length;
+        this.articles = resp.articles;
+        this.totalArticles = resp.articles.length;
         this.searching = true;
       }).catch(err => console.log(err))
     }else if(this.text === ''){

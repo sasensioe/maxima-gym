@@ -15,8 +15,8 @@ export class LoginComponent {
   public errorMsg: string;
 
   public loginForm = this._formBuilder.group({
-    email: ['admin@admin.com', Validators.required],
-    password: ['12345678', Validators.required]
+    email: ['', Validators.required],
+    password: ['', Validators.required]
   })
 
   constructor( private _formBuilder: FormBuilder,

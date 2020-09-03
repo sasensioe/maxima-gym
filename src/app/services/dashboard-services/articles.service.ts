@@ -22,9 +22,9 @@ export class ArticlesService {
 
   }
 
-  getArticles(from: number = 0, category: string){
+  getArticles(from: number = 0, category: string, date){
 
-    return this.http.get<GetArticles>(`${base_url}/articles/getArticles/${category}?from=${from}`)
+    return this.http.get<GetArticles>(`${base_url}/articles/getArticles/${category}/${date}?from=${from}`)
       .pipe(
         map(resp => {
           const articles = resp.articles.map(

@@ -23,6 +23,17 @@ export class SearchService {
 
   }
 
+  searchArticles(text: string, category, days){
+
+    console.log(text)
+    console.log(category)
+    console.log(days)
+
+    return this.http.get(`${base_url}/all/searchArticles/${text}/${category}/${days}`)
+      .toPromise()
+
+  }
+
 
 
 }

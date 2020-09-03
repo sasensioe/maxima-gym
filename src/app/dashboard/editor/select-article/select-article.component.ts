@@ -61,7 +61,7 @@ export class SelectArticleComponent implements OnInit {
   }
 
   getArticles(){
-    this.articlesService.getArticles(this._from, this.category)
+    this.articlesService.getArticles(this._from, this.category, 'all')
       .then(({total, articles}) => {
         this.articles = articles;
         this.totalArticles = total;

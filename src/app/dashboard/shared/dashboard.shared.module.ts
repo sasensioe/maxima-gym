@@ -8,6 +8,8 @@ import { SelectImageComponent } from './select-image/select-image.component';
 import { MaterialFileInputModule } from 'ngx-material-file-input';
 import { MaterialModule } from 'src/app/modules/material.module';
 import { PipesModule } from 'src/app/pipes/pipes.module';
+import { ProfileComponent } from './profile/profile.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -16,19 +18,22 @@ import { PipesModule } from 'src/app/pipes/pipes.module';
   declarations: [
     DashboardMenuComponent,
     PopUpComponent,
-    SelectImageComponent
+    SelectImageComponent,
+    ProfileComponent
   ],
   imports: [
     CommonModule,
     AppRoutingModule,
     MaterialFileInputModule,
     MaterialModule,
-    PipesModule
+    PipesModule,
+    ReactiveFormsModule,
   ],
   exports: [
     DashboardMenuComponent,
     PopUpComponent,
-    SelectImageComponent
+    SelectImageComponent,
+    ProfileComponent
   ]
 })
 export class DashboardSharedModule { }

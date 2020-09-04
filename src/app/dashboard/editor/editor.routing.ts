@@ -1,12 +1,13 @@
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 
+import { EditorGuard } from 'src/app/guards/editor.guard';
+
+import { EditorComponent } from './editor.component';
 import { NewArticleComponent } from './new-article/new-article.component';
 import { UpdateArticleComponent } from './update-article/update-article.component';
-import { EditorComponent } from './editor.component';
-import { EditorGuard } from 'src/app/guards/editor.guard';
 import { SelectArticleComponent } from './select-article/select-article.component';
-import { ProfileComponent } from '../profile/profile.component';
+import { ProfileComponent } from '../shared/profile/profile.component';
 
 
 const routes: Routes = [

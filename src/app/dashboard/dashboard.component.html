@@ -17,7 +17,7 @@
         </div>
 
         <mat-menu class="user-menu" #beforeMenu="matMenu" xPosition="before">
-            <button [routerLink]="['/dashboard', user.role, 'profile']" mat-menu-item>My account</button>
+            <button [routerLink]="['/dashboard', user.role === 'receptionist' ? 'reception' : user.role, 'profile']" mat-menu-item>My account</button>
             <button (click)="logout()" mat-menu-item>Logout</button>
         </mat-menu>
 

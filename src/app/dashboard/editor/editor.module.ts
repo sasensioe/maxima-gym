@@ -32,9 +32,7 @@ import { SelectArticleComponent } from './select-article/select-article.componen
     PipesModule
   ],
   exports: [
-    EditorComponent,
-    NewArticleComponent,
-    UpdateArticleComponent,
+    EditorComponent
   ]
 })
 export class EditorModule { }

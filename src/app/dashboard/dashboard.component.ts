@@ -20,7 +20,13 @@ export class DashboardComponent implements OnInit {
              }
 
   ngOnInit(): void {
-    this._router.navigate(['dashboard', this.user.role]);
+
+    if(this.user.role === 'receptionist'){
+      this._router.navigate(['dashboard', 'reception']);
+    }else{
+      this._router.navigate(['dashboard', this.user.role]);
+    }
+
   }
 
   goBack(){
@@ -31,7 +37,7 @@ export class DashboardComponent implements OnInit {
       history.back()
       return;
     }
-
+    
     if(arrayRoute.length === 3){
       return;
     }else{

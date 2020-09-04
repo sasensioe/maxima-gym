@@ -7,7 +7,7 @@ import { AdminComponent } from './admin.component';
 import { EditorRoutingModule } from '../editor/editor.routing';
 import { ReceptionRoutingModule } from '../reception/reception.routing';
 import { UsersRoutingModule } from './users/users.routing';
-import { ProfileComponent } from '../profile/profile.component';
+import { ProfileComponent } from '../shared/profile/profile.component';
 
 
 

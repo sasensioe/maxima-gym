@@ -21,9 +21,9 @@ export class DashboardMenuComponent implements OnInit {
   ]
 
   receptionMenu = [
+    {role: 'reception', path: 'requests', title: 'INFO REQUESTS'},
     {role: 'reception', path: 'newClient', title: 'NEW CLIENT'},
     {role: 'reception', path: 'selectClient', title: 'UPDATE CLIENT'},
-    {role: 'reception', path: 'selectClient', title: 'DELETE CLIENT'},
   ]
 
   usersMenu = [

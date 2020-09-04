@@ -17,7 +17,7 @@ export class ReceptionGuard implements CanActivate {
     
       const role = this.authService.loggedUser.role;
 
-      if( role === 'reception' ){
+      if( role === 'receptionist' ){
         return true;
       }else if(role === 'admin'){
         return true;

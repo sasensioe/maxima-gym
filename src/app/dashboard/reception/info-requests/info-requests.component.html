@@ -1,1 +1,30 @@
-<p>info-requests works!</p>
+
+
+<app-dashboard-menu></app-dashboard-menu>
+
+<section class="info-requests-content row">
+
+    <div class="requests-list col-lg-5 col-md-5 col-sm-12">
+
+
+        <ul class="list-group">
+            <li *ngFor="let request of requests" (click)="showRequestById(request.id)" class="list-group-item">
+                {{request.date | date:'shortDate'}} - {{request.name}}
+            </li>
+        </ul>
+
+        <mat-paginator #paginator [length]="total"
+            pageSize="8"
+            (page)="handlePage($event)">
+        </mat-paginator>
+
+
+    </div>
+
+    <div class="col-lg-5 col-md-5 col-sm-12">
+        <app-info-request (deleteRequest)="refresh()" [request]="showRequest"></app-info-request>
+    </div>
+
+    
+
+</section>

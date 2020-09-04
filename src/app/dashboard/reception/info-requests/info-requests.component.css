@@ -1,0 +1,15 @@
+                                            /** GENERAL **/
+
+.info-requests-content{
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+}
+
+.info-requests-content .requests-list{
+    padding: 3em;
+}
+
+.info-requests-content .requests-list .list-group .list-group-item{
+    cursor: pointer;
+}

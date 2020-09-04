@@ -1,0 +1,59 @@
+.request{
+    position: relative;
+    margin: 3em;
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border: 1px solid #e5e5e5;
+    border-radius: 0.3em;
+}
+
+.request .calling-history{
+    border-radius: 0.2em;
+    border: 1px solid #e5e5e5;
+    width: 90%;
+    height: 5em;
+    margin: auto;
+}
+
+.request .calling-history .call{
+    list-style: none;
+}
+
+.request .call-button{
+    background-color: #1f4068;
+    border-radius: 25px;
+    padding: 0.3em 2em;
+    margin: 1em auto;
+    color: #ffffff;
+    border: none;
+    outline: none;
+}
+
+.request .more-info-button{
+    background-color: #e43f5a;
+    border-radius: 25px;
+    padding: 0.3em 2em;
+    margin: 1em auto;
+    color: #ffffff;
+    border: none;
+    outline: none;
+}
+
+.request .buttons button{
+    border-radius: 25px;
+    padding: 0.3em 2em;
+    margin: 1em 1em;
+    color: #ffffff;
+    border: none;
+    outline: none;
+}
+
+.request .buttons .yes-button{
+    background-color: #162447;
+}
+
+.request .buttons .no-button{
+    background-color: #ec0101;
+}

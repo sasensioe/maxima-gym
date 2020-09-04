@@ -13,6 +13,7 @@ import { AuthService } from 'src/app/services/dashboard-services/auth.service';
 export class LoginComponent {
 
   public errorMsg: string;
+  public showLogin: boolean = false;
 
   public loginForm = this._formBuilder.group({
     email: ['', Validators.required],
@@ -22,6 +23,23 @@ export class LoginComponent {
   constructor( private _formBuilder: FormBuilder,
                private _authService: AuthService,
                private _router: Router ) { }
+
+
+  ngOnInit(){
+
+    if(localStorage.getItem('token')){
+      if(this._authService.validateToken){
+        this._router.navigateByUrl('/dashboard');
+      }else{
+        this.showLogin = true;
+        return;
+      }
+    }else{
+      this.showLogin = true;
+      return;
+    }
+
+  }
 
   login(){
 

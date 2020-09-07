@@ -62,7 +62,7 @@ export class ActivitiesService {
       p1:'Pilates is a method of exercise and physical movement designed to stretch, strengthen and balance the body. By systematically practicing specific exercises along with breathing patterns, Pilates has proved invaluable not only for people who want to maintain their physical condition, but also as an important complement to sports and physical rehabilitation of all kinds.',
       p2: 'The Pilates Method is not just exercise. It is a series of controlled movements for the body and mind, carried out on a mat or specially designed devices.'},
 
-  ]
+  ];
   
   schedule: Week[] = [
     
@@ -76,6 +76,6 @@ export class ActivitiesService {
     {hour: '20:00', mo: 'SPINNING', tu: 'SPINNING', we: 'SPINNING', th: 'SPINNING', fr: 'SPINNING', sa: 'SPINNING', su: 'SPINNING'},
     {hour: '21:00', mo: '', tu: '', we: '', th: '', fr: '', sa: '', su: ''},
     {hour: '22:00', mo: '', tu: 'TRX', we: '', th: 'TRX', fr: '', sa: 'TRX', su: ''},
-  ]
+  ];
 
 }

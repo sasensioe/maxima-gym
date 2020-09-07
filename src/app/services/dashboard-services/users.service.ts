@@ -13,15 +13,14 @@ const base_url = environment.base_url
 })
 export class UsersService {
 
-  constructor( private http: HttpClient ) { }
+  constructor( private _http: HttpClient ) { }
   
   newUser(data: object){
-    return this.http.post(`${base_url}/users/newUser`, data).toPromise();
+    return this._http.post(`${base_url}/users/new-user`, data).toPromise();
   }
 
   getUsers(from: number = 0, role: string){
-
-    return this.http.get<GetUsers>(`${base_url}/users/getUsers/${role}?from=${from}`)
+    return this._http.get<GetUsers>(`${base_url}/users/get-users/${role}?from=${from}`)
       .pipe(
         map(resp => {
           const users = resp.users.map(
@@ -34,33 +33,26 @@ export class UsersService {
         })
       )
       .toPromise();
-
   }
 
   getUserById(uid: string){
-
-    return this.http.get(`${base_url}/users/getUser/${uid}`)
+    return this._http.get(`${base_url}/users/get-user/${uid}`)
       .pipe(
         map((resp: {ok: boolean, dbUser: User}) => resp.dbUser)
       )
       .toPromise();
-
   }
 
   updateUser(uid: string, data: object){
-    return this.http.put(`${base_url}/users/updateUser/${uid}`, data).toPromise();
+    return this._http.put(`${base_url}/users/update-user/${uid}`, data).toPromise();
   }
 
   checkPassword(uid: string, pass: string){
-
-    return this.http.get(`${base_url}/users/checkPassword/${uid}?pass=${pass}`).toPromise();
-
+    return this._http.get(`${base_url}/users/check-password/${uid}?pass=${pass}`).toPromise();
   }
 
   updatePassword(uid: string, newPass: object){
-
-    return this.http.put(`${base_url}/users/updatePassword/${uid}`, newPass).toPromise();
-    
+    return this._http.put(`${base_url}/users/update-password/${uid}`, newPass).toPromise();
   }
 
 }

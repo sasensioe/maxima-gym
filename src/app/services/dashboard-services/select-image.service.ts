@@ -6,8 +6,6 @@ import { Injectable } from '@angular/core';
 })
 export class SelectImageService {
 
-  constructor( ){}
-
   private _hideSelectImage: boolean = true;
 
   get hideModal(){

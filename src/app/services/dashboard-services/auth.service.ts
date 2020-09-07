@@ -6,7 +6,7 @@ import { tap, map, catchError } from 'rxjs/operators'
 import { environment } from 'src/environments/environment';
 
 import { LoginForm } from '../../interfaces/login-form.interface';
-import { User } from '../../models/user.model'
+import { User } from '../../models/user.model';
 
 const base_url = environment.base_url;
 
@@ -20,17 +20,15 @@ export class AuthService {
   constructor( private _http: HttpClient ) { }
 
   get token():string{
-    return localStorage.getItem('token')
+    return localStorage.getItem('token');
   }
 
   login(data: LoginForm){
-
     return this._http.post(`${base_url}/login`, data)
       .pipe(
         tap((resp:any) => localStorage.setItem('token', resp.token))
       )
       .toPromise()
-
   }
 
   logout(){
@@ -40,25 +38,20 @@ export class AuthService {
 
   }
 
-  validateToken():Observable<boolean>{
-
+  validateToken(): Observable<boolean> {
     return this._http.get(`${base_url}/login/renewToken`, {
       headers: {
         'x-token': this.token
       }
     }).pipe(
       map((resp:any) => {
-
         const {name, surname, role, img, address, contact, access, uid} = resp.user;
         this.loggedUser = new User(name, surname, role, img, address, contact, access, uid);
-
         localStorage.setItem('token', resp.token);
-
         return true
       }),
       catchError( err => of(false))
     )
-
   }
 
 }

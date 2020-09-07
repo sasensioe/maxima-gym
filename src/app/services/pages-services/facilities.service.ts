@@ -12,7 +12,6 @@ export interface Facility {
 })
 export class FacilitiesService {
 
-
   facilities: Facility[] = [
     {name: 'swimming pool', img: 'assets/img/pages/facilities/pool.jpg', class: 'active',
       content: [

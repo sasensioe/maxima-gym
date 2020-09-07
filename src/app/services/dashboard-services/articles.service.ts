@@ -13,18 +13,15 @@ const base_url = environment.base_url;
 })
 export class ArticlesService {
 
-  constructor( private http: HttpClient ) { }
+  constructor( private _http: HttpClient ) { }
 
-  newArticle = async(data:Article) => {
-
+  newArticle = async(data: Article) => {
     data.img = 'no-image';
-    return this.http.post(`${base_url}/articles/newArticle`, data).toPromise();
-
+    return this._http.post(`${base_url}/articles/new-article`, data).toPromise();
   }
 
-  getArticles(from: number = 0, category: string, date){
-
-    return this.http.get<GetArticles>(`${base_url}/articles/getArticles/${category}/${date}?from=${from}`)
+  getArticles(from: number = 0, category: string, date: any){
+    return this._http.get<GetArticles>(`${base_url}/articles/get-articles/${category}/${date}?from=${from}`)
       .pipe(
         map(resp => {
           const articles = resp.articles.map(
@@ -36,26 +33,21 @@ export class ArticlesService {
           }
         })
       ).toPromise();
-
   }
 
   getArticleById(id: string){
-
-    return this.http.get(`${base_url}/articles/getArticle/${id}`)
+    return this._http.get(`${base_url}/articles/get-article/${id}`)
       .pipe(
         map((resp: {ok:boolean, article: Article}) => {
           return resp.article;
         })
       )
       .toPromise();
-
   }
 
   updateArticle(id: string, data: Object){
-
     delete data['img'];
-    return this.http.put(`${base_url}/articles/updateArticle/${id}`, data).toPromise();
-
+    return this._http.put(`${base_url}/articles/update-article/${id}`, data).toPromise();
   }
 
 

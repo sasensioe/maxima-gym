@@ -1,0 +1,203 @@
+                                            /** GENERAL **/
+
+
+.new-client-content{
+    width: 100%;
+    padding: 5em;
+}
+
+.new-client-content h1{
+    margin-bottom: 2em;
+}
+
+.new-client-content form h2{
+    margin-top: 2em;
+}
+
+.new-client-content form .plan{
+    width: 25%;
+    margin: 1em;
+}
+
+.new-client-content form .name{
+    width: 25%;
+    margin: 1em;
+}
+
+.new-client-content form .surname{
+    width: 35%;
+    margin: 1em;
+}
+
+.new-client-content form .password{
+    width: 25%;
+    margin: 1em;
+}
+
+.new-client-content form .address{
+    width: 60%;
+    margin: 1em;
+}
+
+.new-client-content form .city{
+    width: 30%;
+    margin: 1em;
+}
+
+.new-client-content form .province{
+    width: 30%;
+    margin: 1em;
+}
+
+.new-client-content form .postal-code{
+    width: 20%;
+    margin: 1em;
+}
+
+.new-client-content form .email{
+    width: 40%;
+    margin: 1em;
+}
+
+.new-client-content form .phone{
+    width: 30%;
+    margin: 1em;
+}
+
+.new-client-content form .accept{
+    margin-top: 2em;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+}
+
+.new-client-content form .accept button{
+    margin: 2em auto;
+    border: none;
+    border-radius: 25px;
+    background-color: #e43f5a;
+    padding: 1em 3em;
+    color: #ffffff;
+    outline: none;
+}
+
+                                        /** MEDIUM DEVICES **/
+
+@media (max-width:992px){
+
+    .new-client-content{
+        padding: 3em;
+    }
+
+    .new-client-content form .plan{
+        width: 30%;
+        margin: 0 1em;
+    }
+
+    .new-client-content form .name{
+        width: 30%;
+        margin: 0 1em;
+    }
+    
+    .new-client-content form .surname{
+        width: 40%;
+        margin: 0 1em;
+    }
+    
+    .new-client-content form .password{
+        width: 30%;
+        margin: 0 1em;
+    }
+    
+    .new-client-content form .address{
+        width: 70%;
+        margin: 0 1em;
+    }
+    
+    .new-client-content form .city{
+        width: 20%;
+        margin: 0 1em;
+    }
+    
+    .new-client-content form .province{
+        width: 30%;
+        margin: 0 1em;
+    }
+    
+    .new-client-content form .postal-code{
+        width: 20%;
+        margin: 0 1em;
+    }
+    
+    .new-client-content form .email{
+        width: 40%;
+        margin: 0 1em;
+    }
+    
+    .new-client-content form .phone{
+        width: 30%;
+        margin: 0 1em;
+    }
+
+}
+
+                                        /** SMALL DEVICES **/
+
+@media (max-width:768px){
+
+    .new-client-content{
+        padding: 3em;
+    }
+
+    .new-client-content form .plan{
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .new-client-content form .name{
+        width: 100%;
+        margin: 0 auto;
+    }
+    
+    .new-client-content form .surname{
+        width: 100%;
+        margin: 0 auto;
+    }
+    
+    .new-client-content form .password{
+        width: 100%;
+        margin: 0 auto;
+    }
+    
+    .new-client-content form .address{
+        width: 100%;
+        margin: 0 auto;
+    }
+    
+    .new-client-content form .city{
+        width: 100%;
+        margin: 0 auto;
+    }
+    
+    .new-client-content form .province{
+        width: 100%;
+        margin: 0 auto;
+    }
+    
+    .new-client-content form .postal-code{
+        width: 100%;
+        margin: 0 auto;
+    }
+    
+    .new-client-content form .email{
+        width: 100%;
+        margin: 0 auto;
+    }
+    
+    .new-client-content form .phone{
+        width: 100%;
+        margin: 0 auto;
+    }
+
+}

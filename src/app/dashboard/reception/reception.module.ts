@@ -13,6 +13,8 @@ import { DashboardSharedModule } from '../shared/dashboard.shared.module';
 import { InfoRequestsComponent } from './info-requests/info-requests.component';
 import { MaterialModule } from 'src/app/modules/material.module';
 import { InfoRequestComponent } from './info-request/info-request.component';
+import { MoreInfoComponent } from './more-info/more-info.component';
+import { PipesModule } from 'src/app/pipes/pipes.module';
 
 
 @NgModule({
@@ -22,7 +24,8 @@ import { InfoRequestComponent } from './info-request/info-request.component';
     NewClientComponent,
     UpdateClientComponent,
     SelectClientComponent,
-    InfoRequestComponent
+    InfoRequestComponent,
+    MoreInfoComponent
   ],
   imports: [
     CommonModule,
@@ -30,7 +33,8 @@ import { InfoRequestComponent } from './info-request/info-request.component';
     AppRoutingModule,
     DashboardSharedModule,
     MaterialModule,
-    ScrollingModule
+    ScrollingModule,
+    PipesModule
   ],
   exports: [
     ReceptionComponent,

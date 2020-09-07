@@ -1,0 +1,55 @@
+
+
+<section class="select-content">
+
+    <h1>SELECT CLIENT</h1>
+
+    <form (submit)="filter()" [formGroup]="filterForm">
+
+        <div class="search row">
+
+            <mat-form-field class="input col-lg-9 col-md-9 col-sm-12" color="primary">
+                <mat-label>Search client</mat-label>
+                <input formControlName="text" matInput>
+            </mat-form-field>
+
+            <mat-form-field class="form-field col-lg-3 col-md-3 col-sm-12" appearance="fill">
+                <mat-label>Plan</mat-label>
+                <mat-select formControlName="plan" (selectionChange)="changePlan($event)">
+                    <mat-option *ngFor="let plan of plans" [value]="plan.value">
+                        {{plan.viewValue}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+                    
+        </div>
+
+    </form>
+
+    <ul class="list-group">
+        <li *ngFor="let client of clients | paginate:5:page_number" class="list-group-item">
+            {{client.surname}}, {{client.name}}
+        
+            <div class="item-info">
+                <span>{{client.plan | uppercase}}</span>
+
+                <div class="buttons">
+                    <button mat-raised-button color="primary" (click)="goTo(client.uid)">
+                        MANAGE ROUTINE
+                    </button>
+                </div>
+
+            </div>
+
+        </li>
+    </ul>
+
+    <mat-paginator #paginator [length]="totalClients"
+                   pageSize="5"
+                   (page)="handlePage($event)"
+    >
+    </mat-paginator>
+
+
+
+</section>

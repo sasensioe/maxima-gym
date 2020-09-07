@@ -1,0 +1,82 @@
+
+<section *ngIf="currentClient" class="manage-routine-content">
+
+    <h1>MANAGE ROUTINE</h1>
+
+    <br>
+
+    <h2>{{currentClient.name}} {{currentClient.surname}}</h2>
+
+    <h3>Plan: {{currentClient.plan | uppercase}}</h3>
+
+    <h3>ROUTINE:</h3>
+
+    <form (submit)="updateRoutine()" [formGroup]="manageRoutineForm">
+
+        <mat-form-field class="form-full-width w100">
+            <mat-label>Day 1</mat-label>
+            <textarea [mat-autosize] matInput formControlName="day1" placeholder="Routine for day 1..."></textarea>
+            <mat-hint MatHint="end">{{manageRoutineForm.value.day1.length}} / 256</mat-hint>
+        </mat-form-field>
+
+        <br>
+
+        <mat-form-field class="form-full-width w100">
+            <mat-label>Day 2</mat-label>
+            <textarea [mat-autosize] matInput formControlName="day2" placeholder="Routine for day 1..."></textarea>
+            <mat-hint MatHint="end">{{manageRoutineForm.value.day2.length}} / 256</mat-hint>
+        </mat-form-field>
+
+        <br>
+
+        <mat-form-field class="form-full-width w100">
+            <mat-label>Day 3</mat-label>
+            <textarea [mat-autosize] matInput formControlName="day3" placeholder="Routine for day 3..."></textarea>
+            <mat-hint MatHint="end">{{manageRoutineForm.value.day3.length}} / 256</mat-hint>
+        </mat-form-field>
+
+        <br>
+
+        <mat-form-field class="form-full-width w100">
+            <mat-label>Day 4</mat-label>
+            <textarea [mat-autosize] matInput formControlName="day4" placeholder="Routine for day 4..."></textarea>
+            <mat-hint MatHint="end">{{manageRoutineForm.value.day4.length}} / 256</mat-hint>
+        </mat-form-field>
+
+        <br>
+
+        <mat-form-field class="form-full-width w100">
+            <mat-label>Day 5</mat-label>
+            <textarea [mat-autosize] matInput formControlName="day5" placeholder="Routine for day 5..."></textarea>
+            <mat-hint MatHint="end">{{manageRoutineForm.value.day5.length}} / 256</mat-hint>
+        </mat-form-field>
+
+        <br>
+
+        <mat-form-field class="form-full-width w100">
+            <mat-label>Day 6</mat-label>
+            <textarea [mat-autosize] matInput formControlName="day6" placeholder="Routine for day 6..."></textarea>
+            <mat-hint MatHint="end">{{manageRoutineForm.value.day6.length}} / 256</mat-hint>
+        </mat-form-field>
+
+        <br>
+
+        <mat-form-field class="form-full-width w100">
+            <mat-label>Day 7</mat-label>
+            <textarea [mat-autosize] matInput formControlName="day7" placeholder="Routine for day 7..."></textarea>
+            <mat-hint MatHint="end">{{manageRoutineForm.value.day7.length}} / 256</mat-hint>
+        </mat-form-field>
+
+        <br>
+
+        <div class="button">
+            <button matRipple type="submit">
+                SAVE ROUTINE
+            </button>
+        </div>
+
+    </form>
+
+</section>
+
+<app-pop-up></app-pop-up>

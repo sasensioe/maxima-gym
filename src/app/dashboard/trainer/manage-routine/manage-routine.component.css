@@ -1,0 +1,27 @@
+                                            /** GENERAL **/
+
+.manage-routine-content{
+    width: 100%;
+    padding: 5em;
+}
+
+.w100{
+    width: 100%;
+}
+
+.manage-routine-content form .button{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.manage-routine-content form .button button{
+    margin: 2em auto;
+    border: none;
+    border-radius: 25px;
+    background-color: #e43f5a;
+    padding: 1em 3em;
+    color: #ffffff;
+    outline: none;
+}

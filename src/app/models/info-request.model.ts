@@ -8,7 +8,7 @@ export class InfoRequest {
         public phone: number,
         public message: string,
         public status: string,
-        public calls: Object,
+        public calls: Object[],
     ){}
 
 }

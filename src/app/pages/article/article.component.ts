@@ -49,7 +49,7 @@ export class ArticleComponent implements OnInit {
   
     this.router.navigateByUrl('/dummy', {skipLocationChange: true})
       .then(() => this.router.navigate(['/news/article', id]));
-      
+  
   }
 
   goBack(){

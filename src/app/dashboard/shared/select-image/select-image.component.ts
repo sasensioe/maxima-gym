@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { SelectImageService } from 'src/app/services/dashboard-services/select-image.service';
 import { AuthService } from 'src/app/services/dashboard-services/auth.service';
@@ -9,22 +9,17 @@ import { UploadsService } from 'src/app/services/dashboard-services/uploads.serv
   templateUrl: './select-image.component.html',
   styleUrls: ['./select-image.component.css']
 })
-export class SelectImageComponent implements OnInit {
+export class SelectImageComponent {
 
   public uploadedImage: File;
   public tempImg: any = null;
   public loading: boolean = false;
   public error: boolean = false;
 
-  constructor( private router: Router,
+  constructor( private _uploadsService: UploadsService,
                public selectImageService: SelectImageService,
-               public authService: AuthService,
-               private uploadsService: UploadsService ) {}
+               public authService: AuthService ) {}
 
-  
-  ngOnInit(): void {
-
-  }
 
   close(){
     this.tempImg = null;
@@ -33,26 +28,20 @@ export class SelectImageComponent implements OnInit {
   }
 
   changeImage(file: File){
-
     this.uploadedImage = file;
-
+    
     if(!file){
       this.tempImg = null;
     }
-
     const reader = new FileReader();
-
     reader.readAsDataURL(file);
-
     reader.onloadend = () => {
       this.tempImg = reader.result;
-      console.log(reader.result)
     }
 
   }
 
   accept(){
-
     this.loading = true;
 
     if(!this.uploadedImage){
@@ -60,7 +49,7 @@ export class SelectImageComponent implements OnInit {
     }
 
     const uid = this.authService.loggedUser.uid;
-    this.uploadsService.uploadFile(this.uploadedImage, 'users', uid)
+    this._uploadsService.uploadFile(this.uploadedImage, 'users', uid)
       .then(resp => {
         this.loading = false;
         this.error = false;

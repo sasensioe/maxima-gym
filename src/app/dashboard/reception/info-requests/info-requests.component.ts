@@ -43,10 +43,6 @@ export class InfoRequestsComponent implements OnInit {
 
   }
 
-  getRequest(){
-    
-  }
-
   handlePage(e: PageEvent){
 
     if(e.pageIndex > e.previousPageIndex){
@@ -64,6 +60,7 @@ export class InfoRequestsComponent implements OnInit {
   refresh(){
     this.getRequests()
   }
+
 
 
 

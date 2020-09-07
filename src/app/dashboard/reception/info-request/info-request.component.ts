@@ -10,6 +10,8 @@ import { EventEmitter } from '@angular/core';
 })
 export class InfoRequestComponent implements OnInit {
 
+  public moreInfo: boolean;
+  
   @Input() request: InfoRequest;
   @Output() deleteRequest;
 
@@ -29,6 +31,24 @@ export class InfoRequestComponent implements OnInit {
         this.request = null
       })
 
+  }
+
+  registerCall(){
+
+    this._infoService.registerCall(this.request.id)
+      .then((resp: {ok: boolean, call}) => {
+        this.request.calls.push(resp.call)
+        this.request.calls = [...this.request.calls]
+      })
+
+  }
+
+  openMoreInfo(){
+    this.moreInfo = true;
+  }
+
+  closeMoreInfo(event:boolean){
+    this.moreInfo = event;
   }
 
 }

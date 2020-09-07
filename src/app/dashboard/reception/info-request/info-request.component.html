@@ -2,20 +2,20 @@
 
     <div *ngIf="request" class="request">
 
-        <h1>{{request.name}}</h1>
+        <h1>{{request.name}} - {{request.date | date:'shortDate'}}</h1>
 
-        <h5>{{request.date | date:'shortDate'}}</h5>
+        <h3>{{request.phone}}</h3>
 
-        <button matRipple class="more-info-button">
+        <button matRipple (click)="openMoreInfo()" class="more-info-button">
             MORE INFO
         </button>
 
-        <cdk-virtual-scroll-viewport itemSize="5" class="calling-history">
+        <cdk-virtual-scroll-viewport #scroll [itemSize]="request.calls.length" class="calling-history">
             <li *cdkVirtualFor="let call of request.calls"
-                class="call">{{call}}</li>
-          </cdk-virtual-scroll-viewport>
+                class="call">{{call.date | date:'short'}}</li>
+        </cdk-virtual-scroll-viewport>
 
-        <button matRipple class="call-button">
+        <button matRipple (click)="registerCall()" class="call-button">
             REGISTER CALL
         </button>
 
@@ -31,4 +31,4 @@
         </div>
     </div>
 
-    
+<app-more-info *ngIf="moreInfo" (closeMoreInfo)="closeMoreInfo($event)" [request]="request"></app-more-info>

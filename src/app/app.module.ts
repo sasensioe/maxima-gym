@@ -15,8 +15,6 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { InterceptorService } from './interceptors/http.service';
 
 
-
-
 @NgModule({
   declarations: [
     AppComponent,

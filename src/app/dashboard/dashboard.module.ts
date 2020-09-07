@@ -10,16 +10,14 @@ import { PipesModule } from '../pipes/pipes.module';
 import { AdminModule } from './admin/admin.module';
 import { EditorModule } from './editor/editor.module';
 import { ReceptionModule } from './reception/reception.module';
-
-import { DashboardComponent } from './dashboard.component';
-import { TrainerComponent } from './trainer/trainer.component';
+import { TrainerModule } from './trainer/trainer.module'
 import { DashboardSharedModule } from './shared/dashboard.shared.module';
+import { DashboardComponent } from './dashboard.component';
 
 
 @NgModule({
   declarations: [
-    DashboardComponent,
-    TrainerComponent,
+    DashboardComponent
   ],
   imports: [
     CommonModule,
@@ -30,11 +28,11 @@ import { DashboardSharedModule } from './shared/dashboard.shared.module';
     AdminModule,
     EditorModule,
     ReceptionModule,
+    TrainerModule,
     DashboardSharedModule
   ],
   exports: [
-    DashboardComponent,
-    TrainerComponent,
+    DashboardComponent
   ]
 })
 export class DashboardModule { }

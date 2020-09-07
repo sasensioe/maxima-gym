@@ -33,7 +33,7 @@ export class DashboardComponent implements OnInit {
     const route = this._activatedRoute.snapshot['_routerState'].url;
     let arrayRoute = route.split('/');
 
-    if(route.includes('update')){
+    if(route.includes('update') || route.includes('manage')){
       history.back()
       return;
     }

@@ -1,8 +1,12 @@
 <nav class="navbar">
 
+    <!-- LOGO -->
+
     <div>
         <a class="navbar-brand" routerLink="/home">MAXIMA <span>GYM</span></a>
     </div>
+
+    <!-- MENU -->
 
     <ul class="navbar-menu">
         <li class="nav-item" routerLink="/home" routerLinkActive="active">HOME</li>
@@ -11,6 +15,8 @@
         <li class="nav-item" routerLink="/news" routerLinkActive="active">NEWS</li>
         <li class="nav-item" routerLink="/contact" routerLinkActive="active">CONTACT</li>
     </ul>
+
+    <!-- SIDENAV-BUTTON -->
 
     <div class="menu-button" (click)="open()">
       <img src="assets/img/pages/icons/menu.svg" alt="menu">

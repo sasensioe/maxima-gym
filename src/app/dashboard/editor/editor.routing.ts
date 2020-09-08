@@ -16,9 +16,9 @@ const routes: Routes = [
         canActivate: [EditorGuard],
         children: [
             {path: '', component: EditorComponent, data: {title: 'Editor'}},
-            {path: 'newArticle', component: NewArticleComponent, data: {title: 'New Article'}},
-            {path: 'selectArticle', component: SelectArticleComponent, data: {title: 'Select Article'}},
-            {path: 'updateArticle/:id', component: UpdateArticleComponent, data: {title: 'Update Article'}},
+            {path: 'new-article', component: NewArticleComponent, data: {title: 'New Article'}},
+            {path: 'select-article', component: SelectArticleComponent, data: {title: 'Select Article'}},
+            {path: 'update-article/:id', component: UpdateArticleComponent, data: {title: 'Update Article'}},
             {path: 'profile', component: ProfileComponent, data: {title: 'My Profile'}},
         ]
     }

@@ -7,24 +7,18 @@ import { Component } from '@angular/core';
 })
 export class NavbarComponent {
 
-  sidenav:boolean;
+  public sidenav: boolean;
 
   constructor() {
-
     this.sidenav = false;
-
   }
 
   open(){
-
     this.sidenav = true;
-
-  };
+  }
 
   close(event:boolean){
-
     this.sidenav = event;
-
-  };
+  }
 
 }

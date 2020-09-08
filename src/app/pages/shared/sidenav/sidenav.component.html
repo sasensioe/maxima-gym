@@ -1,7 +1,11 @@
 
+<!-- BACKGROUND -->
+
   <div class="deg-background animate__animated animate__fadeIn"
        [class.hidden]="!sidenav"
        (click)="close()"></div>
+
+<!-- SIDENAV -->
 
   <div class="sidenav" [ngClass]="{'opened': sidenav, 'closed':!sidenav}">
 

@@ -15,21 +15,21 @@ export class DashboardMenuComponent implements OnInit {
   public menu = {};
 
   editorMenu = [
-    {role: 'editor', path: 'newArticle', title: 'NEW ARTICLE'},
-    {role: 'editor', path: 'selectArticle', title: 'UPDATE ARTICLE'},
-    {role: 'editor', path: 'selectArticle', title: 'DELETE ARTICLE'},
+    {role: 'editor', path: 'new-article', title: 'new article'},
+    {role: 'editor', path: 'select-article', title: 'update article'},
+    {role: 'editor', path: 'select-article', title: 'delete article'},
   ]
 
   receptionMenu = [
-    {role: 'reception', path: 'requests', title: 'INFO REQUESTS'},
-    {role: 'reception', path: 'newClient', title: 'NEW CLIENT'},
-    {role: 'reception', path: 'selectClient', title: 'UPDATE CLIENT'},
+    {role: 'reception', path: 'requests', title: 'info requests'},
+    {role: 'reception', path: 'new-client', title: 'new client'},
+    {role: 'reception', path: 'select-client', title: 'update client'},
   ]
 
   usersMenu = [
-    {role: 'users', path: 'newUser', title: 'NEW USER'},
-    {role: 'users', path: 'selectUser', title: 'UPDATE USER'},
-    {role: 'users', path: 'selectUser', title: 'DELETE USER'},
+    {role: 'users', path: 'new-user', title: 'new user'},
+    {role: 'users', path: 'select-user', title: 'update user'},
+    {role: 'users', path: 'select-user', title: 'delete user'},
   ]
 
   constructor( private _router: Router,

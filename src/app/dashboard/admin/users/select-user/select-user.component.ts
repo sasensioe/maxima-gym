@@ -54,7 +54,8 @@ export class SelectUserComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getUsers()
+    window.scrollTo(0,0);
+    this.getUsers();
   }
 
   getUsers(){
@@ -112,7 +113,7 @@ export class SelectUserComponent implements OnInit {
   }
 
   goTo(id: number){
-    this.router.navigate([`../updateUser/${id}`], { relativeTo: this.route });
+    this.router.navigate([`../update-user/${id}`], { relativeTo: this.route });
   }
 
 }

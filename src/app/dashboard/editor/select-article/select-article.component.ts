@@ -92,7 +92,7 @@ export class SelectArticleComponent implements OnInit {
       this.searchService.search('articles', this.text, this.category)
         .then((resp:any) => {
           this.paginator.firstPage();
-          this.articles = resp;
+          this.articles = resp; 
           this.totalArticles = resp.length;
           this.searching = true;
         })
@@ -116,7 +116,7 @@ export class SelectArticleComponent implements OnInit {
   }
 
   goTo(id: string){
-    this.router.navigate([`../updateArticle/${id}`], { relativeTo: this.route });
+    this.router.navigate([`../update-article/${id}`], { relativeTo: this.route });
   }
 
 }

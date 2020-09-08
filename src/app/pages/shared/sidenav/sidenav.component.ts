@@ -13,9 +13,7 @@ export class SidenavComponent {
 @Output() closeSidenav: EventEmitter<boolean>;
 
 constructor(){
-
   this.closeSidenav = new EventEmitter();
-
 }
 
 items = [
@@ -28,9 +26,7 @@ items = [
 ]
 
 close(){
-
-  this.closeSidenav.emit(false)
-
+  this.closeSidenav.emit(false);
 }
 
 

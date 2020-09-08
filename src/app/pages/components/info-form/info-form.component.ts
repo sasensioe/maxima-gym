@@ -49,16 +49,15 @@ export class InfoFormComponent {
           }
         })
         .catch(error => {
-          console.log(error)
+          console.log(error);
           this.showError = true;
         })
-
     }
 
   }
 
   close(){
-    this.closeInfoForm.emit(false)
+    this.closeInfoForm.emit(false);
   }
 
 }

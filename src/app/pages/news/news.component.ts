@@ -27,14 +27,13 @@ export class NewsComponent implements OnInit {
   public index: number = 0;
   public searching: boolean = false;
   public page_number: number = 1;
-  public filterMenu:boolean = false;
+  public filterMenu: boolean = false;
 
   public filterForm = this._formBuilder.group({
     date: ['all'],
     category: ['all'],
     text: ['']
   })
-
 
   @ViewChild('paginator') paginator: MatPaginator;
 
@@ -75,7 +74,6 @@ export class NewsComponent implements OnInit {
     return this.filterForm.get('category').value;
   }
 
-
   ngOnInit(): void {
     window.scrollTo(0,0);
     this.newsService.getArticles(0, 'all', 6, 'all')
@@ -113,7 +111,7 @@ export class NewsComponent implements OnInit {
   }
 
   openFilter(){
-    this.filterMenu = !this.filterMenu
+    this.filterMenu = !this.filterMenu;
   }
 
   filter(){

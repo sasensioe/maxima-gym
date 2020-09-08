@@ -1,4 +1,5 @@
 
+<!-- ARTICLE-HEADER -->
 
 <header *ngIf="articleData" class="article-header">
 
@@ -18,21 +19,18 @@
 
 <section *ngIf="articleData" class="article-body col-12 row">
 
+    <!-- ARTICLE-BODY -->
+
     <section class="article-content col-lg-9 col-md-8 col-sm-12">
 
         <h1>{{articleData['title']}}</h1>
-    
         <h4>{{articleData['description']}}</h4>
-    
         <hr>
-    
-        <div class="body" [innerHTML]="articleData['body'] | dompurify">
-            
-        </div>
-
-
+        <div class="body" [innerHTML]="articleData['body'] | dompurify"></div>
 
     </section>
+
+    <!-- RELATED-NEWS -->
     
     <aside class="related-news col-lg-3 col-md-4 col-sm-12">
     

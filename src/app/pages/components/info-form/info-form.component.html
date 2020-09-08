@@ -10,7 +10,7 @@
         <form *ngIf="showForm" class="form" (submit)="sendInfo()" [formGroup]="contactData">
             <mat-form-field class="form-full-width" color="accent">
                 <mat-label>Name*</mat-label>
-                <input matInput formControlName="name" placeholder="Ex. Lady Gaga">
+                <input matInput formControlName="name" placeholder="Ex. Marilyn Stewart">
                 <mat-error *ngIf="contactData.controls.name.hasError('required')">
                     Name is <strong>required</strong>
                 </mat-error>
@@ -18,7 +18,7 @@
 
             <mat-form-field class="form-full-width" color="accent">
                 <mat-label>Email*</mat-label>
-                <input matInput formControlName="email" placeholder="Ex. mileycyrus@malibu.com">
+                <input type="email" matInput formControlName="email" placeholder="Ex. john@gmail.com">
                     <mat-error *ngIf="contactData.controls.email.hasError('email') && !contactData.controls.email.hasError('required')">
                     Please enter a valid email address
                   </mat-error>

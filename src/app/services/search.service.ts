@@ -12,7 +12,7 @@ export class SearchService {
 
   constructor( private _http: HttpClient ) { }
 
-  search(collection: 'users'|'clients', text: string, param: string){
+  search(collection: 'users'|'articles'|'clients', text: string, param: string){
     return this._http.get(`${base_url}/all/collection/${collection}/${text}/${param}`)
       .pipe(
         map((resp:any) => resp.data)

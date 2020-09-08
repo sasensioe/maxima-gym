@@ -1,8 +1,13 @@
+
+<!-- CAROUSEL -->
+
 <div id="carouselExampleControls" class="carousel slide" data-interval="false">
 
     <div class="carousel-inner">
 
         <div *ngFor="let facility of facilities" class="carousel-item {{facility.class}}">
+
+          <!-- FACILITY HEADER -->
 
           <div class="carousel-img animate__animated animate__fadeIn">
             <img class="d-block w-100" [src]=facility.img [alt]="facility.name">
@@ -10,6 +15,8 @@
                 <h1 class="carousel-text">{{facility.name | uppercase}}</h1>
             </div>
           </div>
+
+          <!-- FACILITY CONTENT -->
 
           <div class="facility-content row">
           
@@ -33,6 +40,8 @@
 
     </div>
 
+    <!-- CONTROLS -->
+
     <a class="carousel-prev" href="#carouselExampleControls" role="button" data-slide="prev">
       <img src="assets/img/pages/icons/left-arrow.svg" alt="">
       <span class="sr-only">Previous</span>
@@ -42,12 +51,5 @@
       <img src="assets/img/pages/icons/right-arrow.svg" alt="">
       <span class="sr-only">Next</span>
     </a>
-<!--
-    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true">
-        <img src="assets/img/pages/icons/right-arrow" alt="">
-      </span>
-      <span class="sr-only">Next</span>
-    </a>
-  -->
+
 </div>

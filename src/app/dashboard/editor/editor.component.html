@@ -1,31 +1,19 @@
 
+<!-- EDITOR CONTENT -->
+
 <section class="editor-content container-fluid row">
 
-    <div routerLink="newArticle" class="card col-lg-3 col-md-4 col-sm-5">
+    <div *ngFor="let item of items" [routerLink]="item.link" class="card col-lg-3 col-md-4 col-sm-5">
         <div class="card-img">
           <div class="card-img-inner">
-            <img class="filter-red" src="assets/img/dashboard/icons/plus.svg" alt="">
+            <img class="filter-red" [src]="item.img" alt="">
           </div>
         </div>
 
         <div class="card-description">
-          <h1>NEW ARTICLE</h1>
+          <h1>{{item.title | uppercase}}</h1>
         </div>
 
       </div>
-
-      <div routerLink="selectArticle" class="card col-lg-3 col-md-4 col-sm-5">
-        <div class="card-img">
-          <div class="card-img-inner">
-            <img class="filter-red" src="assets/img/dashboard/icons/edit.svg" alt="">
-          </div>
-        </div>
-
-        <div class="card-description">
-          <h1>UPDATE ARTICLE</h1>
-        </div>
-
-      </div>
-
 
 </section>

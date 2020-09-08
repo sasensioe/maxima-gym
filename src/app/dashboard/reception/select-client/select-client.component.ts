@@ -111,7 +111,7 @@ export class SelectClientComponent implements OnInit {
   }
 
   goTo(id: number){
-    this._router.navigate([`../updateClient/${id}`], { relativeTo: this._route });
+    this._router.navigate([`../update-client/${id}`], { relativeTo: this._route });
   }
 
 }

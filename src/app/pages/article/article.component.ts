@@ -1,43 +1,57 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router'
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { ActivatedRoute, Router, NavigationEnd } from '@angular/router'
 
 import { NewsService } from '../../services/pages-services/news.service'
 import { Article } from 'src/app/models/article.model';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-article',
   templateUrl: './article.component.html',
   styleUrls: ['./article.component.css']
 })
-export class ArticleComponent implements OnInit {
+export class ArticleComponent implements OnInit, OnDestroy {
 
-  articleId: number;
-  articleData: Article;
-  relatedArticles: Article[] = [];
+  private _articleId: string;
+  private _routeSubs: Subscription;
+  public articleData: Article;
+  public relatedArticles: Article[] = [];
 
-  constructor( private route: ActivatedRoute,
-               private router: Router,
-               private newsService: NewsService ) {
-                this.articleId = this.route.snapshot.params.id;
+
+  constructor( private _route: ActivatedRoute,
+               private _router: Router,
+               private _newsService: NewsService ) {
+                this._articleId = this._route.snapshot.params.id;
+                this._router.routeReuseStrategy.shouldReuseRoute = function () {
+                  return false;
+                };
+                this._routeSubs = this._router.events.subscribe((event) => {
+                  if (event instanceof NavigationEnd) {
+                    this.getArticle();
+                    this._router.navigated = false;
+                  }
+                });
                }
 
   ngOnInit(){
     window.scrollTo(0,0);
-    this.getArticle();
+  }
+
+  ngOnDestroy(){
+    if(this._routeSubs){
+      this._routeSubs.unsubscribe();
+    }
   }
 
   getArticle(){
 
-    this.newsService.getArticle(this.articleId)
+    this._newsService.getArticle(this._articleId)
       .then((resp:any) => {
         this.articleData = resp.article;
-
-        this.newsService.getRelated(this.articleData.title, this.articleData.category)
+        this._newsService.getRelated(this.articleData.title, this.articleData.category)
           .then((resp: {ok: boolean, articles: Article[]}) => {
             this.relatedArticles = resp.articles;
-            console.log(resp.articles)
           })
-
       })
       .catch(err => {
         console.log(err)
@@ -46,16 +60,12 @@ export class ArticleComponent implements OnInit {
   }
   
   goTo(id:string){
-  
-    this.router.navigateByUrl('/dummy', {skipLocationChange: true})
-      .then(() => this.router.navigate(['/news/article', id]));
-  
+    this._router.navigateByUrl('/dummy', {skipLocationChange: true})
+      .then(() => this._router.navigate(['/news/article', id]));
   }
 
   goBack(){
-
     history.back();
-
   }
   
 

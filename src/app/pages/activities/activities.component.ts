@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { ActivitiesService, Activity, Week } from '../../services/pages-services/activities.service'
+import { ActivitiesService, Activity, Week } from '../../services/pages-services/activities.service';
 
 @Component({
   selector: 'app-activities',
@@ -9,22 +9,16 @@ import { ActivitiesService, Activity, Week } from '../../services/pages-services
 })
 export class ActivitiesComponent implements OnInit {
 
-  activities: Activity[];
+  public activities: Activity[];
+  public schedule: Week[];
 
-  schedule: Week[];
-
-  constructor( private activitiesService:ActivitiesService ){
-
-    this.activities = this.activitiesService.activities;
-
-    this.schedule = this.activitiesService.schedule;
-
+  constructor( private _activitiesService:ActivitiesService ){
+    this.activities = this._activitiesService.activities;
+    this.schedule = this._activitiesService.schedule;
   }
 
   ngOnInit(): void {
-
-    window.scrollTo(0, 0)
-
+    window.scrollTo(0, 0);
   }
 
 

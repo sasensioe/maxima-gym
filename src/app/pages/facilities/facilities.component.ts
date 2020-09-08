@@ -8,18 +8,14 @@ import { FacilitiesService, Facility } from 'src/app/services/pages-services/fac
 })
 export class FacilitiesComponent implements OnInit {
 
-  facilities: Facility[];
+  public facilities: Facility[];
 
-  constructor( private facilitiesService: FacilitiesService ) {
-
-    this.facilities = facilitiesService.facilities;
-  
+  constructor( private _facilitiesService: FacilitiesService ) {
+    this.facilities = _facilitiesService.facilities;
   }
 
   ngOnInit(): void {
-
-    window.scrollTo(0,0)
-
+    window.scrollTo(0,0);
   }
   
   

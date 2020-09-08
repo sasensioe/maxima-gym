@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-editor',
   templateUrl: './editor.component.html',
   styleUrls: ['./editor.component.css']
 })
-export class EditorComponent implements OnInit {
+export class EditorComponent {
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  public items = [
+    {link: 'new-article', img: 'assets/img/dashboard/icons/plus.svg', title: 'new article'},
+    {link: 'select-article', img: 'assets/img/dashboard/icons/edit.svg', title: 'update article'},
+  ]
 
 }

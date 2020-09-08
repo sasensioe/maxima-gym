@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Validators, FormBuilder } from '@angular/forms'
+import { Validators, FormBuilder } from '@angular/forms';
 
-import { InfoService } from '../../services/info.service'
+import { InfoService } from '../../services/info.service';
 
 @Component({
   selector: 'app-contact',
@@ -23,11 +23,14 @@ export class ContactComponent implements OnInit {
     message: ['', Validators.required],
   })
 
-
   constructor( private _infoService: InfoService,
                private _formBuilder: FormBuilder ){
                 this.showForm = true;
                }
+
+  ngOnInit() {
+    window.scrollTo(0, 0);
+  }
 
   sendInfo(){
 
@@ -50,13 +53,9 @@ export class ContactComponent implements OnInit {
           console.log(error)
           this.showError = true;
         })
-
     }
 
   }
 
-  ngOnInit() {
-    window.scrollTo(0, 0)
-  }
 
 }

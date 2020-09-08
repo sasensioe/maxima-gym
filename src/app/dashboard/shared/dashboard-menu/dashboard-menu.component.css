@@ -11,6 +11,7 @@
 }
 
 .dashboard-menu li{
+    outline: none;
     cursor: pointer;
     color: #ffffff;
     margin: 1em auto;

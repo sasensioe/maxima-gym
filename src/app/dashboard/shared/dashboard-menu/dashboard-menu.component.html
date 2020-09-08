@@ -1,9 +1,9 @@
 
     <ul class="dashboard-menu">
-        <li [routerLink]="[base_url, menu[0].role, menu[0].path]">{{menu[0].title}}</li>
+        <li [routerLink]="[base_url, menu[0].role, menu[0].path]">{{menu[0].title | uppercase}}</li>
         <hr>
-        <li [routerLink]="[base_url, menu[1].role, menu[1].path]">{{menu[1].title}}</li>
+        <li [routerLink]="[base_url, menu[1].role, menu[1].path]">{{menu[1].title | uppercase}}</li>
         <hr>
-        <li [routerLink]="[base_url, menu[2].role, menu[2].path]">{{menu[2].title}}</li>
+        <li [routerLink]="[base_url, menu[2].role, menu[2].path]">{{menu[2].title | uppercase}}</li>
     </ul>
     

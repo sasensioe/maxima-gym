@@ -13,17 +13,20 @@
 
 .select-content .list-group .list-group-item{
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    align-items: center;
 }
 
-.select-content .list-group .list-group-item .item-info{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+.select-content .list-group .list-group-item .category{
+    width: 20%;
 }
 
-.select-content .list-group .list-group-item .item-info button{
+.select-content .list-group .list-group-item .title{
+    text-align: left;
+}
+
+
+.select-content .list-group .list-group-item .buttons button{
     margin: 0 0.5em;
     outline: none;
 }
@@ -47,16 +50,8 @@
         text-align: center;
     }
 
-    .select-content .list-group .list-group-item .item-info{
-        flex-direction: column;
-    }
-
-    .select-content .list-group .list-group-item .item-info span{
-        display: block;
-    }
-
-    .select-content .list-group .list-group-item .item-info button{
-        float: left;
+    .select-content .list-group .list-group-item .buttons button{
+        margin: 0.5em;
     }
 
 

@@ -13,9 +13,9 @@ const routes: Routes = [
         path: '',
         children: [
             {path: '', component: UsersComponent, data: {title: 'Users'}},
-            {path: 'newUser', component: NewUserComponent, data: {title: 'New User'}},
-            {path: 'selectUser', component: SelectUserComponent, data: {title: 'Select User'}},
-            {path: 'updateUser/:id', component: UpdateUserComponent, data: {title: 'Update User'}},
+            {path: 'new-user', component: NewUserComponent, data: {title: 'New User'}},
+            {path: 'select-user', component: SelectUserComponent, data: {title: 'Select User'}},
+            {path: 'update-user/:id', component: UpdateUserComponent, data: {title: 'Update User'}},
         ],
     }
 ]

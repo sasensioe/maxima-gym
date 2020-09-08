@@ -7,12 +7,10 @@ import { Component } from '@angular/core';
 })
 export class FooterComponent {
 
-  date:Date;
+  public date: Date;
 
   constructor() {
-
-    this.date = new Date()
-
+    this.date = new Date();
   }
 
 

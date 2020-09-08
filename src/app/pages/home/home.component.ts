@@ -21,9 +21,8 @@ export interface Plan {
 })
 export class HomeComponent implements OnInit {
 
-  infoForm:boolean;
-
-  infoVideo:boolean;
+  public infoForm: boolean;
+  public infoVideo: boolean;
 
   tiles: Tile[] = [
     {text: 'ACTIVITIES', cols: 2, rows: 1, image: 'assets/img/pages/home/sections/activities.jpg', link:'/activities' },
@@ -45,39 +44,27 @@ export class HomeComponent implements OnInit {
   ]
 
   constructor() {
-
     this.infoForm = false;
-
-  }
-
-  openInfoForm(){
-
-    this.infoForm = true;
-
-  }
-
-  closeInfoForm(event:boolean){
-
-    this.infoForm = event;
-
-  }
-
-  openInfoVideo(){
-
-    this.infoVideo = true;
-
-  }
-
-  closeInfoVideo(event:boolean){
-
-    this.infoVideo = event;
-
   }
 
   ngOnInit(): void {
-
     window.scrollTo(0,0)
+  }
 
+  openInfoForm(){
+    this.infoForm = true;
+  }
+
+  closeInfoForm(event: boolean){
+    this.infoForm = event;
+  }
+
+  openInfoVideo(){
+    this.infoVideo = true;
+  }
+
+  closeInfoVideo(event: boolean){
+    this.infoVideo = event;
   }
 
 }

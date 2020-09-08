@@ -16,7 +16,7 @@ export class NewsService {
     return this._http.get(`${base_url}/articles/get-articles/${category}/${date}?from=${from}&limit=${limit}`).toPromise();
   }
 
-  getArticle = async(articleId: number) => {
+  getArticle = async(articleId: string) => {
     return this._http.get(`${base_url}/articles/get-article/${articleId}`).toPromise();
   }
 

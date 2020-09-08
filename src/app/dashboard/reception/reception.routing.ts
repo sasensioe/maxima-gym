@@ -18,9 +18,9 @@ const routes: Routes = [
         children: [
             {path: '', component: ReceptionComponent, data: {title: 'Reception'}},
             {path: 'requests', component: InfoRequestsComponent, data: {title: 'Info Requests'}},
-            {path: 'newClient', component: NewClientComponent, data: {title: 'New Client'}},
-            {path: 'selectClient', component: SelectClientComponent, data: {title: 'Select Client'}},
-            {path: 'updateClient/:id', component: UpdateClientComponent, data: {title: 'Update Client'}},
+            {path: 'new-client', component: NewClientComponent, data: {title: 'New Client'}},
+            {path: 'select-client', component: SelectClientComponent, data: {title: 'Select Client'}},
+            {path: 'update-client/:id', component: UpdateClientComponent, data: {title: 'Update Client'}},
             {path: 'profile', component: ProfileComponent, data: {title: 'My Profile'}},
         ],
     },

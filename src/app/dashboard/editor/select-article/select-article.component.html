@@ -29,20 +29,18 @@
 
     <ul class="list-group">
         <li *ngFor="let article of articles | paginate:5:page_number" class="list-group-item">
-            {{article.title}}
-        
-            <div class="item-info">
-                <span>{{article.category | uppercase}}</span>
-                
-                <div class="buttons">
-                    <button mat-raised-button color="primary" (click)="goTo(article.id)">
-                        UPDATE
-                    </button>
-                    <button mat-raised-button color="warn">
-                        DELETE
-                    </button>
-                </div>
 
+            <span class="category">{{article.category | uppercase}}</span>
+
+            <span class="title">{{(article.title.length>40) ? (article.title |slice:0:40)+'...' : article.title}}</span>
+        
+            <div class="buttons">
+                <button mat-raised-button color="primary" (click)="goTo(article.id)">
+                    UPDATE
+                </button>
+                <button mat-raised-button color="warn">
+                    DELETE
+                </button>
             </div>
 
         </li>

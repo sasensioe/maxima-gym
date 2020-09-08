@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.css']
 })
-export class UsersComponent implements OnInit {
+export class UsersComponent {
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  public items = [
+    {link: 'new-user', img: 'assets/img/dashboard/icons/plus.svg', title: 'new user'},
+    {link: 'select-user', img: 'assets/img/dashboard/icons/edit.svg', title: 'update user'},
+  ]
 
 }

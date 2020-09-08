@@ -9,7 +9,7 @@
             <img [src]="user.img | image:'users'" alt="">
         </div>
 
-        <button matRipple class="edit-button" (click)="selectImageService.openModal()">
+        <button matRipple class="edit-button" (click)="showModal = true">
             CHANGE IMAGE
         </button>
 
@@ -91,4 +91,4 @@
 
 </div>
 
-<app-select-image></app-select-image>
+<app-select-image (closeModal)="closeModal($event)" [openModal]="showModal"></app-select-image>

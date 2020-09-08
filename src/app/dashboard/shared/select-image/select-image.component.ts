@@ -1,6 +1,4 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { SelectImageService } from 'src/app/services/dashboard-services/select-image.service';
+import { Component, Output, Input, EventEmitter } from '@angular/core';
 import { AuthService } from 'src/app/services/dashboard-services/auth.service';
 import { UploadsService } from 'src/app/services/dashboard-services/uploads.service';
 
@@ -16,15 +14,18 @@ export class SelectImageComponent {
   public loading: boolean = false;
   public error: boolean = false;
 
-  constructor( private _uploadsService: UploadsService,
-               public selectImageService: SelectImageService,
-               public authService: AuthService ) {}
+  @Input() openModal: boolean;
+  @Output() closeModal: EventEmitter<boolean>;
 
+  constructor( private _uploadsService: UploadsService,
+               public authService: AuthService ) {
+                 this.closeModal = new EventEmitter();
+               }
 
   close(){
     this.tempImg = null;
     this.uploadedImage = null;
-    this.selectImageService.closeModal()
+    this.closeModal.emit(false);
   }
 
   changeImage(file: File){
@@ -54,7 +55,7 @@ export class SelectImageComponent {
         this.loading = false;
         this.error = false;
         this.authService.loggedUser.img = resp;
-        this.selectImageService.closeModal();
+        this.closeModal.emit(false);
       })
       .catch(error => {
         console.log(error)

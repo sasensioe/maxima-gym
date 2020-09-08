@@ -1,8 +1,8 @@
 
 <div class="deg-background"
-     [class.hidden]="selectImageService.hideModal">
+     [class.hidden]="!openModal">
 
-    <div *ngIf="!selectImageService.hideModal" class="select-image">
+    <div *ngIf="openModal" class="select-image">
 
         <a class="close" (click)="close()">
             X

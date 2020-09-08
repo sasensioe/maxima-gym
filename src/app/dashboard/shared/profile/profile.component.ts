@@ -3,7 +3,6 @@ import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 
 import { AuthService } from 'src/app/services/dashboard-services/auth.service';
 import { UsersService } from 'src/app/services/dashboard-services/users.service';
-import { SelectImageService } from 'src/app/services/dashboard-services/select-image.service';
 import { User } from 'src/app/models/user.model';
 
 @Component({
@@ -13,6 +12,7 @@ import { User } from 'src/app/models/user.model';
 })
 export class ProfileComponent {
 
+  public showModal: boolean = false;
   public passResponse: string;
   public passFormSubmitted: boolean = false;
   public user: User = this._authService.loggedUser;
@@ -27,8 +27,7 @@ export class ProfileComponent {
 
   constructor( private _authService: AuthService,
                private _formBuilder: FormBuilder,
-               private _usersService: UsersService,
-               public selectImageService: SelectImageService ) { }
+               private _usersService: UsersService ) { }
 
   checkMinLength(){
     const newPass = this.newPasswordForm.get('newPassword');
@@ -103,9 +102,11 @@ export class ProfileComponent {
           console.log(error.error)
         })
     }
-    
-    
 
+  }
+
+  closeModal(event: boolean){
+    this.showModal = event;
   }
 
 }

@@ -122,7 +122,7 @@ export class UpdateClientComponent implements OnInit {
 
     if(this.updatePassForm.valid){
 
-      const newPass = this.updatePassForm.get('pass1').value;
+      const newPass = {pass: this.updatePassForm.get('pass1').value};
 
       this._clientsService.updatePassword(this._uid, newPass)
         .then((resp: {ok: boolean, msg: string}) => {

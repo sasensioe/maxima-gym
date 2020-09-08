@@ -17,7 +17,7 @@ import { InterceptorService } from './interceptors/http.service';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,

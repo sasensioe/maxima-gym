@@ -4,15 +4,6 @@
 
 export const environment = {
   production: false,
-  firebase: {
-    apiKey: "AIzaSyCRVgp6AwVvA4gkSKnfD-yNjPvnToE_lMA",
-    authDomain: "maxima-gym.firebaseapp.com",
-    databaseURL: "https://maxima-gym.firebaseio.com",
-    projectId: "maxima-gym",
-    storageBucket: "maxima-gym.appspot.com",
-    messagingSenderId: "474170604827",
-    appId: "1:474170604827:web:e139fe45d7bb834f8167be"
-  },
   base_url: 'http://localhost:3000/api'
 };
 

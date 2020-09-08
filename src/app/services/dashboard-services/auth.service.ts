@@ -7,6 +7,7 @@ import { environment } from 'src/environments/environment';
 
 import { LoginForm } from '../../interfaces/login-form.interface';
 import { User } from '../../models/user.model';
+import { Client } from 'src/app/models/client.model';
 
 const base_url = environment.base_url;
 
@@ -16,6 +17,7 @@ const base_url = environment.base_url;
 export class AuthService {
 
   public loggedUser: User;
+  public loggedClient: Client;
 
   constructor( private _http: HttpClient ) { }
 
@@ -23,8 +25,16 @@ export class AuthService {
     return localStorage.getItem('token');
   }
 
-  login(data: LoginForm){
-    return this._http.post(`${base_url}/login`, data)
+  teamLogin(data: LoginForm){
+    return this._http.post(`${base_url}/login/team`, data)
+      .pipe(
+        tap((resp:any) => localStorage.setItem('token', resp.token))
+      )
+      .toPromise()
+  }
+
+  membersLogin(data: LoginForm){
+    return this._http.post(`${base_url}/login/members`, data)
       .pipe(
         tap((resp:any) => localStorage.setItem('token', resp.token))
       )
@@ -32,14 +42,13 @@ export class AuthService {
   }
 
   logout(){
-
     localStorage.removeItem('token');
     this.loggedUser = null;
-
+    this.loggedClient = null;
   }
 
-  validateToken(): Observable<boolean> {
-    return this._http.get(`${base_url}/login/renewToken`, {
+  validateUserToken(): Observable<boolean>{
+    return this._http.get(`${base_url}/login/renewUserToken`, {
       headers: {
         'x-token': this.token
       }
@@ -47,6 +56,27 @@ export class AuthService {
       map((resp:any) => {
         const {name, surname, role, img, address, contact, access, uid} = resp.user;
         this.loggedUser = new User(name, surname, role, img, address, contact, access, uid);
+        if(role === 'editor' || role === 'admin' || role === 'receptionist' || role === 'trainer'){
+          localStorage.setItem('token', resp.token);
+          return true;
+        }else{
+          return false;
+        }
+        
+      }),
+      catchError( err => of(false))
+    )
+  }
+
+  validateClientToken(): Observable<boolean> {
+    return this._http.get(`${base_url}/login/renewClientToken`, {
+      headers: {
+        'x-token': this.token
+      }
+    }).pipe(
+      map((resp:any) => {
+        const {name, surname, plan, img, routine, address, contact, access, uid} = resp.client;
+        this.loggedClient = new Client(name, surname, plan, img, routine ,address, contact, access, uid);
         localStorage.setItem('token', resp.token);
         return true
       }),

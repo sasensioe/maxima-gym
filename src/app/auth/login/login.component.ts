@@ -12,6 +12,9 @@ import { AuthService } from 'src/app/services/dashboard-services/auth.service';
 })
 export class LoginComponent {
 
+  public showTeamLogin: boolean = true;
+  public showMembersLogin: boolean = false;
+
   public errorMsg: string;
   public showLogin: boolean = false;
 
@@ -28,7 +31,9 @@ export class LoginComponent {
   ngOnInit(){
 
     if(localStorage.getItem('token')){
-      if(this._authService.validateToken){
+      if(this._authService.validateClientToken){
+        this._router.navigateByUrl('/members');
+      }else if(this._authService.validateUserToken){
         this._router.navigateByUrl('/dashboard');
       }else{
         this.showLogin = true;
@@ -43,14 +48,31 @@ export class LoginComponent {
 
   login(){
 
-    this._authService.login(this.loginForm.value)
+    if(this.showTeamLogin){
+      this._authService.teamLogin(this.loginForm.value)
       .then(() => {
         this._router.navigateByUrl('/dashboard');
       })
       .catch(error => {
         this.errorMsg = error.error.msg;
       })
+    }else{
+      this._authService.membersLogin(this.loginForm.value)
+      .then(() => {
+        this._router.navigateByUrl('/members');
+      })
+      .catch(error => {
+        this.errorMsg = error.error.msg;
+      })
+    }
 
+
+
+  }
+
+  changeLogin(){
+    this.showMembersLogin = !this.showMembersLogin;
+    this.showTeamLogin = !this.showTeamLogin;
   }
 
 }

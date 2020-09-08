@@ -5,7 +5,12 @@
         <img src="assets/img/pages/icons/left-arrow.svg" alt="back">
     </a>
 
-    <h1>MAXIMA <span>GYM</span></h1>
+    <span class="change-login" (click)="changeLogin()">{{showMembersLogin ? 'Go to Team login' : 'Go to Members login'}}</span>
+
+    <div class="logo">
+        <h1 class="title">MAXIMA <span>GYM</span></h1>
+        <img class="image" src="{{showMembersLogin ? 'assets/img/dashboard/members.png' : 'assets/img/dashboard/team.png'}}" alt="">
+    </div>
 
     <div class="login-container">
 

@@ -1,0 +1,27 @@
+
+<!-- BACKGROUND -->
+
+<div class="deg-background animate__animated animate__fadeIn"
+     [class.hidden]="!sidenav"
+     (click)="close()">
+</div>
+
+<!-- SIDENAV -->
+
+<div class="sidenav" [ngClass]="{'opened': sidenav, 'closed':!sidenav}">
+
+    <div class="close"
+        (click)="close()">
+        X
+    </div>
+
+    <cdk-virtual-scroll-viewport itemSize="50" class="sidenav-items">
+        <li *cdkVirtualFor="let item of items"
+            class="sidenav-item"
+            [routerLink]="item.path"
+            routerLinkActive="active"
+            class="sidenav-item"
+            (click)="close()">{{item.title | uppercase}}</li>
+    </cdk-virtual-scroll-viewport>
+
+</div>

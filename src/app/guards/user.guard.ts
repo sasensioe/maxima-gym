@@ -3,6 +3,7 @@ import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from
 
 import { AuthService } from '../services/dashboard-services/auth.service';
 import { tap } from 'rxjs/operators';
+import { of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +25,7 @@ export class UserGuard implements CanActivate {
           }
         })
       )
+      
   }
   
 }

@@ -28,7 +28,9 @@ export class AuthService {
   teamLogin(data: LoginForm){
     return this._http.post(`${base_url}/login/team`, data)
       .pipe(
-        tap((resp:any) => localStorage.setItem('token', resp.token))
+        tap((resp:any) => {
+          localStorage.setItem('token', resp.token)
+        })
       )
       .toPromise()
   }
@@ -36,7 +38,9 @@ export class AuthService {
   membersLogin(data: LoginForm){
     return this._http.post(`${base_url}/login/members`, data)
       .pipe(
-        tap((resp:any) => localStorage.setItem('token', resp.token))
+        tap((resp:any) => {
+          localStorage.setItem('token', resp.token)
+        })
       )
       .toPromise()
   }
@@ -54,15 +58,15 @@ export class AuthService {
       }
     }).pipe(
       map((resp:any) => {
-        const {name, surname, role, img, address, contact, access, uid} = resp.user;
-        this.loggedUser = new User(name, surname, role, img, address, contact, access, uid);
-        if(role === 'editor' || role === 'admin' || role === 'receptionist' || role === 'trainer'){
+        if(resp.user){
+          const {name, surname, role, img, address, contact, access, uid} = resp.user;
+          this.loggedUser = new User(name, surname, role, img, address, contact, access, uid);
+          this.loggedClient = null;
           localStorage.setItem('token', resp.token);
           return true;
         }else{
           return false;
         }
-        
       }),
       catchError( err => of(false))
     )
@@ -75,10 +79,16 @@ export class AuthService {
       }
     }).pipe(
       map((resp:any) => {
-        const {name, surname, plan, img, routine, address, contact, access, uid} = resp.client;
-        this.loggedClient = new Client(name, surname, plan, img, routine ,address, contact, access, uid);
-        localStorage.setItem('token', resp.token);
-        return true
+        if(resp.client){
+          const {name, surname, plan, img, routine, address, contact, access, uid} = resp.client;
+          this.loggedClient = new Client(name, surname, plan, img, routine ,address, contact, access, uid);
+          this.loggedUser = null;
+          localStorage.setItem('token', resp.token);
+          return true;
+        }else{
+          return false;
+        }
+
       }),
       catchError( err => of(false))
     )

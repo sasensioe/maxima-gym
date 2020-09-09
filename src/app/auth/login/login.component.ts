@@ -3,6 +3,8 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/dashboard-services/auth.service';
+import { map } from 'rxjs/operators';
+import { __values } from 'tslib';
 
 
 @Component({
@@ -29,21 +31,27 @@ export class LoginComponent {
 
 
   ngOnInit(){
+    this.checkRole();
+  }
 
+  async checkRole(){
     if(localStorage.getItem('token')){
-      if(this._authService.validateClientToken){
+      let isClient: boolean;
+      let isUser: boolean;
+      await this._authService.validateClientToken().toPromise()
+      .then(resp => isClient = resp);
+      await this._authService.validateUserToken().toPromise()
+      .then(resp => isUser = resp);
+
+      if(isClient){
         this._router.navigateByUrl('/members');
-      }else if(this._authService.validateUserToken){
+      }else if(isUser){
         this._router.navigateByUrl('/dashboard');
-      }else{
-        this.showLogin = true;
-        return;
       }
     }else{
       this.showLogin = true;
       return;
     }
-
   }
 
   login(){
@@ -52,6 +60,7 @@ export class LoginComponent {
       this._authService.teamLogin(this.loginForm.value)
       .then(() => {
         this._router.navigateByUrl('/dashboard');
+        this._authService.validateUserToken();
       })
       .catch(error => {
         this.errorMsg = error.error.msg;
@@ -60,6 +69,7 @@ export class LoginComponent {
       this._authService.membersLogin(this.loginForm.value)
       .then(() => {
         this._router.navigateByUrl('/members');
+        this._authService.validateClientToken
       })
       .catch(error => {
         this.errorMsg = error.error.msg;
